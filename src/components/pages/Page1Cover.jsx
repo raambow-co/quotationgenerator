@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatDate, formatCurrency } from '../../utils/formatters';
+import { formatDate, formatCurrency, formatNumber } from '../../utils/formatters';
 import { Shield, Award, Zap, CheckCircle2, Calendar, FileText, MapPin, User, Phone, Mail, Sun, CheckCircle } from 'lucide-react';
 import { EMBLEMS } from '../../utils/brandLogos';
 
@@ -8,6 +8,13 @@ export default function Page1Cover({ quotation, settings }) {
   const customer = quotation?.customer || {};
   const technical = quotation?.technical || {};
   const commercials = quotation?.commercials || {};
+
+  const dcKw = technical?.actualDcCapacityKw || technical?.systemCapacityKw || 5.5;
+  const acKw = technical?.acInverterCapacityKw || (technical?.systemCapacityKw ? Math.min(technical.systemCapacityKw, 5) : 5.0);
+  const panelCount = technical?.panelCount || 10;
+  const panelWattage = technical?.panelWattage || 550;
+  const annualKwh = technical?.estimatedAnnualUnits || Math.round((technical?.estimatedDailyUnits || (dcKw * 4.25)) * 365);
+  const dailyKwh = technical?.estimatedDailyUnits || Number((annualKwh / 365).toFixed(1));
 
   return (
     <div className="a4-preview-sheet p-8 sm:p-10 flex flex-col justify-between text-slate-800 bg-white relative">
@@ -20,7 +27,7 @@ export default function Page1Cover({ quotation, settings }) {
           <div className="flex items-center space-x-3">
             <img 
               src="/jayarams-logo-lockup.png" 
-              alt="JAYARAMS" 
+              alt="JAYARAMS SOLAR SOLUTIONS" 
               className="h-14 sm:h-16 object-contain"
             />
           </div>
@@ -56,7 +63,7 @@ export default function Page1Cover({ quotation, settings }) {
           {/* Real Solar Rooftop Background Image with dark subtle gradient overlay */}
           <div className="absolute inset-0 z-0">
             <img 
-              src="https://images.unsplash.com/photo-1509391365360-2e959784a276?auto=format&fit=crop&w=1200&q=80" 
+              src="/assets/gi-structure.jpg" 
               alt="Solar Array" 
               className="w-full h-full object-cover object-center"
             />
@@ -67,11 +74,11 @@ export default function Page1Cover({ quotation, settings }) {
             <div className="flex items-center gap-2 mb-2">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/15 text-white text-[11px] font-semibold tracking-wider uppercase backdrop-blur-md border border-white/20">
                 <Sun className="w-3 h-3 text-solar-warm" />
-                Grid-Interactive Solar PV Solution
+                Grid-Interactive Solar PV System
               </span>
               <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-bold border border-emerald-400/30">
                 <CheckCircle className="w-3 h-3" />
-                MNRE Approved EPC
+                DISCOM Empanelled EPC
               </span>
             </div>
 
@@ -84,16 +91,19 @@ export default function Page1Cover({ quotation, settings }) {
 
             <div className="mt-4 pt-3 border-t border-white/15 grid grid-cols-3 gap-4">
               <div>
-                <p className="text-[10px] text-slate-300 font-semibold uppercase tracking-wider">Proposed Capacity</p>
-                <p className="text-xl font-black text-solar-warm">{technical?.systemCapacityKw || 5} <span className="text-xs font-semibold text-white">kWp</span></p>
+                <p className="text-[10px] text-slate-300 font-semibold uppercase tracking-wider">Proposed DC Capacity</p>
+                <p className="text-xl font-black text-solar-warm">{dcKw} <span className="text-xs font-semibold text-white">kWp DC</span></p>
+                <p className="text-[9px] text-slate-300 font-medium">{panelCount} × {panelWattage}Wp Modules</p>
               </div>
               <div>
-                <p className="text-[10px] text-slate-300 font-semibold uppercase tracking-wider">System Type</p>
-                <p className="text-xs font-bold text-white mt-1">On-Grid Interactive</p>
+                <p className="text-[10px] text-slate-300 font-semibold uppercase tracking-wider">Inverter AC Rating</p>
+                <p className="text-sm font-bold text-white mt-1">{acKw} kW AC Grid-Tied</p>
+                <p className="text-[9px] text-emerald-300 font-medium">Dual MPPT • 1.1x DC:AC</p>
               </div>
               <div>
                 <p className="text-[10px] text-slate-300 font-semibold uppercase tracking-wider">Est. Annual Generation</p>
-                <p className="text-xs font-bold text-white mt-1">~{technical?.estimatedAnnualUnits || '7,500'} Units/yr</p>
+                <p className="text-sm font-bold text-white mt-1">~{formatNumber(annualKwh)} kWh/yr</p>
+                <p className="text-[9px] text-slate-300 font-medium">~{dailyKwh} kWh/day avg.</p>
               </div>
             </div>
           </div>
@@ -117,7 +127,7 @@ export default function Page1Cover({ quotation, settings }) {
               <div className="flex items-start gap-2">
                 <MapPin className="w-3.5 h-3.5 text-brand-700 mt-0.5 shrink-0" />
                 <div>
-                  <span className="text-slate-500 block text-[9px] uppercase font-semibold">Installation Site</span>
+                  <span className="text-slate-500 block text-[9px] uppercase font-semibold">Installation Site Address</span>
                   <span className="text-slate-700 font-medium">{customer?.location || 'Hyderabad, Telangana'}</span>
                 </div>
               </div>
@@ -126,8 +136,8 @@ export default function Page1Cover({ quotation, settings }) {
             <div className="space-y-1.5 border-l border-slate-200 pl-3">
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <span className="text-slate-500 block text-[9px] uppercase font-semibold">Contact No.</span>
-                  <span className="text-slate-700 font-medium">{customer?.phone || 'Not Specified'}</span>
+                  <span className="text-slate-500 block text-[9px] uppercase font-semibold">Contact Mobile</span>
+                  <span className="text-slate-700 font-medium">{customer?.phone || '+91 98492 48102'}</span>
                 </div>
                 <div>
                   <span className="text-slate-500 block text-[9px] uppercase font-semibold">Grid Phase</span>
@@ -140,8 +150,8 @@ export default function Page1Cover({ quotation, settings }) {
                   <span className="text-slate-700 font-medium">{customer?.sanctionedLoad || '10 kW'}</span>
                 </div>
                 <div>
-                  <span className="text-slate-500 block text-[9px] uppercase font-semibold">Roof Type</span>
-                  <span className="text-slate-700 font-medium">{customer?.roofType || 'RCC Flat Concrete'}</span>
+                  <span className="text-slate-500 block text-[9px] uppercase font-semibold">Roof Type & Area</span>
+                  <span className="text-slate-700 font-medium">{customer?.roofType || 'RCC Flat Concrete'} (~{technical?.roofAreaSqFt || 500} Sq.Ft)</span>
                 </div>
               </div>
             </div>
@@ -155,10 +165,10 @@ export default function Page1Cover({ quotation, settings }) {
               Dear {customer?.name ? customer.name.split(' ')[0] : 'Sir / Madam'},
             </p>
             <p className="text-[11px] leading-relaxed text-slate-600">
-              Thank you for considering <strong className="text-slate-900">JAYARAMS SOLAR SOLUTIONS</strong> for your rooftop solar installation. We are dedicated to delivering top-tier engineering standards, uncompromising quality, and long-term performance assurance.
+              Thank you for considering <strong className="text-slate-900">JAYARAMS SOLAR SOLUTIONS PVT. LTD.</strong> for your rooftop solar installation. We are dedicated to delivering top-tier engineering standards, uncompromising quality, and long-term performance assurance.
             </p>
             <p className="text-[11px] leading-relaxed text-slate-600 mt-1.5">
-              This proposal details the technical architecture, high-efficiency Tier-1 equipment specifications, transparent investment economics, and our turnkey roadmap from statutory DISCOM net-metering approvals to lifetime remote monitoring.
+              This proposal details the technical engineering design, high-efficiency Tier-1 equipment specifications, transparent investment economics, and our turnkey roadmap from statutory DISCOM net-metering facilitation to lifetime remote monitoring.
             </p>
           </div>
           
@@ -184,23 +194,23 @@ export default function Page1Cover({ quotation, settings }) {
         <div className="mt-3.5 grid grid-cols-4 gap-2.5">
           <div className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-center">
             <Shield className="w-4 h-4 text-brand-700 mx-auto mb-1" />
-            <p className="text-[11px] font-bold text-slate-800">25-Year Warranty</p>
-            <p className="text-[9px] text-slate-500">Tier-1 linear yield protection</p>
+            <p className="text-[11px] font-bold text-slate-800">25-Yr Performance</p>
+            <p className="text-[8.5px] text-slate-500">≥84.8% output; 12-yr product</p>
           </div>
           <div className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-center">
             <Award className="w-4 h-4 text-solar-orange mx-auto mb-1" />
-            <p className="text-[11px] font-bold text-slate-800">MNRE Certified</p>
-            <p className="text-[9px] text-slate-500">Eligible for Central Subsidies</p>
+            <p className="text-[11px] font-bold text-slate-800">DISCOM Empanelled</p>
+            <p className="text-[8.5px] text-slate-500">Eligible for PM Surya Ghar CFA</p>
           </div>
           <div className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-center">
             <Zap className="w-4 h-4 text-brand-700 mx-auto mb-1" />
-            <p className="text-[11px] font-bold text-slate-800">Up to 90% Savings</p>
-            <p className="text-[9px] text-slate-500">Rapid 3.2-3.8 year payback</p>
+            <p className="text-[11px] font-bold text-slate-800">Up to 80–90% Offset*</p>
+            <p className="text-[8.5px] text-slate-500">*Subject to load & banking rules</p>
           </div>
           <div className="p-2.5 bg-slate-50 rounded-lg border border-slate-200 text-center">
             <CheckCircle2 className="w-4 h-4 text-emerald-600 mx-auto mb-1" />
-            <p className="text-[11px] font-bold text-slate-800">Turnkey EPC</p>
-            <p className="text-[9px] text-slate-500">End-to-end Net Metering</p>
+            <p className="text-[11px] font-bold text-slate-800">Turnkey EPC & Liaison</p>
+            <p className="text-[8.5px] text-slate-500">Full DISCOM facilitation</p>
           </div>
         </div>
       </div>
@@ -208,7 +218,7 @@ export default function Page1Cover({ quotation, settings }) {
       {/* Page 1 Footer */}
       <div className="pt-3 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500">
         <div>
-          <span className="font-semibold text-slate-700">{company.name}</span> &bull; {company.tagline}
+          <span className="font-semibold text-slate-700">{company.legalName || 'Jayarams Solar Solutions Pvt. Ltd.'}</span> &bull; {company.tagline}
         </div>
         <div className="flex items-center gap-4">
           <span>Proposal Validity: {quotation?.validityDays || 30} Days</span>

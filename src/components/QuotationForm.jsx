@@ -93,14 +93,14 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
   });
 
   // Recompute automatically when capacity, panel wattage, rate, discount, or subsidy changes
-  const handleCapacityChange = (kwValue) => {
+  const handleCapacityChange = (kwValue, newWattage = null) => {
     const kw = parseFloat(kwValue) || 0;
-    const wattage = formData.technical.panelWattage || 550;
+    const wattage = newWattage !== null ? newWattage : (formData.technical.panelWattage || 550);
     const metrics = calculateSolarMetrics(kw, 8.5, wattage);
-    const subsidy = calculateSubsidy(kw, formData.commercials.subsidyScheme);
+    const subsidy = calculateSubsidy(metrics.actualDcCapacityKw, formData.commercials.subsidyScheme);
     
     const fin = calculateFinancials({
-      capacityKw: kw,
+      capacityKw: metrics.actualDcCapacityKw,
       pricePerKw: formData.commercials.ratePerKw,
       gstRate: formData.commercials.gstRate,
       discountAmount: formData.commercials.discount,
@@ -112,7 +112,10 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
       ...prev,
       technical: {
         ...prev.technical,
-        systemCapacityKw: kw,
+        systemCapacityKw: metrics.actualDcCapacityKw,
+        actualDcCapacityKw: metrics.actualDcCapacityKw,
+        acInverterCapacityKw: kw,
+        panelWattage: wattage,
         panelCount: metrics.panelCount,
         estimatedDailyUnits: metrics.dailyUnits,
         estimatedAnnualUnits: metrics.annualUnits,
@@ -130,7 +133,9 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
         subsidyAmount: subsidy,
         netPayable: fin.netPayable,
         paybackYears: fin.paybackYears,
-        cumulativeSavings25Years: fin.lifetimeSavings25Years
+        gross25YrSavings: fin.gross25YrSavings,
+        net25YrProfit: fin.net25YrProfit,
+        cumulativeSavings25Years: fin.net25YrProfit
       }
     }));
   };
@@ -142,7 +147,7 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
     };
 
     const fin = calculateFinancials({
-      capacityKw: formData.technical.systemCapacityKw,
+      capacityKw: formData.technical.actualDcCapacityKw || formData.technical.systemCapacityKw,
       pricePerKw: field === 'ratePerKw' ? value : updatedCommercials.ratePerKw,
       discountAmount: field === 'discount' ? value : updatedCommercials.discount,
       gstRate: field === 'gstRate' ? value : updatedCommercials.gstRate,
@@ -161,7 +166,9 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
         totalGrossCost: fin.totalGrossCost,
         netPayable: fin.netPayable,
         paybackYears: fin.paybackYears,
-        cumulativeSavings25Years: fin.lifetimeSavings25Years
+        gross25YrSavings: fin.gross25YrSavings,
+        net25YrProfit: fin.net25YrProfit,
+        cumulativeSavings25Years: fin.net25YrProfit
       }
     }));
   };
@@ -340,8 +347,17 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                         ...formData,
                         customer: { ...formData.customer, phone: e.target.value }
                       })}
-                      className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
+                      className={`w-full px-3 py-2 text-xs rounded-lg border ${
+                        formData.customer.phone && formData.customer.phone.replace(/[\s\-\+]/g, '').replace(/^91/, '').replace(/^0/, '').length !== 10
+                          ? 'border-amber-400 bg-amber-50/20'
+                          : 'border-slate-300'
+                      } focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500`}
                     />
+                    {formData.customer.phone && formData.customer.phone.replace(/[\s\-\+]/g, '').replace(/^91/, '').replace(/^0/, '').length !== 10 && (
+                      <p className="text-[10px] text-amber-600 mt-1 font-medium">
+                        ⚠️ Indian mobile numbers should have 10 digits (currently {formData.customer.phone.replace(/[\s\-\+]/g, '').replace(/^91/, '').replace(/^0/, '').length} digits).
+                      </p>
+                    )}
                   </div>
 
                   <div>
@@ -362,12 +378,12 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
 
                   <div className="sm:col-span-2">
                     <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Installation Site Address / Location *
+                      Full Installation Site Address *
                     </label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Plot #12, Road No. 45, Jubilee Hills, Hyderabad, Telangana"
+                      placeholder="e.g. Plot #112, Road #4, Gachibowli Hills, Hyderabad, Telangana - 500032"
                       value={formData.customer.location}
                       onChange={(e) => setFormData({
                         ...formData,
@@ -375,6 +391,9 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                       })}
                       className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
                     />
+                    <p className="text-[10px] text-slate-400 mt-1">
+                      Include Plot/Door No., Street, Area, City, and PIN code for DISCOM net-metering feasibility.
+                    </p>
                   </div>
 
                   <div>
@@ -519,37 +538,29 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Module Wattage (Wp)
+                      Module Rating (Wp)
                     </label>
                     <select
                       value={formData.technical.panelWattage}
                       onChange={(e) => {
                         const w = parseInt(e.target.value, 10);
-                        const metrics = calculateSolarMetrics(formData.technical.systemCapacityKw, 8.5, w);
-                        setFormData({
-                          ...formData,
-                          technical: {
-                            ...formData.technical,
-                            panelWattage: w,
-                            panelCount: metrics.panelCount
-                          }
-                        });
+                        handleCapacityChange(formData.technical.systemCapacityKw, w);
                       }}
                       className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
                     >
-                      <option value={550}>550 Wp (High Power TOPCon)</option>
-                      <option value={545}>545 Wp (Mono PERC)</option>
-                      <option value={540}>540 Wp (Half-Cut)</option>
+                      <option value={550}>550 Wp (Waaree Arka TOPCon Bifacial)</option>
+                      <option value={545}>545 Wp (Adani Mono PERC)</option>
+                      <option value={500}>500 Wp (Tata Solar Mono)</option>
                       <option value={580}>580 Wp (Ultra High Yield)</option>
                     </select>
                   </div>
 
                   <div>
                     <label className="block text-xs font-semibold text-slate-700 mb-1">
-                      Calculated Module Count
+                      Exact DC Sizing &amp; Modules
                     </label>
                     <div className="px-3 py-2 bg-slate-50 border border-slate-200 rounded-lg text-xs font-bold text-slate-800">
-                      {formData.technical.panelCount} Modules
+                      {formData.technical.panelCount} Modules &bull; {formData.technical.actualDcCapacityKw || formData.technical.systemCapacityKw} kWp DC
                     </div>
                   </div>
                 </div>
@@ -618,26 +629,50 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                   <span className="text-xs font-bold text-slate-800 block mb-2">Estimated Yield Parameters</span>
                   <div className="grid grid-cols-3 gap-3">
                     <div>
-                      <span className="text-[10px] text-slate-500 block">Daily Units</span>
+                      <span className="text-[10px] text-slate-500 block">Daily Generation (kWh/day)</span>
                       <input
                         type="number"
+                        step="0.1"
                         value={formData.technical.estimatedDailyUnits}
-                        onChange={(e) => setFormData({
-                          ...formData,
-                          technical: { ...formData.technical, estimatedDailyUnits: parseInt(e.target.value, 10) || 0 }
-                        })}
+                        onChange={(e) => {
+                          const daily = parseFloat(e.target.value) || 0;
+                          const annual = Math.round(daily * 365);
+                          const savings = Math.round(annual * (formData.technical.tariff || 8.5));
+                          setFormData({
+                            ...formData,
+                            technical: { 
+                              ...formData.technical, 
+                              estimatedDailyUnits: daily,
+                              estimatedAnnualUnits: annual,
+                              estimatedAnnualSavings: savings,
+                              estimatedMonthlySavings: Math.round(savings / 12)
+                            }
+                          });
+                        }}
                         className="w-full px-2 py-1 text-xs font-semibold rounded border border-slate-300 bg-white"
                       />
                     </div>
                     <div>
-                      <span className="text-[10px] text-slate-500 block">Annual Units (kWh)</span>
+                      <span className="text-[10px] text-slate-500 block">Annual Yield (kWh/year)</span>
                       <input
                         type="number"
+                        step="1"
                         value={formData.technical.estimatedAnnualUnits}
-                        onChange={(e) => setFormData({
-                          ...formData,
-                          technical: { ...formData.technical, estimatedAnnualUnits: parseInt(e.target.value, 10) || 0 }
-                        })}
+                        onChange={(e) => {
+                          const annual = parseInt(e.target.value, 10) || 0;
+                          const daily = Number((annual / 365).toFixed(1));
+                          const savings = Math.round(annual * (formData.technical.tariff || 8.5));
+                          setFormData({
+                            ...formData,
+                            technical: { 
+                              ...formData.technical, 
+                              estimatedAnnualUnits: annual,
+                              estimatedDailyUnits: daily,
+                              estimatedAnnualSavings: savings,
+                              estimatedMonthlySavings: Math.round(savings / 12)
+                            }
+                          });
+                        }}
                         className="w-full px-2 py-1 text-xs font-semibold rounded border border-slate-300 bg-white"
                       />
                     </div>

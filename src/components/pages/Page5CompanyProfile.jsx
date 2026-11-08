@@ -36,25 +36,25 @@ export default function Page5CompanyProfile({ quotation, settings }) {
             <div className="flex items-center justify-between mb-1">
               <h3 className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 text-solar-orange" />
-                About JAYARAMS SOLAR SOLUTIONS
+                About JAYARAMS SOLAR SOLUTIONS PVT. LTD.
               </h3>
               <span className="text-[10px] text-slate-500 italic">&ldquo;Built on Trust. Driven by Excellence.&rdquo;</span>
             </div>
             <p className="text-[10.5px] text-slate-600 leading-relaxed">
-              <strong className="text-slate-800">JAYARAMS</strong> is a premier turnkey solar EPC and clean energy systems integrator. We specialize in conceptualizing, engineering, procuring, constructing, and maintaining high-yield solar rooftop power plants for luxury residential estates, commercial establishments, hospitals, educational institutions, and industrial production facilities across South India.
+              <strong className="text-slate-800">JAYARAMS SOLAR SOLUTIONS PVT. LTD.</strong> is a premier turnkey solar EPC and clean energy systems integrator. We specialize in conceptualizing, engineering design, procuring, constructing, and maintaining high-yield solar rooftop power plants for luxury residential estates, commercial establishments, hospitals, educational institutions, and industrial production facilities across South India.
             </p>
           </div>
 
           {/* Visual Accreditations & Statutory Emblems Strip with REAL Logos */}
           <div className="mt-3 grid grid-cols-5 gap-2">
-            {/* 1. MNRE */}
+            {/* 1. DISCOM Empanelled */}
             <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-20">
               <div className="h-10 flex items-center justify-center">
                 <img src={EMBLEMS.mnre} alt="MNRE" className="max-h-9 object-contain" />
               </div>
               <div>
-                <span className="text-[9px] font-bold text-slate-900 block leading-tight">MNRE Approved</span>
-                <span className="text-[7.5px] text-slate-400 block">Govt. of India</span>
+                <span className="text-[9px] font-bold text-slate-900 block leading-tight">DISCOM Empanelled</span>
+                <span className="text-[7.5px] text-slate-400 block">Registered Partner</span>
               </div>
             </div>
 
@@ -65,7 +65,7 @@ export default function Page5CompanyProfile({ quotation, settings }) {
               </div>
               <div>
                 <span className="text-[9px] font-bold text-slate-900 block leading-tight">ISO 9001:2015</span>
-                <span className="text-[7.5px] text-slate-400 block">Quality Certified</span>
+                <span className="text-[7.5px] text-slate-400 block">Quality EPC Certified</span>
               </div>
             </div>
 
@@ -87,7 +87,7 @@ export default function Page5CompanyProfile({ quotation, settings }) {
               </div>
               <div>
                 <span className="text-[9px] font-bold text-slate-900 block leading-tight">BIS Certified</span>
-                <span className="text-[7.5px] text-slate-400 block">IS Standards</span>
+                <span className="text-[7.5px] text-slate-400 block">IS 14286 Standards</span>
               </div>
             </div>
 
@@ -98,7 +98,7 @@ export default function Page5CompanyProfile({ quotation, settings }) {
               </div>
               <div>
                 <span className="text-[9px] font-bold text-slate-900 block leading-tight">PM Surya Ghar</span>
-                <span className="text-[7.5px] text-slate-400 block">Subsidy Partner</span>
+                <span className="text-[7.5px] text-slate-400 block">National Portal Partner</span>
               </div>
             </div>
           </div>
@@ -274,7 +274,7 @@ export default function Page5CompanyProfile({ quotation, settings }) {
         {/* Page 5 Footer */}
         <div className="pt-2.5 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500">
           <div>
-            <span className="font-semibold text-slate-700">{company.name}</span> &bull; {company.tagline}
+            <span className="font-semibold text-slate-700">{company.legalName || 'Jayarams Solar Solutions Pvt. Ltd.'}</span> &bull; {company.tagline}
           </div>
           <div className="flex items-center gap-4">
             <span>Thank you for choosing sovereign clean energy</span>

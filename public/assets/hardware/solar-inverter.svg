@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="invBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <linearGradient id="chassisGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="60%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+
+    <linearGradient id="finGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#334155"/>
+      <stop offset="50%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+
+    <linearGradient id="displayGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#042f2e"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Backdrop -->
+  <rect width="600" height="400" fill="url(#invBg)"/>
+
+  <!-- Shadow below Inverter -->
+  <ellipse cx="300" cy="365" rx="190" ry="16" fill="#000000" opacity="0.6" filter="blur(6px)"/>
+
+  <!-- Aluminum Die-Cast Heat Sink Cooling Fins (Behind Chassis) -->
+  <g transform="translate(140, 45)">
+    <rect x="-8" y="10" width="336" height="295" rx="10" fill="url(#finGrad)"/>
+    <!-- Individual Cooling Ribs -->
+    <line x1="-8" y1="35" x2="328" y2="35" stroke="#475569" stroke-width="2"/>
+    <line x1="-8" y1="65" x2="328" y2="65" stroke="#475569" stroke-width="2"/>
+    <line x1="-8" y1="95" x2="328" y2="95" stroke="#475569" stroke-width="2"/>
+    <line x1="-8" y1="125" x2="328" y2="125" stroke="#475569" stroke-width="2"/>
+    <line x1="-8" y1="155" x2="328" y2="155" stroke="#475569" stroke-width="2"/>
+    <line x1="-8" y1="185" x2="328" y2="185" stroke="#475569" stroke-width="2"/>
+    <line x1="-8" y1="215" x2="328" y2="215" stroke="#475569" stroke-width="2"/>
+    <line x1="-8" y1="245" x2="328" y2="245" stroke="#475569" stroke-width="2"/>
+    <line x1="-8" y1="275" x2="328" y2="275" stroke="#475569" stroke-width="2"/>
+  </g>
+
+  <!-- Main Smart Inverter Chassis (IP65 Weatherproof White Housing) -->
+  <g transform="translate(150, 40)">
+    <rect x="0" y="0" width="300" height="305" rx="16" fill="url(#chassisGrad)" stroke="#94a3b8" stroke-width="1.5"/>
+
+    <!-- Top Accent Band (Sungrow/Jayarams Solar Navy Blue Accent) -->
+    <path d="M0,16 Q0,0 16,0 L284,0 Q300,0 300,16 L300,45 L0,45 Z" fill="#0b2545"/>
+    <text x="24" y="28" fill="#f8fafc" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="900" letter-spacing="1">SUNGROW POWER</text>
+    <text x="24" y="40" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="8.5" font-weight="700">SG5.0RS • SMART DUAL MPPT</text>
+
+    <!-- Wi-Fi / Cloud Telemetry Status Icon -->
+    <circle cx="270" cy="24" r="9" fill="#0284c7"/>
+    <path d="M266,28 A6,6 0 0,1 274,28 M267.5,25.5 A3.5,3.5 0 0,1 272.5,25.5 M270,22.5 L270,23" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+
+    <!-- Central Smart Digital OLED / LED Telemetry Panel -->
+    <g transform="translate(35, 75)">
+      <rect x="0" y="0" width="230" height="110" rx="8" fill="url(#displayGrad)" stroke="#334155" stroke-width="1.5"/>
+
+      <!-- LCD Display Header -->
+      <text x="14" y="24" fill="#64748b" font-family="monospace" font-size="8.5" font-weight="700">GRID-TIED TELEMETRY</text>
+      <circle cx="210" cy="20" r="4" fill="#22c55e"/>
+
+      <!-- Real-time Power Value -->
+      <text x="14" y="58" fill="#38bdf8" font-family="monospace" font-size="28" font-weight="900">5.00</text>
+      <text x="88" y="56" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="12" font-weight="800">kW AC</text>
+
+      <!-- Sub Metrics (Daily Yield & Efficiency) -->
+      <line x1="14" y1="72" x2="216" y2="72" stroke="#1e293b" stroke-width="1"/>
+      <text x="14" y="88" fill="#94a3b8" font-family="monospace" font-size="9">E-Today: <tspan fill="#4ade80" font-weight="700">21.5 kWh</tspan></text>
+      <text x="125" y="88" fill="#94a3b8" font-family="monospace" font-size="9">Eff: <tspan fill="#38bdf8" font-weight="700">98.4% Peak</tspan></text>
+      <text x="14" y="102" fill="#94a3b8" font-family="monospace" font-size="8">MPPT 1: 345V • MPPT 2: 345V</text>
+    </g>
+
+    <!-- Operational Status LEDs -->
+    <g transform="translate(45, 210)">
+      <circle cx="15" cy="10" r="4.5" fill="#22c55e" stroke="#15803d" stroke-width="1"/>
+      <text x="26" y="13" fill="#334155" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700">NORMAL</text>
+
+      <circle cx="85" cy="10" r="4.5" fill="#0284c7" stroke="#0369a1" stroke-width="1"/>
+      <text x="96" y="13" fill="#334155" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700">WI-FI IOT</text>
+
+      <circle cx="155" cy="10" r="4.5" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+      <text x="166" y="13" fill="#64748b" font-family="system-ui, sans-serif" font-size="8.5" font-weight="700">ALARM</text>
+    </g>
+
+    <!-- Heavy-Duty Integrated DC Rotary Isolator Switch -->
+    <g transform="translate(195, 245)">
+      <rect x="0" y="0" width="75" height="42" rx="6" fill="#1e293b" stroke="#475569" stroke-width="1"/>
+      <circle cx="37.5" cy="21" r="14" fill="#dc2626" stroke="#991b1b" stroke-width="1.5"/>
+      <rect x="35" y="10" width="5" height="15" rx="1.5" fill="#ffffff"/>
+      <text x="37.5" y="38" text-anchor="middle" fill="#94a3b8" font-family="system-ui, sans-serif" font-size="6.5" font-weight="800">DC DISCONNECT</text>
+    </g>
+
+    <!-- Bottom Cable Glands & MC4 Inlets -->
+    <g transform="translate(35, 255)">
+      <rect x="0" y="0" width="22" height="32" rx="3" fill="#334155" stroke="#1e293b"/>
+      <rect x="30" y="0" width="22" height="32" rx="3" fill="#334155" stroke="#1e293b"/>
+      <rect x="60" y="0" width="22" height="32" rx="3" fill="#334155" stroke="#1e293b"/>
+      <rect x="90" y="0" width="22" height="32" rx="3" fill="#334155" stroke="#1e293b"/>
+      <text x="0" y="44" fill="#64748b" font-family="monospace" font-size="7">DC IN (MPPT1/2)</text>
+    </g>
+  </g>
+
+  <!-- Technical Spec Watermark Badge -->
+  <g transform="translate(390, 310)">
+    <rect x="0" y="0" width="130" height="22" rx="4" fill="#020617" fill-opacity="0.85" stroke="#334155" stroke-width="1"/>
+    <text x="10" y="15" fill="#38bdf8" font-family="system-ui, -apple-system, sans-serif" font-size="10" font-weight="800">IP65 • 10-Yr Warranty</text>
+  </g>
+</svg>

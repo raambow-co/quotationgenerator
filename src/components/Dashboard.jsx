@@ -239,7 +239,7 @@ export default function Dashboard({
                     <td className="py-3.5 px-4">
                       <div className="flex items-baseline gap-1">
                         <span className="font-extrabold text-slate-900 text-sm">
-                          {q.technical?.systemCapacityKw || 5} kWp
+                          {q.technical?.actualDcCapacityKw || q.technical?.systemCapacityKw || 5.5} kWp DC
                         </span>
                         <span className="text-[10px] text-slate-500">
                           ({q.technical?.panelCount || 10} panels)

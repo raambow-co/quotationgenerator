@@ -113,7 +113,7 @@ export default function Page4Portfolio({ quotation, settings }) {
                   <div className="mt-1.5 grid grid-cols-2 gap-2 text-[9px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
                     <div>
                       <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Generation</span>
-                      <span className="font-extrabold text-slate-800">15,800 Units / yr</span>
+                      <span className="font-extrabold text-slate-800">15,800 kWh / yr</span>
                     </div>
                     <div>
                       <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Savings</span>
@@ -167,7 +167,7 @@ export default function Page4Portfolio({ quotation, settings }) {
                   <div className="mt-1.5 grid grid-cols-2 gap-2 text-[9px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
                     <div>
                       <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Generation</span>
-                      <span className="font-extrabold text-slate-800">39,500 Units / yr</span>
+                      <span className="font-extrabold text-slate-800">39,500 kWh / yr</span>
                     </div>
                     <div>
                       <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Savings</span>
@@ -221,7 +221,7 @@ export default function Page4Portfolio({ quotation, settings }) {
                   <div className="mt-1.5 grid grid-cols-2 gap-2 text-[9px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
                     <div>
                       <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Generation</span>
-                      <span className="font-extrabold text-slate-800">78,800 Units / yr</span>
+                      <span className="font-extrabold text-slate-800">78,800 kWh / yr</span>
                     </div>
                     <div>
                       <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Savings</span>
@@ -275,7 +275,7 @@ export default function Page4Portfolio({ quotation, settings }) {
                   <div className="mt-1.5 grid grid-cols-2 gap-2 text-[9px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
                     <div>
                       <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Generation</span>
-                      <span className="font-extrabold text-slate-800">1,58,000 Units / yr</span>
+                      <span className="font-extrabold text-slate-800">1,58,000 kWh / yr</span>
                     </div>
                     <div>
                       <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Savings</span>
@@ -309,7 +309,7 @@ export default function Page4Portfolio({ quotation, settings }) {
         {/* Page 4 Footer */}
         <div className="pt-2 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500">
           <div>
-            <span className="font-semibold text-slate-700">{company.name}</span> &bull; {company.tagline}
+            <span className="font-semibold text-slate-700">{company.legalName || 'Jayarams Solar Solutions Pvt. Ltd.'}</span> &bull; {company.tagline}
           </div>
           <div className="flex items-center gap-4">
             <span>All showcased installations are active & grid synchronized</span>

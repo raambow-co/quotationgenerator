@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="cableBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+
+    <linearGradient id="boxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8fafc"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+
+    <linearGradient id="cuGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="50%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#9a3412"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Ambient Backdrop -->
+  <rect width="600" height="400" fill="url(#cableBg)"/>
+
+  <!-- Shadow below components -->
+  <ellipse cx="300" cy="360" rx="220" ry="16" fill="#000000" opacity="0.6" filter="blur(6px)"/>
+
+  <!-- IP65 DCDB / ACDB Weatherproof Distribution Box (Left) -->
+  <g transform="translate(60, 50)">
+    <!-- Polycarbonate Outer Box -->
+    <rect x="0" y="0" width="220" height="280" rx="12" fill="url(#boxGrad)" stroke="#94a3b8" stroke-width="2"/>
+    
+    <!-- Transparent Smoked Window -->
+    <rect x="20" y="25" width="180" height="190" rx="6" fill="#0f172a" fill-opacity="0.85" stroke="#334155" stroke-width="1.5"/>
+
+    <!-- DIN Rail Mounted Equipment Inside -->
+    <!-- Type-II DC SPD (Surge Protection Device) -->
+    <g transform="translate(35, 45)">
+      <rect x="0" y="0" width="45" height="75" rx="3" fill="#dc2626" stroke="#991b1b" stroke-width="1"/>
+      <rect x="12" y="15" width="20" height="12" rx="2" fill="#22c55e"/>
+      <text x="22" y="24" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="7" font-weight="bold">OK</text>
+      <text x="22.5" y="45" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="6" font-weight="bold">SPD</text>
+      <text x="22.5" y="58" text-anchor="middle" fill="#fecaca" font-family="monospace" font-size="5.5">1000V DC</text>
+    </g>
+
+    <!-- DC Fuse Holders (1000V gPV) -->
+    <g transform="translate(88, 45)">
+      <rect x="0" y="0" width="28" height="75" rx="2" fill="#334155" stroke="#1e293b"/>
+      <rect x="4" y="25" width="20" height="25" rx="1" fill="#f8fafc"/>
+      <text x="14" y="40" text-anchor="middle" fill="#0f172a" font-family="monospace" font-size="7" font-weight="900">16A</text>
+      <text x="14" y="65" text-anchor="middle" fill="#cbd5e1" font-family="monospace" font-size="5.5">gPV</text>
+    </g>
+
+    <!-- AC MCB (Schneider / L&T) -->
+    <g transform="translate(125, 45)">
+      <rect x="0" y="0" width="55" height="75" rx="3" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+      <rect x="18" y="20" width="20" height="30" rx="2" fill="#1e293b"/>
+      <rect x="22" y="25" width="12" height="10" rx="1" fill="#dc2626"/>
+      <text x="27.5" y="65" text-anchor="middle" fill="#334155" font-family="sans-serif" font-size="7" font-weight="800">415V MCB</text>
+    </g>
+
+    <!-- Bottom Cable Glands -->
+    <rect x="40" y="280" width="18" height="20" rx="2" fill="#475569"/>
+    <rect x="80" y="280" width="18" height="20" rx="2" fill="#475569"/>
+    <rect x="120" y="280" width="18" height="20" rx="2" fill="#475569"/>
+    <rect x="160" y="280" width="18" height="20" rx="2" fill="#475569"/>
+
+    <text x="110" y="255" text-anchor="middle" fill="#0f172a" font-family="system-ui, sans-serif" font-size="9" font-weight="800">IP65 COMBINER &amp; SPD</text>
+  </g>
+
+  <!-- Polycab Solar DC / AC Cables Coil & MC4 Connectors (Center-Right) -->
+  <g transform="translate(320, 70)">
+    <!-- Red DC Cable (+ Positive) -->
+    <path d="M 0,220 C 60,140 180,120 230,190 C 270,240 180,270 90,260 C 20,250 10,180 50,110 C 90,40 210,50 240,110" 
+          fill="none" stroke="#dc2626" stroke-width="14" stroke-linecap="round"/>
+    
+    <!-- Black DC Cable (- Negative) -->
+    <path d="M 10,235 C 70,155 190,135 240,205 C 280,255 190,285 100,275 C 30,265 20,195 60,125 C 100,55 220,65 250,125" 
+          fill="none" stroke="#090d16" stroke-width="14" stroke-linecap="round"/>
+    
+    <!-- Polycab Identification Label on Cable -->
+    <g transform="translate(110, 85) rotate(-15)">
+      <rect x="0" y="0" width="95" height="18" rx="3" fill="#ffffff" fill-opacity="0.95" stroke="#cbd5e1"/>
+      <text x="6" y="13" fill="#dc2626" font-family="sans-serif" font-size="8.5" font-weight="900">POLYCAB</text>
+      <text x="56" y="13" fill="#0f172a" font-family="monospace" font-size="7.5" font-weight="700">6 sq.mm</text>
+    </g>
+
+    <!-- Stäubli MC4 Connector Pair -->
+    <g transform="translate(235, 95)">
+      <rect x="0" y="0" width="35" height="16" rx="4" fill="#0f172a" stroke="#475569"/>
+      <rect x="10" y="4" width="8" height="8" fill="#38bdf8"/>
+      <text x="18" y="28" text-anchor="middle" fill="#94a3b8" font-family="monospace" font-size="7">MC4 EVO2</text>
+    </g>
+  </g>
+
+  <!-- Chemical Earthing Rod Representation (Rightmost) -->
+  <g transform="translate(520, 60)">
+    <!-- Copper Bonded Steel Rod -->
+    <rect x="0" y="0" width="16" height="270" rx="3" fill="url(#cuGrad)" stroke="#7c2d12" stroke-width="1"/>
+    
+    <!-- Ground Clamps -->
+    <rect x="-4" y="20" width="24" height="14" rx="2" fill="#e2e8f0" stroke="#64748b"/>
+    <circle cx="8" cy="27" r="3" fill="#334155"/>
+
+    <text x="-15" y="180" transform="rotate(-90 -15,180)" fill="#fb923c" font-family="system-ui, sans-serif" font-size="8" font-weight="800">IS 3043 CHEMICAL EARTHING</text>
+  </g>
+
+  <!-- Bottom Technical Badge -->
+  <g transform="translate(70, 315)">
+    <rect x="0" y="0" width="460" height="24" rx="5" fill="#020617" fill-opacity="0.9" stroke="#334155" stroke-width="1"/>
+    <text x="15" y="16" fill="#38bdf8" font-family="system-ui, sans-serif" font-size="9" font-weight="700">POLYCAB 1.5kV DC TUV CABLES</text>
+    <text x="215" y="16" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">•</text>
+    <text x="235" y="16" fill="#4ade80" font-family="system-ui, sans-serif" font-size="9" font-weight="700">TYPE-II DUAL SPDs</text>
+    <text x="355" y="16" fill="#64748b" font-family="system-ui, sans-serif" font-size="9">•</text>
+    <text x="375" y="16" fill="#fb923c" font-family="system-ui, sans-serif" font-size="9" font-weight="700">3 EARTHING PITS + LA</text>
+  </g>
+</svg>

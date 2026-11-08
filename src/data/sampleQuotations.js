@@ -10,29 +10,33 @@ export const sampleQuotations = [
       companyName: "Reddy Residencies",
       phone: "+91 98492 48102",
       email: "srikanth.reddy@outlook.com",
-      location: "Plot 112, Gachibowli Hills, Hyderabad, Telangana",
+      location: "Plot #112, Road #4, Gachibowli Hills, Hyderabad, Telangana - 500032",
       consumerNumber: "TSSPDCL-04829104",
       sanctionedLoad: "10 kW",
       gridPhase: "3-Phase",
-      roofType: "RCC Flat Concrete Terrace"
+      roofType: "RCC Flat Concrete Terrace",
+      roofAreaAvailable: "520 Sq.Ft (Verified Shadow-Free)",
+      structuralSuitability: "Load-bearing tested suitable for < 18 kg/m² solar dead load"
     },
     technical: {
       systemCapacityKw: 5.5,
+      actualDcCapacityKw: 5.5,
+      acInverterCapacityKw: 5.0,
       panelBrand: "Waaree Solar",
-      panelModel: "550Wp Bi-facial Dual Glass TopCon",
+      panelModel: "Arka Series 550Wp Bi-facial Dual Glass TOPCon (WXS-550-BIF)",
       panelWattage: 550,
       panelCount: 10,
       inverterBrand: "Sungrow Power",
-      inverterModel: "SG5.0RS On-Grid Multi-MPPT Smart Inverter with Wi-Fi",
-      structureType: "Hot-Dip Galvanized Iron (GI) — Elevated 7 to 9 ft Roof Clearance",
-      cablesAndBOS: "Polycab 4 sq.mm TUV DC Cables, Type II DC/AC SPD, 3 Copper Chemical Earthing Pits, Class A Lightning Arrester",
+      inverterModel: "SG5.0RS On-Grid Multi-MPPT Smart Inverter with Wi-Fi IoT",
+      structureType: "Hot-Dip Galvanized Iron (GI) — Elevated 7 to 9 ft Roof Clearance (IS 875 Compliant)",
+      cablesAndBOS: "Polycab 4 sq.mm TUV DC Cables (EN 50618), Type II DC/AC SPD, 3 Copper Chemical Earthing Pits (IS 3043:2018), Class A Lightning Arrester",
       monitoring: "Smart Wi-Fi Cloud Real-time Mobile Application",
-      estimatedDailyUnits: 24,
-      estimatedAnnualUnits: 8600,
-      estimatedMonthlySavings: 6120,
-      estimatedAnnualSavings: 73100,
-      roofAreaSqFt: 520,
-      co2SavedTonnes: 7.1
+      estimatedDailyUnits: 23.4,
+      estimatedAnnualUnits: 8541,
+      estimatedMonthlySavings: 6050,
+      estimatedAnnualSavings: 72599,
+      roofAreaSqFt: 500,
+      co2SavedTonnes: 7.0
     },
     commercials: {
       ratePerKw: 52000,
@@ -42,24 +46,26 @@ export const sampleQuotations = [
       gstRate: 13.8,
       gstAmount: 38640,
       totalGrossCost: 318640,
-      subsidyScheme: "PM Surya Ghar: Muft Bijli Yojana",
+      subsidyScheme: "PM Surya Ghar: Muft Bijli Yojana (CFA)",
       subsidyAmount: 78000,
       netPayable: 240640,
       paybackYears: "3.3",
-      cumulativeSavings25Years: 1586860
+      gross25YrSavings: 1814975,
+      net25YrProfit: 1574335,
+      cumulativeSavings25Years: 1574335
     },
     warranties: {
-      panelPerformance: "25 Years Linear Performance Warranty (Min 84.8% at year 25)",
-      panelProduct: "12 Years Comprehensive Manufacturer Defect Warranty",
-      inverterWarranty: "10 Years Replacement / Repair Manufacturer Warranty",
-      workmanshipAmc: "5 Years Free Comprehensive Maintenance & Quarterly Inspections"
+      panelPerformance: "25-Year Linear Performance Warranty (Min 98% in Yr 1, ≤0.55%/yr linear degradation, ≥84.8% at Yr 25)",
+      panelProduct: "12-Year Comprehensive Manufacturer Workmanship Defect Warranty",
+      inverterWarranty: "10-Year Standard Manufacturer Repair / Replacement Warranty",
+      workmanshipAmc: "5-Year Free Comprehensive Maintenance & Quarterly Health Inspections by Jayarams"
     },
     paymentMilestones: [
       { milestone: "Booking & Engineering Advance", percentage: 20, description: "Upon acceptance & structural CAD design sign-off" },
-      { milestone: "Material Dispatch & Delivery", percentage: 70, description: "Upon delivery of panels, inverter & structures at site" },
-      { milestone: "Testing & Net Metering", percentage: 10, description: "Upon physical completion & submission to TSSPDCL" }
+      { milestone: "Material Dispatch & Delivery", percentage: 70, description: "Upon physical delivery of panels, inverter & structures at site" },
+      { milestone: "Commissioning & Net Metering", percentage: 10, description: "Upon physical completion & submission to TSSPDCL" }
     ],
-    notes: "Proposal includes complete turnkey Discom net-metering liaison, RCC foundation column pedestals, and one complimentary high-pressure solar panel cleaning kit.",
+    notes: "Proposal includes complete turnkey Discom net-metering facilitation, RCC foundation column pedestals, and one complimentary high-pressure solar panel cleaning kit.",
     preparedBy: "Jayarams Solar Engineering & Sales Team"
   },
   {
@@ -73,29 +79,33 @@ export const sampleQuotations = [
       companyName: "Rao Orthopedic Centre",
       phone: "+91 89125 78432",
       email: "dr.ananya@raohealth.in",
-      location: "MVP Colony Sector 4, Visakhapatnam, Andhra Pradesh",
+      location: "Plot #42, MVP Colony Sector 4, Visakhapatnam, Andhra Pradesh - 530017",
       consumerNumber: "APEPDCL-91823901",
       sanctionedLoad: "15 kW",
       gridPhase: "3-Phase",
-      roofType: "RCC Flat Commercial Rooftop"
+      roofType: "RCC Flat Commercial Rooftop",
+      roofAreaAvailable: "950 Sq.Ft (Verified Shadow-Free)",
+      structuralSuitability: "Structural stability verified per IS 875 wind zone standards"
     },
     technical: {
       systemCapacityKw: 10.0,
+      actualDcCapacityKw: 10.0,
+      acInverterCapacityKw: 10.0,
       panelBrand: "Tata Power Solar",
-      panelModel: "545Wp Mono PERC Half-Cut Module",
-      panelWattage: 545,
-      panelCount: 19,
+      panelModel: "TP550 High-Efficiency Tier-1 Mono PERC Module",
+      panelWattage: 500,
+      panelCount: 20,
       inverterBrand: "Growatt New Energy",
       inverterModel: "MID 10KTL3-X Dual MPPT Commercial Grid Inverter",
-      structureType: "Hot-Dip Galvanized Iron (GI) — Elevated 7 to 9 ft Roof Clearance",
-      cablesAndBOS: "Siechem 4 sq.mm Solar Cables, Dual Surge Protection Devices, Erico Copper Earthing Pits, Solid Copper Spike Arrester",
+      structureType: "Hot-Dip Galvanized Iron (GI) — Elevated 7 to 9 ft Roof Clearance (IS 875 Compliant)",
+      cablesAndBOS: "Siechem 4 sq.mm Solar Cables (EN 50618), Dual Surge Protection Devices, 3 Chemical Earthing Pits, Solid Copper Spike Arrester",
       monitoring: "Growatt ShineWiFi Cloud Monitoring with 24/7 Generation Alerts",
-      estimatedDailyUnits: 43,
-      estimatedAnnualUnits: 15700,
-      estimatedMonthlySavings: 11100,
-      estimatedAnnualSavings: 133450,
-      roofAreaSqFt: 950,
-      co2SavedTonnes: 12.9
+      estimatedDailyUnits: 42.5,
+      estimatedAnnualUnits: 15513,
+      estimatedMonthlySavings: 10988,
+      estimatedAnnualSavings: 131861,
+      roofAreaSqFt: 900,
+      co2SavedTonnes: 12.7
     },
     commercials: {
       ratePerKw: 49000,
@@ -105,22 +115,24 @@ export const sampleQuotations = [
       gstRate: 13.8,
       gstAmount: 66240,
       totalGrossCost: 546240,
-      subsidyScheme: "PM Surya Ghar: Muft Bijli Yojana (Capped at 3kW)",
+      subsidyScheme: "PM Surya Ghar: Muft Bijli Yojana (Capped at 3kW CFA)",
       subsidyAmount: 78000,
       netPayable: 468240,
-      paybackYears: "3.5",
-      cumulativeSavings25Years: 2868010
+      paybackYears: "3.6",
+      gross25YrSavings: 3296525,
+      net25YrProfit: 2828285,
+      cumulativeSavings25Years: 2828285
     },
     warranties: {
-      panelPerformance: "25 Years Linear Performance Warranty (Min 84.8% at year 25)",
-      panelProduct: "12 Years Comprehensive Manufacturer Defect Warranty",
-      inverterWarranty: "10 Years Replacement / Repair Manufacturer Warranty",
-      workmanshipAmc: "5 Years Free Comprehensive Maintenance & Quarterly Inspections"
+      panelPerformance: "25-Year Linear Performance Warranty (Min 98% in Yr 1, ≤0.55%/yr linear degradation, ≥84.8% at Yr 25)",
+      panelProduct: "12-Year Comprehensive Manufacturer Workmanship Defect Warranty",
+      inverterWarranty: "10-Year Standard Manufacturer Repair / Replacement Warranty",
+      workmanshipAmc: "5-Year Free Comprehensive Maintenance & Quarterly Health Inspections by Jayarams"
     },
     paymentMilestones: [
       { milestone: "Booking & Engineering Advance", percentage: 20, description: "Upon acceptance & structural CAD design sign-off" },
-      { milestone: "Material Dispatch & Delivery", percentage: 70, description: "Upon delivery of panels, inverter & structures at site" },
-      { milestone: "Testing & Net Metering", percentage: 10, description: "Upon physical completion & submission to APEPDCL" }
+      { milestone: "Material Dispatch & Delivery", percentage: 70, description: "Upon physical delivery of panels, inverter & structures at site" },
+      { milestone: "Commissioning & Net Metering", percentage: 10, description: "Upon physical completion & submission to APEPDCL" }
     ],
     notes: "Special commercial rooftop bracket fixtures installed to withstand coastal wind gusts up to 160 km/h.",
     preparedBy: "Jayarams Solar Engineering & Sales Team"
@@ -133,32 +145,36 @@ export const sampleQuotations = [
     status: "Draft",
     customer: {
       name: "B. Venkatesh",
-      companyName: "Venkatesh Textiles",
+      companyName: "Venkatesh Industrial Spares",
       phone: "+91 97011 88412",
       email: "venkatesh.tex@gmail.com",
-      location: "MG Road, Auto Nagar Industrial Estate, Vijayawada, AP",
+      location: "Plot #18, MG Road, Auto Nagar Industrial Estate, Vijayawada, AP - 520007",
       consumerNumber: "APCPDCL-77382103",
       sanctionedLoad: "35 kW",
       gridPhase: "3-Phase LT",
-      roofType: "Industrial Trapezoidal Metal Sheet"
+      roofType: "Industrial Trapezoidal Metal Sheet",
+      roofAreaAvailable: "2400 Sq.Ft (Verified Shadow-Free)",
+      structuralSuitability: "Purlin spacing and load capacity verified for Klip-Lok mounting"
     },
     technical: {
       systemCapacityKw: 25.0,
+      actualDcCapacityKw: 25.3,
+      acInverterCapacityKw: 25.0,
       panelBrand: "Waaree Solar",
-      panelModel: "550Wp Bi-facial Dual Glass TopCon",
+      panelModel: "Arka Series 550Wp Bi-facial Dual Glass TOPCon (WXS-550-BIF)",
       panelWattage: 550,
       panelCount: 46,
       inverterBrand: "Sungrow Power",
       inverterModel: "SG25CX Multi-MPPT Industrial Solar Inverter",
-      structureType: "Industrial Metal Sheet / Klip-Lok Bracket System",
-      cablesAndBOS: "Polycab 6 sq.mm TUV Solar DC Cables, Industrial ACDB/DCDB, 4 Chemical Earthing Pits, Advanced ESE Lightning Protection",
+      structureType: "Industrial Metal Sheet / Klip-Lok Bracket System (Non-Penetrating)",
+      cablesAndBOS: "Polycab 6 sq.mm TUV Solar DC Cables (EN 50618), Industrial ACDB/DCDB, 4 Chemical Earthing Pits, Advanced ESE Lightning Protection",
       monitoring: "iSolarCloud Industrial Web Portal & Smart Energy Dashboard",
-      estimatedDailyUnits: 108,
-      estimatedAnnualUnits: 39400,
-      estimatedMonthlySavings: 28200,
-      estimatedAnnualSavings: 334900,
-      roofAreaSqFt: 2350,
-      co2SavedTonnes: 32.3
+      estimatedDailyUnits: 107.5,
+      estimatedAnnualUnits: 39238,
+      estimatedMonthlySavings: 27793,
+      estimatedAnnualSavings: 333523,
+      roofAreaSqFt: 2300,
+      co2SavedTonnes: 32.2
     },
     commercials: {
       ratePerKw: 44000,
@@ -171,22 +187,23 @@ export const sampleQuotations = [
       subsidyScheme: "Commercial - Accelerated Depreciation (Tax Benefit 40%)",
       subsidyAmount: 0,
       netPayable: 1223350,
-      paybackYears: "3.6",
-      cumulativeSavings25Years: 7149150
+      paybackYears: "3.7",
+      gross25YrSavings: 8338075,
+      net25YrProfit: 7114725,
+      cumulativeSavings25Years: 7114725
     },
     warranties: {
-      panelPerformance: "25 Years Linear Performance Warranty (Min 84.8% at year 25)",
-      panelProduct: "12 Years Comprehensive Manufacturer Defect Warranty",
-      inverterWarranty: "10 Years Replacement / Repair Manufacturer Warranty",
-      workmanshipAmc: "5 Years Free Comprehensive Maintenance & Quarterly Inspections"
+      panelPerformance: "25-Year Linear Performance Warranty (Min 98% in Yr 1, ≤0.55%/yr linear degradation, ≥84.8% at Yr 25)",
+      panelProduct: "12-Year Comprehensive Manufacturer Workmanship Defect Warranty",
+      inverterWarranty: "10-Year Standard Manufacturer Repair / Replacement Warranty",
+      workmanshipAmc: "5-Year Free Comprehensive Maintenance & Quarterly Health Inspections by Jayarams"
     },
     paymentMilestones: [
       { milestone: "Booking & Engineering Advance", percentage: 20, description: "Upon acceptance & structural CAD design sign-off" },
-      { milestone: "Material Dispatch & Delivery", percentage: 70, description: "Upon delivery of panels, inverter & structures at site" },
-      { milestone: "Testing & Net Metering", percentage: 10, description: "Upon physical completion & submission to Discom" }
+      { milestone: "Material Dispatch & Delivery", percentage: 70, description: "Upon physical delivery of panels, inverter & structures at site" },
+      { milestone: "Commissioning & Net Metering", percentage: 10, description: "Upon physical completion & submission to Discom" }
     ],
     notes: "Includes industrial grade zero-export relay device option, APCPDCL statutory liaison, and complete factory electrical audit.",
     preparedBy: "Jayarams Solar Engineering & Sales Team"
   }
 ];
-
