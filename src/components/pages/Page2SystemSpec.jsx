@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Zap, Sun, ShieldCheck, Activity, Layers, Cable, CheckCircle2, BarChart3 } from 'lucide-react';
+import { Cpu, Zap, Sun, ShieldCheck, Activity, Layers, Cable, CheckCircle2, BarChart3, Wind, Shield, Wifi, Award } from 'lucide-react';
 import { formatNumber } from '../../utils/formatters';
 import Watermark from '../common/Watermark';
 import { getPanelLogo, getInverterLogo, getCableLogo, EMBLEMS } from '../../utils/brandLogos';
@@ -67,12 +67,12 @@ export default function Page2SystemSpec({ quotation, settings }) {
           {/* Visual Hardware Component Gallery with Locally-Hosted High-Resolution Assets */}
           <div className="mt-3 grid grid-cols-4 gap-2.5">
             {/* 1. Solar Module Visual */}
-            <div className="bg-white rounded-xl border border-slate-200 p-2 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
-              <div className="h-28 rounded-lg overflow-hidden relative bg-slate-950 mb-1.5 border border-slate-200/80 flex items-center justify-center">
+            <div className="bg-white rounded-xl border border-slate-200 p-2.5 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+              <div className="h-34 rounded-lg overflow-hidden relative bg-slate-950 mb-2 border border-slate-200/80 flex items-center justify-center">
                 <img 
                   src="/assets/hardware/solar-module.svg" 
                   alt="Waaree Solar PV Module" 
-                  className="w-full h-full object-contain p-1"
+                  className="w-full h-full object-contain p-1.5"
                 />
                 {/* Brand Logo Floating Overlay */}
                 <div className="absolute top-1.5 right-1.5 z-20 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-xs border border-slate-200">
@@ -81,21 +81,24 @@ export default function Page2SystemSpec({ quotation, settings }) {
                 <span className="absolute bottom-1.5 left-1.5 z-20 bg-brand-950/85 backdrop-blur-sm text-white text-[7.5px] font-bold px-1.5 py-0.5 rounded">
                   Bifacial TOPCon
                 </span>
+                <span className="absolute bottom-1.5 right-1.5 z-20 bg-emerald-700 text-white text-[7px] font-black px-1.5 py-0.5 rounded shadow-xs">
+                  21.5% Eff.
+                </span>
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-900 truncate">{technical?.panelBrand || 'Waaree Solar'}</p>
-                <p className="text-[8.5px] text-slate-500 font-medium">{panelCount} Nos &times; {panelWattage}Wp = {dcKw} kWp</p>
-                <span className="text-[8px] text-emerald-700 font-extrabold block mt-0.5">25-Yr Performance • 12-Yr Product</span>
+                <p className="text-[10.5px] font-bold text-slate-900 truncate">{technical?.panelBrand || 'Waaree Solar'}</p>
+                <p className="text-[9px] text-slate-500 font-medium">{panelCount} Nos &times; {panelWattage}Wp = {dcKw} kWp</p>
+                <span className="text-[8.5px] text-emerald-700 font-extrabold block mt-0.5">25-Yr Performance • 12-Yr Product</span>
               </div>
             </div>
 
             {/* 2. Solar Inverter Visual */}
-            <div className="bg-white rounded-xl border border-slate-200 p-2 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
-              <div className="h-28 rounded-lg overflow-hidden relative bg-slate-950 mb-1.5 border border-slate-200/80 flex items-center justify-center">
+            <div className="bg-white rounded-xl border border-slate-200 p-2.5 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+              <div className="h-34 rounded-lg overflow-hidden relative bg-slate-950 mb-2 border border-slate-200/80 flex items-center justify-center">
                 <img 
                   src="/assets/hardware/solar-inverter.svg" 
                   alt="Solar On-Grid Inverter" 
-                  className="w-full h-full object-contain p-1"
+                  className="w-full h-full object-contain p-1.5"
                 />
                 {/* Brand Logo Floating Overlay */}
                 <div className="absolute top-1.5 right-1.5 z-20 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-xs border border-slate-200">
@@ -104,17 +107,20 @@ export default function Page2SystemSpec({ quotation, settings }) {
                 <span className="absolute bottom-1.5 left-1.5 z-20 bg-brand-950/85 backdrop-blur-sm text-white text-[7.5px] font-bold px-1.5 py-0.5 rounded">
                   &gt;98.4% Eff. &bull; Dual MPPT
                 </span>
+                <span className="absolute bottom-1.5 right-1.5 z-20 bg-blue-700 text-white text-[7px] font-black px-1.5 py-0.5 rounded shadow-xs">
+                  IoT Telemetry
+                </span>
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-900 truncate">{technical?.inverterBrand || 'Sungrow Power'}</p>
-                <p className="text-[8.5px] text-slate-500 font-medium">{acKw} kW AC &bull; Wi-Fi IoT Cloud</p>
-                <span className="text-[8px] text-slate-700 font-extrabold block mt-0.5">10-Yr Replacement Warranty</span>
+                <p className="text-[10.5px] font-bold text-slate-900 truncate">{technical?.inverterBrand || 'Sungrow Power'}</p>
+                <p className="text-[9px] text-slate-500 font-medium">{acKw} kW AC &bull; Wi-Fi Smart Cloud</p>
+                <span className="text-[8.5px] text-slate-700 font-extrabold block mt-0.5">10-Yr Replacement Warranty</span>
               </div>
             </div>
 
             {/* 3. Elevated Mounting Structure Visual (100% Full Real Installation Photo) */}
-            <div className="bg-white rounded-xl border border-brand-200/80 p-2 flex flex-col justify-between shadow-xs ring-1 ring-brand-100 hover:shadow-md transition-shadow">
-              <div className="h-28 rounded-lg overflow-hidden relative bg-slate-950 mb-1.5 border border-slate-200 flex items-center justify-center">
+            <div className="bg-white rounded-xl border border-brand-200/80 p-2.5 flex flex-col justify-between shadow-xs ring-1 ring-brand-100 hover:shadow-md transition-shadow">
+              <div className="h-34 rounded-lg overflow-hidden relative bg-slate-950 mb-2 border border-slate-200 flex items-center justify-center">
                 <img 
                   src="/assets/gi-structure.jpg" 
                   alt="" 
@@ -133,19 +139,19 @@ export default function Page2SystemSpec({ quotation, settings }) {
                 </span>
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-900 truncate">Elevated GI Structure</p>
-                <p className="text-[8.5px] text-slate-500 font-medium">7 to 9 ft Clearance (IS 875 Vb=44m/s)</p>
+                <p className="text-[10.5px] font-bold text-slate-900 truncate">Elevated GI Structure</p>
+                <p className="text-[9px] text-slate-500 font-medium">7 to 9 ft Clearance (IS 875 Vb=44m/s)</p>
                 <span className="text-[8.5px] text-brand-900 font-extrabold block mt-0.5">15-Yr Structural Guarantee</span>
               </div>
             </div>
 
             {/* 4. Electrical BOS & Cables Visual */}
-            <div className="bg-white rounded-xl border border-slate-200 p-2 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
-              <div className="h-28 rounded-lg overflow-hidden relative bg-slate-950 mb-1.5 border border-slate-200/80 flex items-center justify-center">
+            <div className="bg-white rounded-xl border border-slate-200 p-2.5 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+              <div className="h-34 rounded-lg overflow-hidden relative bg-slate-950 mb-2 border border-slate-200/80 flex items-center justify-center">
                 <img 
                   src="/assets/hardware/solar-cables.svg" 
                   alt="Polycab Solar Cables & BOS" 
-                  className="w-full h-full object-contain p-1"
+                  className="w-full h-full object-contain p-1.5"
                 />
                 {/* Brand Logo Floating Overlay */}
                 <div className="absolute top-1.5 right-1.5 z-20 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-xs border border-slate-200">
@@ -154,11 +160,14 @@ export default function Page2SystemSpec({ quotation, settings }) {
                 <span className="absolute bottom-1.5 left-1.5 z-20 bg-brand-950/85 backdrop-blur-sm text-white text-[7.5px] font-bold px-1.5 py-0.5 rounded">
                   Dual SPD &bull; IP65
                 </span>
+                <span className="absolute bottom-1.5 right-1.5 z-20 bg-emerald-700 text-white text-[7px] font-black px-1.5 py-0.5 rounded shadow-xs">
+                  3 Pits IS 3043
+                </span>
               </div>
               <div>
-                <p className="text-[10px] font-bold text-slate-900 truncate">Polycab Cables &amp; BOS</p>
-                <p className="text-[8.5px] text-slate-500 font-medium">3 Chemical Pits (IS 3043) + LA</p>
-                <span className="text-[8px] text-emerald-700 font-extrabold block mt-0.5">CEIG &amp; DISCOM Compliant</span>
+                <p className="text-[10.5px] font-bold text-slate-900 truncate">Polycab Cables &amp; BOS</p>
+                <p className="text-[9px] text-slate-500 font-medium">3 Chemical Pits (IS 3043) + LA</p>
+                <span className="text-[8.5px] text-emerald-700 font-extrabold block mt-0.5">CEIG &amp; DISCOM Compliant</span>
               </div>
             </div>
           </div>
@@ -209,23 +218,23 @@ export default function Page2SystemSpec({ quotation, settings }) {
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-slate-100 text-slate-700 border-b border-slate-200 font-semibold text-[8.5px] uppercase tracking-wide">
-                    <th className="py-1 px-2 w-6 text-center">#</th>
-                    <th className="py-1 px-2 w-32">Component</th>
-                    <th className="py-1 px-2">Brand, Exact Model &amp; Applicable Standards</th>
-                    <th className="py-1 px-2 w-24 text-center">Quantity</th>
-                    <th className="py-1 px-2 w-24 text-center">Warranty</th>
+                    <th className="py-1.5 px-2.5 w-6 text-center">#</th>
+                    <th className="py-1.5 px-2.5 w-32">Component</th>
+                    <th className="py-1.5 px-2.5">Brand, Exact Model &amp; Applicable Standards</th>
+                    <th className="py-1.5 px-2.5 w-24 text-center">Quantity</th>
+                    <th className="py-1.5 px-2.5 w-24 text-center">Warranty</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-700">
                   {/* 1. PV Modules */}
                   <tr>
-                    <td className="py-1 px-2 text-center font-bold text-slate-400">01</td>
-                    <td className="py-1 px-2 font-bold text-slate-900">
+                    <td className="py-1.5 px-2.5 text-center font-bold text-slate-400">01</td>
+                    <td className="py-1.5 px-2.5 font-bold text-slate-900">
                       Solar PV Modules
                     </td>
-                    <td className="py-1 px-2">
+                    <td className="py-1.5 px-2.5">
                       <div className="flex items-center gap-2">
-                        <img src={panelLogo} alt="" className="h-3.5 max-w-[45px] object-contain shrink-0" />
+                        <img src={panelLogo} alt="" className="h-4 max-w-[48px] object-contain shrink-0" />
                         <div>
                           <span className="font-semibold text-brand-900">{technical?.panelBrand || 'Waaree Solar'}</span> — {technical?.panelModel || 'Arka Series 550Wp Bi-facial Dual Glass TOPCon (WXS-550-BIF)'}
                           <span className="block text-[7.5px] text-slate-500">
@@ -234,23 +243,23 @@ export default function Page2SystemSpec({ quotation, settings }) {
                         </div>
                       </div>
                     </td>
-                    <td className="py-1 px-2 text-center font-medium">
+                    <td className="py-1.5 px-2.5 text-center font-medium">
                       {panelCount} Nos. ({dcKw} kWp DC)
                     </td>
-                    <td className="py-1 px-2 text-center text-emerald-700 font-bold text-[8.5px]">
+                    <td className="py-1.5 px-2.5 text-center text-emerald-700 font-bold text-[8.5px]">
                       25-Yr Performance<br/><span className="text-[7.5px] text-slate-500 font-normal">12-Yr Product</span>
                     </td>
                   </tr>
 
                   {/* 2. Grid Inverter */}
                   <tr className="bg-slate-50/40">
-                    <td className="py-1 px-2 text-center font-bold text-slate-400">02</td>
-                    <td className="py-1 px-2 font-bold text-slate-900">
+                    <td className="py-1.5 px-2.5 text-center font-bold text-slate-400">02</td>
+                    <td className="py-1.5 px-2.5 font-bold text-slate-900">
                       Solar Grid Inverter
                     </td>
-                    <td className="py-1 px-2">
+                    <td className="py-1.5 px-2.5">
                       <div className="flex items-center gap-2">
-                        <img src={inverterLogo} alt="" className="h-3.5 max-w-[45px] object-contain shrink-0" />
+                        <img src={inverterLogo} alt="" className="h-4 max-w-[48px] object-contain shrink-0" />
                         <div>
                           <span className="font-semibold text-brand-900">{technical?.inverterBrand || 'Sungrow Power'}</span> — {technical?.inverterModel || 'SG5.0RS Dual-MPPT Smart On-Grid Inverter'}
                           <span className="block text-[7.5px] text-slate-500">
@@ -259,23 +268,23 @@ export default function Page2SystemSpec({ quotation, settings }) {
                         </div>
                       </div>
                     </td>
-                    <td className="py-1 px-2 text-center font-medium">
+                    <td className="py-1.5 px-2.5 text-center font-medium">
                       1 Unit ({acKw} kW AC)
                     </td>
-                    <td className="py-1 px-2 text-center text-slate-800 font-bold text-[8.5px]">
+                    <td className="py-1.5 px-2.5 text-center text-slate-800 font-bold text-[8.5px]">
                       10 Years
                     </td>
                   </tr>
 
                   {/* 3. Mounting Structure */}
                   <tr>
-                    <td className="py-1 px-2 text-center font-bold text-slate-400">03</td>
-                    <td className="py-1 px-2 font-bold text-slate-900">
+                    <td className="py-1.5 px-2.5 text-center font-bold text-slate-400">03</td>
+                    <td className="py-1.5 px-2.5 font-bold text-slate-900">
                       Mounting Structure
                     </td>
-                    <td className="py-1 px-2">
+                    <td className="py-1.5 px-2.5">
                       <div className="flex items-center gap-2">
-                        <img src="/assets/gi-structure.jpg" alt="GI Structure" className="h-4 w-6 rounded object-cover shrink-0 border border-slate-200" />
+                        <img src="/assets/gi-structure.jpg" alt="GI Structure" className="h-4.5 w-7 rounded object-cover shrink-0 border border-slate-200" />
                         <div>
                           <span className="font-medium text-slate-900">{technical?.structureType || 'Hot-Dip Galvanized Iron (GI) — Elevated 7 to 9 ft Roof Clearance'}</span>
                           <span className="block text-[7.5px] text-slate-500">
@@ -284,23 +293,23 @@ export default function Page2SystemSpec({ quotation, settings }) {
                         </div>
                       </div>
                     </td>
-                    <td className="py-1 px-2 text-center font-medium">
+                    <td className="py-1.5 px-2.5 text-center font-medium">
                       1 Full Set
                     </td>
-                    <td className="py-1 px-2 text-center text-slate-800 font-bold text-[8.5px]">
+                    <td className="py-1.5 px-2.5 text-center text-slate-800 font-bold text-[8.5px]">
                       15 Years
                     </td>
                   </tr>
 
                   {/* 4. Solar Cables */}
                   <tr className="bg-slate-50/40">
-                    <td className="py-1 px-2 text-center font-bold text-slate-400">04</td>
-                    <td className="py-1 px-2 font-bold text-slate-900">
+                    <td className="py-1.5 px-2.5 text-center font-bold text-slate-400">04</td>
+                    <td className="py-1.5 px-2.5 font-bold text-slate-900">
                       Solar Cables &amp; Wiring
                     </td>
-                    <td className="py-1 px-2">
+                    <td className="py-1.5 px-2.5">
                       <div className="flex items-center gap-2">
-                        <img src={cableLogo} alt="Polycab" className="h-3.5 max-w-[40px] object-contain shrink-0" />
+                        <img src={cableLogo} alt="Polycab" className="h-4 max-w-[45px] object-contain shrink-0" />
                         <div>
                           <span className="font-medium text-slate-900">Polycab / Siechem 1.5kV DC Solar PV Cable (4 / 6 sq.mm) &amp; Finolex AC Cable</span>
                           <span className="block text-[7.5px] text-slate-500">
@@ -309,70 +318,70 @@ export default function Page2SystemSpec({ quotation, settings }) {
                         </div>
                       </div>
                     </td>
-                    <td className="py-1 px-2 text-center font-medium">
+                    <td className="py-1.5 px-2.5 text-center font-medium">
                       As per site
                     </td>
-                    <td className="py-1 px-2 text-center text-slate-800 font-bold text-[8.5px]">
+                    <td className="py-1.5 px-2.5 text-center text-slate-800 font-bold text-[8.5px]">
                       5 Years
                     </td>
                   </tr>
 
                   {/* 5. Protection Suite */}
                   <tr>
-                    <td className="py-1 px-2 text-center font-bold text-slate-400">05</td>
-                    <td className="py-1 px-2 font-bold text-slate-900">
+                    <td className="py-1.5 px-2.5 text-center font-bold text-slate-400">05</td>
+                    <td className="py-1.5 px-2.5 font-bold text-slate-900">
                       DCDB &amp; ACDB Boxes
                     </td>
-                    <td className="py-1 px-2">
+                    <td className="py-1.5 px-2.5">
                       <span className="font-medium text-slate-900">IP65 Weatherproof Polycarbonate Enclosures with Dual Type-II SPDs</span>
                       <span className="block text-[7.5px] text-slate-500">
                         1000V DC 16A gPV fuses, Type-II 1000V DC SPD per IEC 61643-11, Schneider / L&amp;T 415V/240V AC MCB/MCCB with RCD protection.
                       </span>
                     </td>
-                    <td className="py-1 px-2 text-center font-medium">
+                    <td className="py-1.5 px-2.5 text-center font-medium">
                       1 Set
                     </td>
-                    <td className="py-1 px-2 text-center text-slate-800 font-bold text-[8.5px]">
+                    <td className="py-1.5 px-2.5 text-center text-slate-800 font-bold text-[8.5px]">
                       5 Years
                     </td>
                   </tr>
 
                   {/* 6. Earthing & Lightning */}
                   <tr className="bg-slate-50/40">
-                    <td className="py-1 px-2 text-center font-bold text-slate-400">06</td>
-                    <td className="py-1 px-2 font-bold text-slate-900">
+                    <td className="py-1.5 px-2.5 text-center font-bold text-slate-400">06</td>
+                    <td className="py-1.5 px-2.5 font-bold text-slate-900">
                       Earthing &amp; Lightning
                     </td>
-                    <td className="py-1 px-2">
+                    <td className="py-1.5 px-2.5">
                       <span className="font-medium text-slate-900">Copper Bonded Chemical Earthing (3 Dedicated Pits) + Class-A LA</span>
                       <span className="block text-[7.5px] text-slate-500">
                         3 Independent earthing pits (Solar Array DC, Inverter AC, LA) with 17.2mm dia &times; 3.0m rods and carbon compound (&lt; 5 &Omega; loop per IS 3043:2018).
                       </span>
                     </td>
-                    <td className="py-1 px-2 text-center font-medium">
+                    <td className="py-1.5 px-2.5 text-center font-medium">
                       3 Pits
                     </td>
-                    <td className="py-1 px-2 text-center text-slate-800 font-bold text-[8.5px]">
+                    <td className="py-1.5 px-2.5 text-center text-slate-800 font-bold text-[8.5px]">
                       5 Years
                     </td>
                   </tr>
 
                   {/* 7. Net Metering */}
                   <tr>
-                    <td className="py-1 px-2 text-center font-bold text-slate-400">07</td>
-                    <td className="py-1 px-2 font-bold text-slate-900">
+                    <td className="py-1.5 px-2.5 text-center font-bold text-slate-400">07</td>
+                    <td className="py-1.5 px-2.5 font-bold text-slate-900">
                       DISCOM Net-Metering
                     </td>
-                    <td className="py-1 px-2">
+                    <td className="py-1.5 px-2.5">
                       <span className="font-medium text-slate-900">Complete Bi-Directional Net-Meter Application &amp; Regulatory Liaison</span>
                       <span className="block text-[7.5px] text-slate-500">
                         Preparation of SLD, online portal filing, DTR feasibility check, CEIG/DISCOM inspection coordination &amp; meter sync assistance. (Subject to utility statutory norms).
                       </span>
                     </td>
-                    <td className="py-1 px-2 text-center font-medium">
+                    <td className="py-1.5 px-2.5 text-center font-medium">
                       Full Scope
                     </td>
-                    <td className="py-1 px-2 text-center text-emerald-700 font-bold text-[8.5px]">
+                    <td className="py-1.5 px-2.5 text-center text-emerald-700 font-bold text-[8.5px]">
                       Facilitation
                     </td>
                   </tr>
@@ -382,8 +391,8 @@ export default function Page2SystemSpec({ quotation, settings }) {
           </div>
 
           {/* Visual Monthly Solar Generation Bar Chart (Expressed in kWh/Month) */}
-          <div className="mt-2.5 p-2 bg-slate-50/90 rounded-lg border border-slate-200">
-            <div className="flex items-center justify-between mb-0.5">
+          <div className="mt-2.5 p-2.5 bg-slate-50/90 rounded-lg border border-slate-200">
+            <div className="flex items-center justify-between mb-1">
               <span className="text-[9.5px] font-bold text-slate-800 flex items-center gap-1.5">
                 <BarChart3 className="w-3.5 h-3.5 text-brand-700" />
                 Projected Monthly Solar Power Generation Curve (kWh / Month)
@@ -391,7 +400,7 @@ export default function Page2SystemSpec({ quotation, settings }) {
               <span className="text-[8.5px] text-slate-500 font-medium">Telangana / AP Solar Irradiance Profile</span>
             </div>
 
-            <div className="grid grid-cols-12 gap-1 items-end h-12 pt-1 px-1">
+            <div className="grid grid-cols-12 gap-1 items-end h-16 pt-1 px-1">
               {monthlyProfile.map((m, idx) => {
                 const monthKwh = Math.round(avgMonthly * m.factor);
                 const heightPercent = Math.min(100, Math.max(30, (m.factor / 1.15) * 100));
@@ -399,7 +408,7 @@ export default function Page2SystemSpec({ quotation, settings }) {
 
                 return (
                   <div key={idx} className="flex flex-col items-center h-full justify-end group">
-                    <span className="text-[7px] font-mono text-slate-500 mb-0.5">
+                    <span className="text-[7.5px] font-mono font-medium text-slate-600 mb-0.5">
                       {monthKwh}
                     </span>
                     <div 
@@ -410,12 +419,41 @@ export default function Page2SystemSpec({ quotation, settings }) {
                       }`}
                       style={{ height: `${heightPercent}%` }}
                     />
-                    <span className="text-[7px] font-semibold text-slate-600 mt-0.5 uppercase">
+                    <span className="text-[7.5px] font-semibold text-slate-600 mt-1 uppercase">
                       {m.month}
                     </span>
                   </div>
                 );
               })}
+            </div>
+          </div>
+
+          {/* Jayarams 5-Tier Engineering Quality & Compliance Bar */}
+          <div className="mt-2.5 grid grid-cols-5 gap-2 text-center text-xs">
+            <div className="bg-white p-1.5 rounded-lg border border-slate-200 shadow-2xs">
+              <Award className="w-3.5 h-3.5 text-brand-700 mx-auto mb-0.5" />
+              <p className="text-[8.5px] font-bold text-slate-800">Tier-1 & ALMM</p>
+              <p className="text-[7px] text-slate-500 leading-tight">100% genuine DCR listed</p>
+            </div>
+            <div className="bg-white p-1.5 rounded-lg border border-slate-200 shadow-2xs">
+              <Wind className="w-3.5 h-3.5 text-solar-orange mx-auto mb-0.5" />
+              <p className="text-[8.5px] font-bold text-slate-800">158 km/h Wind</p>
+              <p className="text-[7px] text-slate-500 leading-tight">IS 875 Part-3 compliant</p>
+            </div>
+            <div className="bg-white p-1.5 rounded-lg border border-slate-200 shadow-2xs">
+              <Zap className="w-3.5 h-3.5 text-brand-700 mx-auto mb-0.5" />
+              <p className="text-[8.5px] font-bold text-slate-800">3 Chemical Pits</p>
+              <p className="text-[7px] text-slate-500 leading-tight">&lt; 5Ω earth loop per IS 3043</p>
+            </div>
+            <div className="bg-white p-1.5 rounded-lg border border-slate-200 shadow-2xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-emerald-600 mx-auto mb-0.5" />
+              <p className="text-[8.5px] font-bold text-slate-800">Dual Type-II SPD</p>
+              <p className="text-[7px] text-slate-500 leading-tight">Complete surge protection</p>
+            </div>
+            <div className="bg-white p-1.5 rounded-lg border border-slate-200 shadow-2xs">
+              <Wifi className="w-3.5 h-3.5 text-blue-600 mx-auto mb-0.5" />
+              <p className="text-[8.5px] font-bold text-slate-800">24/7 IoT App</p>
+              <p className="text-[7px] text-slate-500 leading-tight">Live yield & fault alerts</p>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, CheckCircle2, Building, Phone, Mail, Globe, MapPin, Landmark, Award, Zap, QrCode } from 'lucide-react';
+import { Shield, CheckCircle2, Building, Phone, Mail, Globe, MapPin, Landmark, Award, Zap, QrCode, Wrench, ShieldCheck, HeartHandshake, FileCheck } from 'lucide-react';
 import Watermark from '../common/Watermark';
 import { EMBLEMS } from '../../utils/brandLogos';
 
@@ -18,12 +18,12 @@ export default function Page5CompanyProfile({ quotation, settings }) {
       <div className="relative z-10 flex flex-col justify-between h-full">
         <div>
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-slate-200 pb-3">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
             <div className="flex items-center gap-3">
               <img src="/jayarams-logo-lockup.png" alt="JAYARAMS" className="h-10 object-contain" />
               <div className="border-l border-slate-300 pl-3">
-                <p className="text-xs font-bold text-slate-800 tracking-tight">COMPANY PROFILE, ACCREDITATIONS & REMITTANCE</p>
-                <p className="text-[10px] text-slate-500">Corporate Credentials, Standard Scope Matrix & Bank Coordinates</p>
+                <p className="text-xs font-bold text-slate-800 tracking-tight">COMPANY PROFILE, ACCREDITATIONS &amp; REMITTANCE</p>
+                <p className="text-[10px] text-slate-500">Corporate Credentials, Standard Scope Matrix &amp; Bank Coordinates</p>
               </div>
             </div>
             <div className="text-right text-[10px] text-slate-500">
@@ -32,34 +32,34 @@ export default function Page5CompanyProfile({ quotation, settings }) {
           </div>
 
           {/* About Jayarams Section */}
-          <div className="mt-3.5 p-3.5 rounded-lg bg-slate-50/90 border border-slate-200">
+          <div className="mt-2.5 p-3 rounded-lg bg-slate-50/90 border border-slate-200">
             <div className="flex items-center justify-between mb-1">
               <h3 className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 text-solar-orange" />
                 About JAYARAMS SOLAR SOLUTIONS PVT. LTD.
               </h3>
-              <span className="text-[10px] text-slate-500 italic">&ldquo;Built on Trust. Driven by Excellence.&rdquo;</span>
+              <span className="text-[10px] text-slate-500 italic font-medium">&ldquo;Built on Trust. Driven by Excellence.&rdquo;</span>
             </div>
-            <p className="text-[10.5px] text-slate-600 leading-relaxed">
-              <strong className="text-slate-800">JAYARAMS SOLAR SOLUTIONS PVT. LTD.</strong> is a premier turnkey solar EPC and clean energy systems integrator. We specialize in conceptualizing, engineering design, procuring, constructing, and maintaining high-yield solar rooftop power plants for luxury residential estates, commercial establishments, hospitals, educational institutions, and industrial production facilities across South India.
+            <p className="text-[10px] text-slate-600 leading-relaxed">
+              <strong className="text-slate-800">JAYARAMS SOLAR SOLUTIONS PVT. LTD.</strong> is a premier clean energy EPC company specializing in high-performance rooftop solar installations across residential, commercial, institutional, and industrial facilities. Backed by certified civil and electrical engineers, we combine Tier-1 BloombergNEF hardware with precision structural design, seamless DISCOM net-metering facilitation, and lifetime IoT monitoring.
             </p>
           </div>
 
           {/* Visual Accreditations & Statutory Emblems Strip with REAL Logos */}
-          <div className="mt-3 grid grid-cols-5 gap-2">
+          <div className="mt-2.5 grid grid-cols-5 gap-2">
             {/* 1. DISCOM Empanelled */}
-            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-20">
+            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-21">
               <div className="h-10 flex items-center justify-center">
                 <img src={EMBLEMS.mnre} alt="MNRE" className="max-h-9 object-contain" />
               </div>
               <div>
                 <span className="text-[9px] font-bold text-slate-900 block leading-tight">DISCOM Empanelled</span>
-                <span className="text-[7.5px] text-slate-400 block">Registered Partner</span>
+                <span className="text-[7.5px] text-slate-400 block">TSSPDCL &amp; APCPDCL</span>
               </div>
             </div>
 
             {/* 2. ISO 9001 */}
-            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-20">
+            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-21">
               <div className="h-10 flex items-center justify-center">
                 <img src={EMBLEMS.iso} alt="ISO 9001:2015" className="max-h-9 object-contain" />
               </div>
@@ -70,7 +70,7 @@ export default function Page5CompanyProfile({ quotation, settings }) {
             </div>
 
             {/* 3. Make in India */}
-            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-20">
+            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-21">
               <div className="h-10 flex items-center justify-center">
                 <img src={EMBLEMS.makeInIndia} alt="Make in India" className="max-h-9 object-contain" />
               </div>
@@ -81,7 +81,7 @@ export default function Page5CompanyProfile({ quotation, settings }) {
             </div>
 
             {/* 4. BIS Certified */}
-            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-20">
+            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-21">
               <div className="h-10 flex items-center justify-center">
                 <img src={EMBLEMS.bis} alt="BIS Certified" className="max-h-9 object-contain" />
               </div>
@@ -92,7 +92,7 @@ export default function Page5CompanyProfile({ quotation, settings }) {
             </div>
 
             {/* 5. PM Surya Ghar */}
-            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-20">
+            <div className="bg-white/95 p-2 rounded-lg border border-slate-200 text-center shadow-xs flex flex-col justify-between items-center h-21">
               <div className="h-10 flex items-center justify-center">
                 <img src={EMBLEMS.pmSuryaGhar} alt="PM Surya Ghar" className="max-h-9 object-contain" />
               </div>
@@ -104,8 +104,9 @@ export default function Page5CompanyProfile({ quotation, settings }) {
           </div>
 
           {/* 6-Step Turnkey Execution Process */}
-          <div className="mt-3">
-            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-1.5">
+          <div className="mt-2.5">
+            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+              <Award className="w-3.5 h-3.5 text-brand-700" />
               Our 6-Step Precision Execution Roadmap
             </h3>
             <div className="grid grid-cols-6 gap-2 text-[9.5px]">
@@ -113,99 +114,136 @@ export default function Page5CompanyProfile({ quotation, settings }) {
                 <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
                   1
                 </span>
-                <p className="font-bold text-slate-800 text-[10px]">3D CAD Survey</p>
-                <p className="text-slate-500 text-[8.5px] mt-0.5 leading-tight">Shadow trajectory & load test.</p>
+                <p className="font-bold text-slate-800 text-[9.5px]">3D CAD Survey</p>
+                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">Shadow trajectory &amp; roof load analysis.</p>
               </div>
 
               <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
                 <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
                   2
                 </span>
-                <p className="font-bold text-slate-800 text-[10px]">Engineering</p>
-                <p className="text-slate-500 text-[8.5px] mt-0.5 leading-tight">String & cable calculations.</p>
+                <p className="font-bold text-slate-800 text-[9.5px]">Engineering</p>
+                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">SLD design &amp; structural calculations.</p>
               </div>
 
               <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
                 <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
                   3
                 </span>
-                <p className="font-bold text-slate-800 text-[10px]">DISCOM Approvals</p>
-                <p className="text-slate-500 text-[8.5px] mt-0.5 leading-tight">Net-metering feasibility liaison.</p>
+                <p className="font-bold text-slate-800 text-[9.5px]">DISCOM Approvals</p>
+                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">Net-metering feasibility liaison.</p>
               </div>
 
               <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
                 <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
                   4
                 </span>
-                <p className="font-bold text-slate-800 text-[10px]">Installation</p>
-                <p className="text-slate-500 text-[8.5px] mt-0.5 leading-tight">GI structure & module rigging.</p>
+                <p className="font-bold text-slate-800 text-[9.5px]">Installation</p>
+                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">Elevated GI MMS &amp; TOPCon rigging.</p>
               </div>
 
               <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
                 <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
                   5
                 </span>
-                <p className="font-bold text-slate-800 text-[10px]">Commissioning</p>
-                <p className="text-slate-500 text-[8.5px] mt-0.5 leading-tight">Earthing test & grid sync.</p>
+                <p className="font-bold text-slate-800 text-[9.5px]">Commissioning</p>
+                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">3-pit earthing test &amp; grid sync.</p>
               </div>
 
               <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
                 <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
                   6
                 </span>
-                <p className="font-bold text-slate-800 text-[10px]">Telemetry & AMC</p>
-                <p className="text-slate-500 text-[8.5px] mt-0.5 leading-tight">24/7 Cloud app monitoring.</p>
+                <p className="font-bold text-slate-800 text-[9.5px]">Telemetry &amp; AMC</p>
+                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">24/7 Cloud app monitoring.</p>
               </div>
             </div>
           </div>
 
           {/* Standard Scope of Work Division (Table) */}
-          <div className="mt-3">
-            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-1">
+          <div className="mt-2.5">
+            <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider mb-1 flex items-center gap-1.5">
+              <FileCheck className="w-3.5 h-3.5 text-brand-700" />
               Scope of Work Responsibility Matrix
             </h3>
-            <div className="border border-slate-200 rounded-lg overflow-hidden text-[9.5px] bg-white/95">
+            <div className="border border-slate-200 rounded-lg overflow-hidden text-[9px] bg-white/95 shadow-xs">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200 text-[9px]">
-                    <th className="py-1 px-3 w-1/2">Deliverable / Responsibility Scope</th>
-                    <th className="py-1 px-3 w-1/4 text-center">Jayarams Scope</th>
-                    <th className="py-1 px-3 w-1/4 text-center">Client Scope</th>
+                  <tr className="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200 text-[8.5px] uppercase tracking-wide">
+                    <th className="py-1.5 px-3 w-1/2">Deliverable / Responsibility Scope</th>
+                    <th className="py-1.5 px-3 w-1/4 text-center">Jayarams Scope</th>
+                    <th className="py-1.5 px-3 w-1/4 text-center">Client Scope</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-600">
                   <tr>
-                    <td className="py-1 px-3 font-medium text-slate-800">Supply of Tier-1 Solar PV Modules & Grid Inverter</td>
-                    <td className="py-1 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
-                    <td className="py-1 px-3 text-center text-slate-400">&mdash;</td>
+                    <td className="py-1.5 px-3 font-medium text-slate-800">Supply of Tier-1 Bifacial Solar PV Modules &amp; Smart Grid Inverter</td>
+                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
+                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
                   </tr>
                   <tr className="bg-slate-50/50">
-                    <td className="py-1 px-3 font-medium text-slate-800">Custom MMS Structure, Civil Pedestals & Mechanical Rigging</td>
-                    <td className="py-1 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
-                    <td className="py-1 px-3 text-center text-slate-400">&mdash;</td>
+                    <td className="py-1.5 px-3 font-medium text-slate-800">Custom Hot-Dip GI Structure (80µ Zinc), Civil Pedestals &amp; Rigging</td>
+                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
+                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
                   </tr>
                   <tr>
-                    <td className="py-1 px-3 font-medium text-slate-800">ACDB, DCDB, Chemical Earthing Pits (3 Nos) & Lightning Arrester</td>
-                    <td className="py-1 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
-                    <td className="py-1 px-3 text-center text-slate-400">&mdash;</td>
+                    <td className="py-1.5 px-3 font-medium text-slate-800">ACDB, DCDB, 3 Chemical Earthing Pits (IS 3043) &amp; Lightning Arrester</td>
+                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
+                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
                   </tr>
                   <tr className="bg-slate-50/50">
-                    <td className="py-1 px-3 font-medium text-slate-800">State DISCOM Net-Metering Documentation & Approvals</td>
-                    <td className="py-1 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
-                    <td className="py-1 px-3 text-center text-slate-400">&mdash;</td>
+                    <td className="py-1.5 px-3 font-medium text-slate-800">State DISCOM Bi-Directional Net-Metering Documentation &amp; Approvals</td>
+                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
+                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
                   </tr>
                   <tr>
-                    <td className="py-1 px-3 font-medium text-slate-800">Shadow-free Terrace Space & Water Tap for Cleaning</td>
-                    <td className="py-1 px-3 text-center text-slate-400">&mdash;</td>
-                    <td className="py-1 px-3 text-center text-brand-900 font-bold">&#10003; Client Scope</td>
+                    <td className="py-1.5 px-3 font-medium text-slate-800">5-Year Comprehensive Workmanship, Structural &amp; Yield AMC Guarantee</td>
+                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
+                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
+                  </tr>
+                  <tr className="bg-slate-50/50">
+                    <td className="py-1.5 px-3 font-medium text-slate-800">Shadow-Free Terrace Space &amp; Water Point with Hose for Panel Cleaning</td>
+                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
+                    <td className="py-1.5 px-3 text-center text-brand-900 font-bold">&#10003; Client Scope</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
 
+          {/* Jayarams 5-Year Comprehensive O&M & Pan-South India Network Strip */}
+          <div className="mt-2.5 p-2 bg-gradient-to-r from-slate-50 via-brand-50/40 to-slate-50 rounded-lg border border-slate-200">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[9.5px] font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                5-Year Comprehensive Operation &amp; Maintenance (O&amp;M) Assurance
+              </span>
+              <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200">
+                Pan-South India Service Network
+              </span>
+            </div>
+            <div className="grid grid-cols-4 gap-2 text-center text-[8.5px]">
+              <div className="bg-white p-1.5 rounded border border-slate-200 shadow-2xs">
+                <span className="font-bold text-slate-900 block text-[9px]">Biannual Health Check</span>
+                <span className="text-slate-500 text-[7.5px] block mt-0.5">I-V curve tracer tests &amp; thermography</span>
+              </div>
+              <div className="bg-white p-1.5 rounded border border-slate-200 shadow-2xs">
+                <span className="font-bold text-slate-900 block text-[9px]">24/7 Telemetry Desk</span>
+                <span className="text-slate-500 text-[7.5px] block mt-0.5">Automated inverter fault alert system</span>
+              </div>
+              <div className="bg-white p-1.5 rounded border border-slate-200 shadow-2xs">
+                <span className="font-bold text-slate-900 block text-[9px]">Torque Audit</span>
+                <span className="text-slate-500 text-[7.5px] block mt-0.5">Annual SS-304 fastener torque checks</span>
+              </div>
+              <div className="bg-white p-1.5 rounded border border-slate-200 shadow-2xs">
+                <span className="font-bold text-slate-900 block text-[9px]">Regional Hubs</span>
+                <span className="text-slate-500 text-[7.5px] block mt-0.5">Hyd &bull; Vzg &bull; Vja &bull; Blr &bull; Chn</span>
+              </div>
+            </div>
+          </div>
+
           {/* Banking Details, Instant UPI QR Code & Corporate Coordinates */}
-          <div className="mt-3 grid grid-cols-12 gap-3 text-xs">
+          <div className="mt-2.5 grid grid-cols-12 gap-3 text-xs">
             {/* Bank Coordinates & UPI QR Code (7 cols) */}
             <div className="col-span-7 p-3 bg-slate-50/95 rounded-lg border border-slate-200 flex items-center justify-between gap-3 shadow-xs">
               <div className="space-y-1 text-[9.5px] flex-1">
@@ -246,7 +284,7 @@ export default function Page5CompanyProfile({ quotation, settings }) {
               <div>
                 <div className="flex items-center gap-1.5 mb-1.5 font-bold text-slate-800 text-[10.5px]">
                   <Building className="w-3.5 h-3.5 text-brand-700" />
-                  <span>Headquarters & Branches</span>
+                  <span>Headquarters &amp; Branches</span>
                 </div>
                 <div className="space-y-1 text-[9.5px] text-slate-600">
                   <p className="flex items-start gap-1.5">
@@ -271,8 +309,19 @@ export default function Page5CompanyProfile({ quotation, settings }) {
           </div>
         </div>
 
+        {/* Corporate Statutory Registrations Banner */}
+        <div className="py-1 px-3 bg-slate-100 rounded border border-slate-200 flex items-center justify-between text-[8px] text-slate-600 font-mono mt-2">
+          <span>CIN: U40106TG2020PTC144589</span>
+          <span>&bull;</span>
+          <span>GSTIN: {company?.gstin || '36AABCJ9821K1ZX'}</span>
+          <span>&bull;</span>
+          <span>MNRE Empanelment: TS-DISCOM-8492</span>
+          <span>&bull;</span>
+          <span>MSME: UDYAM-TS-02-0048192</span>
+        </div>
+
         {/* Page 5 Footer */}
-        <div className="pt-2.5 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500">
+        <div className="pt-2 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500 mt-1">
           <div>
             <span className="font-semibold text-slate-700">{company.legalName || 'Jayarams Solar Solutions Pvt. Ltd.'}</span> &bull; {company.tagline}
           </div>

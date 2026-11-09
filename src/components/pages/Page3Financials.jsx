@@ -1,6 +1,6 @@
 import React from 'react';
 import { formatCurrency, formatNumber, formatDate } from '../../utils/formatters';
-import { IndianRupee, TrendingUp, CheckCircle, Clock, ShieldCheck, Sparkles, CheckCircle2, Info } from 'lucide-react';
+import { IndianRupee, TrendingUp, CheckCircle, Clock, ShieldCheck, Sparkles, CheckCircle2, Info, BarChart2, DollarSign, Percent } from 'lucide-react';
 import Watermark from '../common/Watermark';
 import { EMBLEMS } from '../../utils/brandLogos';
 
@@ -227,8 +227,54 @@ export default function Page3Financials({ quotation, settings }) {
                 </div>
               </div>
 
-              <div className="pt-1.5 border-t border-slate-200 text-[8.5px] text-slate-600 leading-snug">
+              <div className="pt-2 border-t border-slate-200 text-[8.5px] text-slate-600 leading-snug">
                 <strong>Tax-Free Returns:</strong> Solar delivers 28% to 32% equity IRR, outperforming bank FDs and mutual funds.
+              </div>
+            </div>
+          </div>
+
+          {/* Comparative Asset Class Yield Analysis (Solar PV vs Traditional Investments) */}
+          <div className="mt-2.5 p-2.5 bg-gradient-to-r from-slate-50 via-brand-50/50 to-slate-50 rounded-lg border border-slate-200">
+            <div className="flex items-center justify-between mb-1.5">
+              <span className="text-[9.5px] font-bold text-slate-800 uppercase tracking-wide flex items-center gap-1.5">
+                <Percent className="w-3.5 h-3.5 text-brand-700" />
+                Comparative Investment Yield: Rooftop Solar vs Traditional Asset Classes
+              </span>
+              <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200">
+                Highest Risk-Adjusted ROI
+              </span>
+            </div>
+
+            <div className="grid grid-cols-4 gap-2 text-[8.5px]">
+              {/* Asset 1: Solar */}
+              <div className="bg-white p-2 rounded-lg border-2 border-brand-800/40 shadow-xs relative overflow-hidden">
+                <span className="absolute top-1 right-1 bg-solar-orange text-white text-[6.5px] font-black px-1 py-0.2 rounded uppercase">
+                  Top Yield
+                </span>
+                <p className="font-extrabold text-brand-900 text-[9.5px]">Jayarams Solar PV</p>
+                <p className="text-emerald-700 font-black text-xs mt-0.5">28% – 32% IRR</p>
+                <p className="text-slate-500 text-[7.5px] mt-0.5 leading-tight">Tax-free avoided power cost &bull; Payback ~{paybackYears} Yrs</p>
+              </div>
+
+              {/* Asset 2: FD */}
+              <div className="bg-white p-2 rounded-lg border border-slate-200 shadow-2xs">
+                <p className="font-bold text-slate-800 text-[9px]">Bank Fixed Deposit</p>
+                <p className="text-slate-700 font-bold text-xs mt-0.5">6.8% – 7.2%</p>
+                <p className="text-slate-500 text-[7.5px] mt-0.5 leading-tight">Pre-tax interest &bull; Taxed at slab &bull; Payback 10+ Yrs</p>
+              </div>
+
+              {/* Asset 3: Mutual Funds */}
+              <div className="bg-white p-2 rounded-lg border border-slate-200 shadow-2xs">
+                <p className="font-bold text-slate-800 text-[9px]">Equity Mutual Funds</p>
+                <p className="text-slate-700 font-bold text-xs mt-0.5">12% – 14%</p>
+                <p className="text-slate-500 text-[7.5px] mt-0.5 leading-tight">Subject to market risk &bull; 12.5% LTCG &bull; Volatile</p>
+              </div>
+
+              {/* Asset 4: Real Estate */}
+              <div className="bg-white p-2 rounded-lg border border-slate-200 shadow-2xs">
+                <p className="font-bold text-slate-800 text-[9px]">Residential Property</p>
+                <p className="text-slate-700 font-bold text-xs mt-0.5">2.5% – 3.2%</p>
+                <p className="text-slate-500 text-[7.5px] mt-0.5 leading-tight">Gross rental yield &bull; Illiquid asset &bull; High upkeep</p>
               </div>
             </div>
           </div>
@@ -278,7 +324,7 @@ export default function Page3Financials({ quotation, settings }) {
           </div>
 
           {/* Key Financial Modeling Assumptions & Technical Baseline (Documentation Box) */}
-          <div className="mt-2 p-2 bg-slate-50 rounded-lg border border-slate-200 text-[8px] text-slate-600 leading-tight">
+          <div className="mt-2.5 p-2 bg-slate-50 rounded-lg border border-slate-200 text-[8px] text-slate-600 leading-tight">
             <p className="font-bold text-slate-800 text-[8.5px] mb-0.5 flex items-center gap-1">
               <Info className="w-3 h-3 text-brand-700" />
               Documented Financial Modeling Assumptions:
@@ -297,14 +343,14 @@ export default function Page3Financials({ quotation, settings }) {
           </div>
 
           {/* Milestone Payment Schedule */}
-          <div className="mt-2">
+          <div className="mt-2.5">
             <h4 className="text-[10px] font-bold text-slate-800 uppercase tracking-wide mb-1 flex items-center gap-1.5">
               <Clock className="w-3 h-3 text-brand-700" />
               Milestone Payment Schedule
             </h4>
             <div className="grid grid-cols-3 gap-2">
               {paymentMilestones.map((item, idx) => (
-                <div key={idx} className="bg-white/95 p-1.5 rounded-lg border border-slate-200 text-xs shadow-xs">
+                <div key={idx} className="bg-white/95 p-2 rounded-lg border border-slate-200 text-xs shadow-xs">
                   <div className="flex items-center justify-between font-bold text-slate-800 mb-0.5">
                     <span className="text-[9.5px] truncate">{item.milestone}</span>
                     <span className="px-1.5 py-0.2 rounded-full bg-brand-50 text-brand-900 text-[8.5px] font-extrabold border border-brand-200 shrink-0">
@@ -312,7 +358,7 @@ export default function Page3Financials({ quotation, settings }) {
                     </span>
                   </div>
                   <p className="text-[8px] text-slate-500 leading-tight">{item.description}</p>
-                  <p className="text-[9px] font-bold text-slate-800 mt-0.5 pt-0.5 border-t border-slate-100">
+                  <p className="text-[9px] font-bold text-slate-800 mt-1 pt-1 border-t border-slate-100">
                     Amount: {formatCurrency((netPayable * item.percentage) / 100)}
                   </p>
                 </div>
@@ -321,26 +367,26 @@ export default function Page3Financials({ quotation, settings }) {
           </div>
 
           {/* Acceptance & Authorized Signatures Block with Realistic Jayarams Corporate Rubber Stamp */}
-          <div className="mt-2 pt-2 border-t border-slate-200">
+          <div className="mt-2.5 pt-2 border-t border-slate-200">
             <div className="grid grid-cols-2 gap-3 text-xs">
               {/* Client Acceptance */}
-              <div className="p-2.5 bg-white/95 border border-slate-200 rounded-lg flex flex-col justify-between shadow-xs">
+              <div className="p-3 bg-white/95 border border-slate-200 rounded-lg flex flex-col justify-between shadow-xs">
                 <div>
-                  <p className="font-bold text-slate-800 text-[10px] mb-0.5">Customer Confirmation &amp; Acceptance</p>
-                  <p className="text-[8px] text-slate-500 mb-6">
-                    I hereby accept this proposal and authorize Jayarams Solar Solutions Pvt. Ltd. to initiate engineering design &amp; DISCOM application.
+                  <p className="font-bold text-slate-800 text-[10.5px] mb-0.5">Customer Confirmation &amp; Acceptance</p>
+                  <p className="text-[8px] text-slate-500 leading-relaxed mb-4">
+                    I hereby accept the technical and commercial terms of this proposal and authorize Jayarams Solar Solutions Pvt. Ltd. to initiate engineering survey, DISCOM portal filing, and installation.
                   </p>
                 </div>
-                <div className="border-t border-dashed border-slate-300 pt-1 flex justify-between text-[8.5px] text-slate-600">
+                <div className="border-t border-dashed border-slate-300 pt-1.5 flex justify-between text-[8.5px] text-slate-600">
                   <span>Customer Signature: __________________</span>
                   <span>Date: ____________</span>
                 </div>
               </div>
 
               {/* Jayarams Official Authorization with Visual Stamp */}
-              <div className="p-2.5 bg-white/95 border border-slate-200 rounded-lg relative overflow-hidden flex flex-col justify-between shadow-xs">
+              <div className="p-3 bg-white/95 border border-slate-200 rounded-lg relative overflow-hidden flex flex-col justify-between shadow-xs">
                 {/* Official Jayarams Rubber Stamp Vector Overlay */}
-                <div className="absolute right-3 top-1.5 pointer-events-none select-none opacity-85">
+                <div className="absolute right-3 top-1 pointer-events-none select-none opacity-85">
                   <div className="w-20 h-20 rounded-full border-2 border-brand-800/80 p-0.5 flex items-center justify-center transform rotate-[-8deg]">
                     <div className="w-full h-full rounded-full border border-dashed border-brand-800/80 flex flex-col items-center justify-center p-1 text-center bg-brand-50/40">
                       <span className="text-[5px] font-black uppercase text-brand-900 tracking-wider">
@@ -358,17 +404,17 @@ export default function Page3Financials({ quotation, settings }) {
 
                 <div>
                   <div className="flex items-center justify-between mb-0.5">
-                    <p className="font-bold text-slate-800 text-[10px]">For JAYARAMS SOLAR SOLUTIONS PVT. LTD.</p>
+                    <p className="font-bold text-slate-800 text-[10.5px]">For JAYARAMS SOLAR SOLUTIONS PVT. LTD.</p>
                     <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1 py-0.2 rounded font-bold border border-emerald-200">
                       &#10003; Approved &amp; Signed
                     </span>
                   </div>
-                  <p className="text-[8px] text-slate-500 mb-6">
-                    Technical EPC Engineering &amp; Commercial Sales Division.
+                  <p className="text-[8px] text-slate-500 leading-relaxed mb-4">
+                    Technical EPC Engineering &amp; Commercial Sales Division. Registered DISCOM Partner.
                   </p>
                 </div>
 
-                <div className="border-t border-dashed border-slate-300 pt-1 flex justify-between text-[8.5px] text-slate-600">
+                <div className="border-t border-dashed border-slate-300 pt-1.5 flex justify-between text-[8.5px] text-slate-600">
                   <span className="font-semibold text-brand-900">Authorized Signatory &amp; Seal</span>
                   <span>Date: {formatDate(quotation?.date || new Date())}</span>
                 </div>
