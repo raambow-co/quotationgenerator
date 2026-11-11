@@ -20,12 +20,61 @@ import {
   Wrench,
   Check,
   ExternalLink,
-  Info
+  Info,
+  Zap
 } from 'lucide-react';
 import { defaultSettings } from '../data/defaultSettings';
 
 export default function SettingsView({ currentSettings, onSaveSettings, onResetDefaults, onBack }) {
-  const [settings, setSettings] = useState(() => JSON.parse(JSON.stringify(currentSettings || defaultSettings)));
+  const [settings, setSettings] = useState(() => {
+    const base = currentSettings || defaultSettings;
+    return JSON.parse(JSON.stringify({
+      ...defaultSettings,
+      ...base,
+      company: { ...defaultSettings.company, ...(base.company || {}) },
+      qrPortals: { ...defaultSettings.qrPortals, ...(base.qrPortals || {}) },
+      coverPage: { ...defaultSettings.coverPage, ...(base.coverPage || {}) },
+      pricing: { ...defaultSettings.pricing, ...(base.pricing || {}) },
+      equipmentCatalog: {
+        ...defaultSettings.equipmentCatalog,
+        ...(base.equipmentCatalog || {}),
+        panelBrands: (Array.isArray(base.equipmentCatalog?.panelBrands) && base.equipmentCatalog.panelBrands.length > 0)
+          ? base.equipmentCatalog.panelBrands
+          : defaultSettings.equipmentCatalog.panelBrands,
+        inverterBrands: (Array.isArray(base.equipmentCatalog?.inverterBrands) && base.equipmentCatalog.inverterBrands.length > 0)
+          ? base.equipmentCatalog.inverterBrands
+          : defaultSettings.equipmentCatalog.inverterBrands,
+        structureTypes: (Array.isArray(base.equipmentCatalog?.structureTypes) && base.equipmentCatalog.structureTypes.length > 0)
+          ? base.equipmentCatalog.structureTypes
+          : defaultSettings.equipmentCatalog.structureTypes,
+        structureSpecs: { ...defaultSettings.equipmentCatalog.structureSpecs, ...(base.equipmentCatalog?.structureSpecs || {}) },
+        electricalSpecs: { ...defaultSettings.equipmentCatalog.electricalSpecs, ...(base.equipmentCatalog?.electricalSpecs || {}) }
+      },
+      warranties: { ...defaultSettings.warranties, ...(base.warranties || {}) },
+      authorization: { ...defaultSettings.authorization, ...(base.authorization || {}) },
+      omAssurance: { ...defaultSettings.omAssurance, ...(base.omAssurance || {}) },
+      portfolioWorks: {
+        ...defaultSettings.portfolioWorks,
+        ...(base.portfolioWorks || {}),
+        metrics: { ...defaultSettings.portfolioWorks.metrics, ...(base.portfolioWorks?.metrics || {}) },
+        projects: (Array.isArray(base.portfolioWorks?.projects) && base.portfolioWorks.projects.length > 0)
+          ? base.portfolioWorks.projects
+          : defaultSettings.portfolioWorks.projects,
+        fieldShowcasePhotos: (Array.isArray(base.portfolioWorks?.fieldShowcasePhotos) && base.portfolioWorks.fieldShowcasePhotos.length > 0)
+          ? base.portfolioWorks.fieldShowcasePhotos
+          : defaultSettings.portfolioWorks.fieldShowcasePhotos
+      },
+      executionRoadmap: (Array.isArray(base.executionRoadmap) && base.executionRoadmap.length > 0)
+        ? base.executionRoadmap
+        : defaultSettings.executionRoadmap,
+      scopeOfWorkMatrix: (Array.isArray(base.scopeOfWorkMatrix) && base.scopeOfWorkMatrix.length > 0)
+        ? base.scopeOfWorkMatrix
+        : defaultSettings.scopeOfWorkMatrix,
+      paymentMilestones: (Array.isArray(base.paymentMilestones) && base.paymentMilestones.length > 0)
+        ? base.paymentMilestones
+        : defaultSettings.paymentMilestones
+    }));
+  });
   const [activeTab, setActiveTab] = useState('company');
   const [savedNotification, setSavedNotification] = useState(false);
 
@@ -812,10 +861,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
 
               <div className="space-y-3">
                 {settings.equipmentCatalog?.panelBrands?.map((b, idx) => (
-                  <div key={b.id || idx} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
+                  <div key={b?.id || idx} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="font-extrabold text-xs text-brand-900">Module Option #{idx + 1}</span>
-                      {settings.equipmentCatalog.panelBrands.length > 1 && (
+                      {(settings.equipmentCatalog?.panelBrands?.length || 0) > 1 && (
                         <button
                           type="button"
                           onClick={() => removePanelBrand(idx)}
@@ -831,10 +880,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
                         <label className="block text-[10px] font-semibold text-slate-600 mb-0.5">Brand Name</label>
                         <input
                           type="text"
-                          value={b.name}
+                          value={b?.name || ''}
                           onChange={(e) => {
-                            const updated = [...settings.equipmentCatalog.panelBrands];
-                            updated[idx].name = e.target.value;
+                            const updated = [...(settings.equipmentCatalog?.panelBrands || [])];
+                            updated[idx] = { ...(updated[idx] || {}), name: e.target.value };
                             updateSettings('equipmentCatalog.panelBrands', updated);
                           }}
                           className="w-full px-2 py-1 bg-white rounded border border-slate-300 font-bold"
@@ -844,10 +893,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
                         <label className="block text-[10px] font-semibold text-slate-600 mb-0.5">Model Description</label>
                         <input
                           type="text"
-                          value={b.model}
+                          value={b?.model || ''}
                           onChange={(e) => {
-                            const updated = [...settings.equipmentCatalog.panelBrands];
-                            updated[idx].model = e.target.value;
+                            const updated = [...(settings.equipmentCatalog?.panelBrands || [])];
+                            updated[idx] = { ...(updated[idx] || {}), model: e.target.value };
                             updateSettings('equipmentCatalog.panelBrands', updated);
                           }}
                           className="w-full px-2 py-1 bg-white rounded border border-slate-300"
@@ -857,10 +906,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
                         <label className="block text-[10px] font-semibold text-slate-600 mb-0.5">Rated Wattage (Wp)</label>
                         <input
                           type="number"
-                          value={b.wattage}
+                          value={b?.wattage || 550}
                           onChange={(e) => {
-                            const updated = [...settings.equipmentCatalog.panelBrands];
-                            updated[idx].wattage = parseInt(e.target.value) || 550;
+                            const updated = [...(settings.equipmentCatalog?.panelBrands || [])];
+                            updated[idx] = { ...(updated[idx] || {}), wattage: parseInt(e.target.value) || 550 };
                             updateSettings('equipmentCatalog.panelBrands', updated);
                           }}
                           className="w-full px-2 py-1 bg-white rounded border border-slate-300 font-bold"
@@ -870,10 +919,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
                         <label className="block text-[10px] font-semibold text-slate-600 mb-0.5">Cell Tech</label>
                         <input
                           type="text"
-                          value={b.cellType}
+                          value={b?.cellType || ''}
                           onChange={(e) => {
-                            const updated = [...settings.equipmentCatalog.panelBrands];
-                            updated[idx].cellType = e.target.value;
+                            const updated = [...(settings.equipmentCatalog?.panelBrands || [])];
+                            updated[idx] = { ...(updated[idx] || {}), cellType: e.target.value };
                             updateSettings('equipmentCatalog.panelBrands', updated);
                           }}
                           className="w-full px-2 py-1 bg-white rounded border border-slate-300"
@@ -883,10 +932,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
                         <label className="block text-[10px] font-semibold text-slate-600 mb-0.5">Efficiency</label>
                         <input
                           type="text"
-                          value={b.efficiency || '22.0%'}
+                          value={b?.efficiency || '22.0%'}
                           onChange={(e) => {
-                            const updated = [...settings.equipmentCatalog.panelBrands];
-                            updated[idx].efficiency = e.target.value;
+                            const updated = [...(settings.equipmentCatalog?.panelBrands || [])];
+                            updated[idx] = { ...(updated[idx] || {}), efficiency: e.target.value };
                             updateSettings('equipmentCatalog.panelBrands', updated);
                           }}
                           className="w-full px-2 py-1 bg-white rounded border border-slate-300"
@@ -919,10 +968,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
 
               <div className="space-y-3">
                 {settings.equipmentCatalog?.inverterBrands?.map((inv, idx) => (
-                  <div key={inv.id || idx} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
+                  <div key={inv?.id || idx} className="p-3.5 rounded-xl border border-slate-200 bg-slate-50 space-y-2">
                     <div className="flex items-center justify-between">
                       <span className="font-extrabold text-xs text-brand-900">Inverter Option #{idx + 1}</span>
-                      {settings.equipmentCatalog.inverterBrands.length > 1 && (
+                      {(settings.equipmentCatalog?.inverterBrands?.length || 0) > 1 && (
                         <button
                           type="button"
                           onClick={() => removeInverterBrand(idx)}
@@ -938,10 +987,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
                         <label className="block text-[10px] font-semibold text-slate-600 mb-0.5">Brand Name</label>
                         <input
                           type="text"
-                          value={inv.name}
+                          value={inv?.name || ''}
                           onChange={(e) => {
-                            const updated = [...settings.equipmentCatalog.inverterBrands];
-                            updated[idx].name = e.target.value;
+                            const updated = [...(settings.equipmentCatalog?.inverterBrands || [])];
+                            updated[idx] = { ...(updated[idx] || {}), name: e.target.value };
                             updateSettings('equipmentCatalog.inverterBrands', updated);
                           }}
                           className="w-full px-2 py-1 bg-white rounded border border-slate-300 font-bold"
@@ -951,10 +1000,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
                         <label className="block text-[10px] font-semibold text-slate-600 mb-0.5">Model Description</label>
                         <input
                           type="text"
-                          value={inv.model}
+                          value={inv?.model || ''}
                           onChange={(e) => {
-                            const updated = [...settings.equipmentCatalog.inverterBrands];
-                            updated[idx].model = e.target.value;
+                            const updated = [...(settings.equipmentCatalog?.inverterBrands || [])];
+                            updated[idx] = { ...(updated[idx] || {}), model: e.target.value };
                             updateSettings('equipmentCatalog.inverterBrands', updated);
                           }}
                           className="w-full px-2 py-1 bg-white rounded border border-slate-300"
@@ -964,10 +1013,10 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
                         <label className="block text-[10px] font-semibold text-slate-600 mb-0.5">Efficiency</label>
                         <input
                           type="text"
-                          value={inv.efficiency}
+                          value={inv?.efficiency || '98.5%'}
                           onChange={(e) => {
-                            const updated = [...settings.equipmentCatalog.inverterBrands];
-                            updated[idx].efficiency = e.target.value;
+                            const updated = [...(settings.equipmentCatalog?.inverterBrands || [])];
+                            updated[idx] = { ...(updated[idx] || {}), efficiency: e.target.value };
                             updateSettings('equipmentCatalog.inverterBrands', updated);
                           }}
                           className="w-full px-2 py-1 bg-white rounded border border-slate-300"
@@ -1061,31 +1110,38 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
               </div>
 
               <div className="space-y-3">
-                {(settings.equipmentCatalog?.structureTypes || []).map((st, idx) => (
-                  <div key={st.id || idx} className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-3">
-                    <input
-                      type="text"
-                      value={st.name}
-                      onChange={(e) => {
-                        const updated = [...(settings.equipmentCatalog?.structureTypes || [])];
-                        updated[idx] = { ...updated[idx], name: e.target.value };
-                        updateSettings('equipmentCatalog.structureTypes', updated);
-                      }}
-                      className="flex-1 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white"
-                      placeholder="Structure description..."
-                    />
-                    {(settings.equipmentCatalog?.structureTypes || []).length > 1 && (
-                      <button
-                        type="button"
-                        onClick={() => removeStructureType(idx)}
-                        className="p-2 text-rose-500 hover:bg-rose-50 rounded-lg transition-colors"
-                        title="Remove structure option"
-                      >
-                        <Trash2 className="w-4 h-4" />
-                      </button>
-                    )}
-                  </div>
-                ))}
+                {(settings.equipmentCatalog?.structureTypes || []).map((st, idx) => {
+                  const val = typeof st === 'string' ? st : (st?.name || '');
+                  return (
+                    <div key={st?.id || idx} className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-3">
+                      <input
+                        type="text"
+                        value={val}
+                        onChange={(e) => {
+                          const updated = [...(settings.equipmentCatalog?.structureTypes || [])];
+                          if (typeof updated[idx] === 'string') {
+                            updated[idx] = { id: `mms-${idx}`, name: e.target.value };
+                          } else {
+                            updated[idx] = { ...(updated[idx] || {}), name: e.target.value };
+                          }
+                          updateSettings('equipmentCatalog.structureTypes', updated);
+                        }}
+                        className="flex-1 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white"
+                        placeholder="Structure description..."
+                      />
+                      {(settings.equipmentCatalog?.structureTypes || []).length > 1 && (
+                        <button
+                          type="button"
+                          onClick={() => removeStructureType(idx)}
+                          className="p-2 text-rose-500 hover:bg-rose-50 rounded-lg transition-colors"
+                          title="Remove structure option"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
