@@ -121,6 +121,31 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
     }));
   };
 
+  // Mounting Structure options helpers
+  const addStructureType = () => {
+    const newStructure = {
+      id: `mms-${Date.now()}`,
+      name: 'Custom Elevated Mounting Structure System (IS 875 Compliant)'
+    };
+    setSettings(prev => ({
+      ...prev,
+      equipmentCatalog: {
+        ...prev.equipmentCatalog,
+        structureTypes: [...(prev.equipmentCatalog?.structureTypes || []), newStructure]
+      }
+    }));
+  };
+
+  const removeStructureType = (idx) => {
+    setSettings(prev => ({
+      ...prev,
+      equipmentCatalog: {
+        ...prev.equipmentCatalog,
+        structureTypes: (prev.equipmentCatalog?.structureTypes || []).filter((_, i) => i !== idx)
+      }
+    }));
+  };
+
   // Milestone helpers
   const addMilestone = () => {
     const newMilestone = {
@@ -1013,6 +1038,54 @@ export default function SettingsView({ currentSettings, onSaveSettings, onResetD
                     className="w-full px-3 py-2 rounded-lg border border-slate-300 bg-white"
                   />
                 </div>
+              </div>
+            </div>
+
+            {/* MMS Types for Form Dropdown */}
+            <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
+              <div className="border-b border-slate-200 pb-3 flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Layers className="w-4 h-4 text-brand-700" />
+                  <h2 className="text-sm font-bold text-slate-900 uppercase tracking-wide">
+                    Mounting Structure Options (Form Dropdown)
+                  </h2>
+                </div>
+                <button
+                  type="button"
+                  onClick={addStructureType}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-brand-50 text-brand-700 font-semibold text-xs hover:bg-brand-100 transition-colors"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  Add Structure Option
+                </button>
+              </div>
+
+              <div className="space-y-3">
+                {(settings.equipmentCatalog?.structureTypes || []).map((st, idx) => (
+                  <div key={st.id || idx} className="p-3 bg-slate-50 rounded-xl border border-slate-200 flex items-center gap-3">
+                    <input
+                      type="text"
+                      value={st.name}
+                      onChange={(e) => {
+                        const updated = [...(settings.equipmentCatalog?.structureTypes || [])];
+                        updated[idx] = { ...updated[idx], name: e.target.value };
+                        updateSettings('equipmentCatalog.structureTypes', updated);
+                      }}
+                      className="flex-1 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white"
+                      placeholder="Structure description..."
+                    />
+                    {(settings.equipmentCatalog?.structureTypes || []).length > 1 && (
+                      <button
+                        type="button"
+                        onClick={() => removeStructureType(idx)}
+                        className="p-2 text-rose-500 hover:bg-rose-50 rounded-lg transition-colors"
+                        title="Remove structure option"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+                    )}
+                  </div>
+                ))}
               </div>
             </div>
           </div>

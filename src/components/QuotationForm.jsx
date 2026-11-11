@@ -55,13 +55,13 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
       },
       technical: {
         systemCapacityKw: defaultKw,
-        panelBrand: settings?.equipmentCatalog?.panelBrands[0]?.name || 'Waaree Solar',
-        panelModel: settings?.equipmentCatalog?.panelBrands[0]?.model || '550Wp Bi-facial Dual Glass TopCon',
+        panelBrand: settings?.equipmentCatalog?.panelBrands?.[0]?.name || 'Waaree Solar',
+        panelModel: settings?.equipmentCatalog?.panelBrands?.[0]?.model || '550Wp Bi-facial Dual Glass TopCon',
         panelWattage: 550,
         panelCount: defaultMetrics.panelCount,
-        inverterBrand: settings?.equipmentCatalog?.inverterBrands[0]?.name || 'Sungrow Power',
-        inverterModel: settings?.equipmentCatalog?.inverterBrands[0]?.model || 'Smart On-Grid Dual MPPT Inverter',
-        structureType: settings?.equipmentCatalog?.structureTypes[0]?.name || 'Hot-Dip Galvanized Iron (GI) — Elevated 7 to 9 ft',
+        inverterBrand: settings?.equipmentCatalog?.inverterBrands?.[0]?.name || 'Sungrow Power',
+        inverterModel: settings?.equipmentCatalog?.inverterBrands?.[0]?.model || 'Smart On-Grid Dual MPPT Inverter',
+        structureType: settings?.equipmentCatalog?.structureTypes?.[0]?.name || 'Hot-Dip Galvanized Iron (GI) — Elevated 7 to 9 ft',
         cablesAndBOS: settings?.equipmentCatalog?.cableBrands || 'Polycab / Siechem 4 sq.mm TUV Solar Cables',
         monitoring: 'Smart Wi-Fi IoT Cloud Real-time Mobile Application',
         estimatedDailyUnits: defaultMetrics.dailyUnits,
@@ -85,8 +85,8 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
         paybackYears: defaultFin.paybackYears,
         cumulativeSavings25Years: defaultFin.lifetimeSavings25Years
       },
-      warranties: { ...settings?.defaultWarranties },
-      paymentMilestones: [...(settings?.defaultPaymentTerms || [])],
+      warranties: { ...(settings?.warranties || settings?.defaultWarranties || {}) },
+      paymentMilestones: [...(settings?.paymentMilestones || settings?.defaultPaymentTerms || [])],
       notes: 'Includes turnkey DISCOM Net-Metering facilitation, foundation column civil work, and complimentary solar panel cleaning maintenance kit.',
       preparedBy: 'Jayarams Solar Engineering & Sales Team'
     };
@@ -617,7 +617,15 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                       })}
                       className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 focus:border-brand-500"
                     >
-                      {settings?.equipmentCatalog?.structureTypes?.map(st => (
+                      {(settings?.equipmentCatalog?.structureTypes && settings.equipmentCatalog.structureTypes.length > 0
+                        ? settings.equipmentCatalog.structureTypes
+                        : [
+                            { id: 'gi-elevated', name: 'Hot-Dip Galvanized Iron (GI) — Elevated 7 to 9 ft Roof Clearance (IS 875 Compliant)' },
+                            { id: 'alum-flush', name: 'Anodized High-Strength Aluminum — Non-Elevated Flush Mount' },
+                            { id: 'tin-shed', name: 'Industrial Metal Sheet / Klip-Lok Bracket System' },
+                            { id: 'mono-slope', name: 'Super-Elevated Heavy Duty High-Clearance Gazebo / Pergola Design' }
+                          ]
+                      ).map(st => (
                         <option key={st.id} value={st.name}>{st.name}</option>
                       ))}
                     </select>

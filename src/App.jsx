@@ -89,17 +89,41 @@ export default function App() {
           equipmentCatalog: {
             ...defaultSettings.equipmentCatalog,
             ...(parsed.equipmentCatalog || {}),
+            panelBrands: (Array.isArray(parsed.equipmentCatalog?.panelBrands) && parsed.equipmentCatalog.panelBrands.length > 0)
+              ? parsed.equipmentCatalog.panelBrands
+              : defaultSettings.equipmentCatalog.panelBrands,
+            inverterBrands: (Array.isArray(parsed.equipmentCatalog?.inverterBrands) && parsed.equipmentCatalog.inverterBrands.length > 0)
+              ? parsed.equipmentCatalog.inverterBrands
+              : defaultSettings.equipmentCatalog.inverterBrands,
+            structureTypes: (Array.isArray(parsed.equipmentCatalog?.structureTypes) && parsed.equipmentCatalog.structureTypes.length > 0)
+              ? parsed.equipmentCatalog.structureTypes
+              : defaultSettings.equipmentCatalog.structureTypes,
             structureSpecs: { ...defaultSettings.equipmentCatalog.structureSpecs, ...(parsed.equipmentCatalog?.structureSpecs || {}) },
             electricalSpecs: { ...defaultSettings.equipmentCatalog.electricalSpecs, ...(parsed.equipmentCatalog?.electricalSpecs || {}) }
           },
           warranties: { ...defaultSettings.warranties, ...(parsed.warranties || {}) },
+          paymentMilestones: (Array.isArray(parsed.paymentMilestones) && parsed.paymentMilestones.length > 0)
+            ? parsed.paymentMilestones
+            : defaultSettings.paymentMilestones,
           authorization: { ...defaultSettings.authorization, ...(parsed.authorization || {}) },
           omAssurance: { ...defaultSettings.omAssurance, ...(parsed.omAssurance || {}) },
           portfolioWorks: {
             ...defaultSettings.portfolioWorks,
             ...(parsed.portfolioWorks || {}),
-            metrics: { ...defaultSettings.portfolioWorks.metrics, ...(parsed.portfolioWorks?.metrics || {}) }
-          }
+            metrics: { ...defaultSettings.portfolioWorks.metrics, ...(parsed.portfolioWorks?.metrics || {}) },
+            projects: (Array.isArray(parsed.portfolioWorks?.projects) && parsed.portfolioWorks.projects.length > 0)
+              ? parsed.portfolioWorks.projects
+              : defaultSettings.portfolioWorks.projects,
+            fieldShowcasePhotos: (Array.isArray(parsed.portfolioWorks?.fieldShowcasePhotos) && parsed.portfolioWorks.fieldShowcasePhotos.length > 0)
+              ? parsed.portfolioWorks.fieldShowcasePhotos
+              : defaultSettings.portfolioWorks.fieldShowcasePhotos
+          },
+          executionRoadmap: (Array.isArray(parsed.executionRoadmap) && parsed.executionRoadmap.length > 0)
+            ? parsed.executionRoadmap
+            : defaultSettings.executionRoadmap,
+          scopeOfWorkMatrix: (Array.isArray(parsed.scopeOfWorkMatrix) && parsed.scopeOfWorkMatrix.length > 0)
+            ? parsed.scopeOfWorkMatrix
+            : defaultSettings.scopeOfWorkMatrix
         };
       }
     } catch (e) {
@@ -290,7 +314,7 @@ export default function App() {
 
           {view === 'preview' && (
             <QuotationPreview
-              quotation={currentQuotation || quotations[0]}
+              quotation={currentQuotation || quotations?.[0] || sampleQuotations?.[0]}
               settings={settings}
               onBack={() => setView('dashboard')}
               onEdit={(q) => {

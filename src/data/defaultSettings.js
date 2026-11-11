@@ -92,6 +92,12 @@ export const defaultSettings = {
       { id: 'growatt', name: 'Growatt New Energy', model: 'MIN / MID Series Dual MPPT Smart Inverter with ShineWiFi', efficiency: '98.4%', maxDcInput: '7500 W', mpptChannels: '2 MPPTs', warranty: '10 Years' },
       { id: 'solis', name: 'Solis Ginlong', model: 'S6 Pro Series Solar Grid-Tied Inverter with Remote Telemetry', efficiency: '98.5%', maxDcInput: '7500 W', mpptChannels: '2 MPPTs', warranty: '10 Years' }
     ],
+    structureTypes: [
+      { id: 'gi-elevated', name: 'Hot-Dip Galvanized Iron (GI) — Elevated 7 to 9 ft Roof Clearance (IS 875 Compliant)' },
+      { id: 'alum-flush', name: 'Anodized High-Strength Aluminum — Non-Elevated Flush Mount' },
+      { id: 'tin-shed', name: 'Industrial Metal Sheet / Klip-Lok Bracket System' },
+      { id: 'mono-slope', name: 'Super-Elevated Heavy Duty High-Clearance Gazebo / Pergola Design' }
+    ],
     structureSpecs: {
       type: "Hot-Dip Galvanized Iron (GI)",
       coating: "80 Microns Zinc Coating (IS 4759)",
