@@ -40,7 +40,7 @@ export default function Page2SystemSpec({ quotation, settings }) {
   const avgMonthly = annualKwh / 12;
 
   return (
-    <div className="a4-preview-sheet p-8 sm:p-10 flex flex-col justify-between text-slate-800 bg-white relative overflow-hidden">
+    <div className="a4-preview-sheet p-7 sm:p-8 flex flex-col justify-between text-slate-800 bg-white relative overflow-hidden">
       {/* Top Accent Bar */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-900 via-brand-700 to-solar-orange z-10" />
 
@@ -50,9 +50,9 @@ export default function Page2SystemSpec({ quotation, settings }) {
       <div className="relative z-10 flex flex-col justify-between h-full">
         <div>
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-2">
             <div className="flex items-center gap-3">
-              <img src="/jayarams-logo-lockup.png" alt="JAYARAMS SOLAR SOLUTIONS" className="h-10 object-contain" />
+              <img src="/jayarams-logo-lockup.png" alt="JAYARAMS SOLAR SOLUTIONS" className="h-9 object-contain" />
               <div className="border-l border-slate-300 pl-3">
                 <p className="text-xs font-bold text-slate-800 tracking-tight">TECHNICAL SPECIFICATIONS &amp; BILL OF MATERIALS</p>
                 <p className="text-[10px] text-slate-500">System Sizing, Engineering Design &amp; Equipment Standards</p>
@@ -65,62 +65,62 @@ export default function Page2SystemSpec({ quotation, settings }) {
           </div>
 
           {/* Visual Hardware Component Gallery with Locally-Hosted High-Resolution Assets */}
-          <div className="mt-3 grid grid-cols-4 gap-2.5">
+          <div className="mt-2.5 grid grid-cols-4 gap-2.5">
             {/* 1. Solar Module Visual */}
-            <div className="bg-white rounded-xl border border-slate-200 p-2.5 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
-              <div className="h-34 rounded-lg overflow-hidden relative bg-slate-950 mb-2 border border-slate-200/80 flex items-center justify-center">
+            <div className="bg-white rounded-xl border border-slate-200 p-2 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+              <div className="h-26 rounded-lg overflow-hidden relative bg-slate-950 mb-1.5 border border-slate-200/80 flex items-center justify-center">
                 <img 
                   src="/assets/hardware/solar-module.svg" 
                   alt="Waaree Solar PV Module" 
-                  className="w-full h-full object-contain p-1.5"
+                  className="w-full h-full object-contain p-1"
                 />
                 {/* Brand Logo Floating Overlay */}
-                <div className="absolute top-1.5 right-1.5 z-20 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-xs border border-slate-200">
-                  <img src={panelLogo} alt="" className="h-3.5 max-w-[55px] object-contain" />
+                <div className="absolute top-1 right-1 z-20 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-xs border border-slate-200">
+                  <img src={panelLogo} alt="" className="h-3 max-w-[50px] object-contain" />
                 </div>
-                <span className="absolute bottom-1.5 left-1.5 z-20 bg-brand-950/85 backdrop-blur-sm text-white text-[7.5px] font-bold px-1.5 py-0.5 rounded">
+                <span className="absolute bottom-1 left-1 z-20 bg-brand-950/85 backdrop-blur-sm text-white text-[7px] font-bold px-1.5 py-0.5 rounded">
                   Bifacial TOPCon
                 </span>
-                <span className="absolute bottom-1.5 right-1.5 z-20 bg-emerald-700 text-white text-[7px] font-black px-1.5 py-0.5 rounded shadow-xs">
+                <span className="absolute bottom-1 right-1 z-20 bg-emerald-700 text-white text-[6.5px] font-black px-1.5 py-0.5 rounded shadow-xs">
                   21.5% Eff.
                 </span>
               </div>
               <div>
-                <p className="text-[10.5px] font-bold text-slate-900 truncate">{technical?.panelBrand || 'Waaree Solar'}</p>
-                <p className="text-[9px] text-slate-500 font-medium">{panelCount} Nos &times; {panelWattage}Wp = {dcKw} kWp</p>
-                <span className="text-[8.5px] text-emerald-700 font-extrabold block mt-0.5">25-Yr Performance • 12-Yr Product</span>
+                <p className="text-[10px] font-bold text-slate-900 truncate">{technical?.panelBrand || 'Waaree Solar'}</p>
+                <p className="text-[8.5px] text-slate-500 font-medium">{panelCount} Nos &times; {panelWattage}Wp = {dcKw} kWp</p>
+                <span className="text-[8px] text-emerald-700 font-extrabold block mt-0.5">25-Yr Performance • 12-Yr Product</span>
               </div>
             </div>
 
             {/* 2. Solar Inverter Visual */}
-            <div className="bg-white rounded-xl border border-slate-200 p-2.5 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
-              <div className="h-34 rounded-lg overflow-hidden relative bg-slate-950 mb-2 border border-slate-200/80 flex items-center justify-center">
+            <div className="bg-white rounded-xl border border-slate-200 p-2 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+              <div className="h-26 rounded-lg overflow-hidden relative bg-slate-950 mb-1.5 border border-slate-200/80 flex items-center justify-center">
                 <img 
                   src="/assets/hardware/solar-inverter.svg" 
                   alt="Solar On-Grid Inverter" 
-                  className="w-full h-full object-contain p-1.5"
+                  className="w-full h-full object-contain p-1"
                 />
                 {/* Brand Logo Floating Overlay */}
-                <div className="absolute top-1.5 right-1.5 z-20 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-xs border border-slate-200">
-                  <img src={inverterLogo} alt="" className="h-3.5 max-w-[55px] object-contain" />
+                <div className="absolute top-1 right-1 z-20 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-xs border border-slate-200">
+                  <img src={inverterLogo} alt="" className="h-3 max-w-[50px] object-contain" />
                 </div>
-                <span className="absolute bottom-1.5 left-1.5 z-20 bg-brand-950/85 backdrop-blur-sm text-white text-[7.5px] font-bold px-1.5 py-0.5 rounded">
+                <span className="absolute bottom-1 left-1 z-20 bg-brand-950/85 backdrop-blur-sm text-white text-[7px] font-bold px-1.5 py-0.5 rounded">
                   &gt;98.4% Eff. &bull; Dual MPPT
                 </span>
-                <span className="absolute bottom-1.5 right-1.5 z-20 bg-blue-700 text-white text-[7px] font-black px-1.5 py-0.5 rounded shadow-xs">
-                  IoT Telemetry
+                <span className="absolute bottom-1 right-1 z-20 bg-blue-700 text-white text-[6.5px] font-black px-1.5 py-0.5 rounded shadow-xs">
+                  IoT Cloud
                 </span>
               </div>
               <div>
-                <p className="text-[10.5px] font-bold text-slate-900 truncate">{technical?.inverterBrand || 'Sungrow Power'}</p>
-                <p className="text-[9px] text-slate-500 font-medium">{acKw} kW AC &bull; Wi-Fi Smart Cloud</p>
-                <span className="text-[8.5px] text-slate-700 font-extrabold block mt-0.5">10-Yr Replacement Warranty</span>
+                <p className="text-[10px] font-bold text-slate-900 truncate">{technical?.inverterBrand || 'Sungrow Power'}</p>
+                <p className="text-[8.5px] text-slate-500 font-medium">{acKw} kW AC &bull; Wi-Fi Smart Telemetry</p>
+                <span className="text-[8px] text-slate-700 font-extrabold block mt-0.5">10-Yr Replacement Warranty</span>
               </div>
             </div>
 
             {/* 3. Elevated Mounting Structure Visual (100% Full Real Installation Photo) */}
-            <div className="bg-white rounded-xl border border-brand-200/80 p-2.5 flex flex-col justify-between shadow-xs ring-1 ring-brand-100 hover:shadow-md transition-shadow">
-              <div className="h-34 rounded-lg overflow-hidden relative bg-slate-950 mb-2 border border-slate-200 flex items-center justify-center">
+            <div className="bg-white rounded-xl border border-brand-200/80 p-2 flex flex-col justify-between shadow-xs ring-1 ring-brand-100 hover:shadow-md transition-shadow">
+              <div className="h-26 rounded-lg overflow-hidden relative bg-slate-950 mb-1.5 border border-slate-200 flex items-center justify-center">
                 <img 
                   src="/assets/gi-structure.jpg" 
                   alt="" 
@@ -131,43 +131,43 @@ export default function Page2SystemSpec({ quotation, settings }) {
                   alt="Hot-Dip Galvanized Iron (GI) Structure" 
                   className="relative z-10 max-h-full max-w-full object-contain"
                 />
-                <span className="absolute top-1.5 left-1.5 z-20 bg-brand-950/90 text-white text-[7.5px] font-bold px-1.5 py-0.5 rounded backdrop-blur-sm">
+                <span className="absolute top-1 left-1 z-20 bg-brand-950/90 text-white text-[7px] font-bold px-1.5 py-0.5 rounded backdrop-blur-sm">
                   80µ Zinc GI
                 </span>
-                <span className="absolute bottom-1.5 right-1.5 z-20 bg-amber-500 text-slate-950 text-[7px] font-black px-1.5 py-0.5 rounded shadow-xs">
+                <span className="absolute bottom-1 right-1 z-20 bg-amber-500 text-slate-950 text-[6.5px] font-black px-1.5 py-0.5 rounded shadow-xs">
                   IS 875 158 km/h
                 </span>
               </div>
               <div>
-                <p className="text-[10.5px] font-bold text-slate-900 truncate">Elevated GI Structure</p>
-                <p className="text-[9px] text-slate-500 font-medium">7 to 9 ft Clearance (IS 875 Vb=44m/s)</p>
-                <span className="text-[8.5px] text-brand-900 font-extrabold block mt-0.5">15-Yr Structural Guarantee</span>
+                <p className="text-[10px] font-bold text-slate-900 truncate">Elevated GI Structure</p>
+                <p className="text-[8.5px] text-slate-500 font-medium">7 to 9 ft Clearance (IS 875 Vb=44m/s)</p>
+                <span className="text-[8px] text-brand-900 font-extrabold block mt-0.5">15-Yr Structural Guarantee</span>
               </div>
             </div>
 
             {/* 4. Electrical BOS & Cables Visual */}
-            <div className="bg-white rounded-xl border border-slate-200 p-2.5 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
-              <div className="h-34 rounded-lg overflow-hidden relative bg-slate-950 mb-2 border border-slate-200/80 flex items-center justify-center">
+            <div className="bg-white rounded-xl border border-slate-200 p-2 flex flex-col justify-between shadow-xs hover:shadow-md transition-shadow">
+              <div className="h-26 rounded-lg overflow-hidden relative bg-slate-950 mb-1.5 border border-slate-200/80 flex items-center justify-center">
                 <img 
                   src="/assets/hardware/solar-cables.svg" 
                   alt="Polycab Solar Cables & BOS" 
-                  className="w-full h-full object-contain p-1.5"
+                  className="w-full h-full object-contain p-1"
                 />
                 {/* Brand Logo Floating Overlay */}
-                <div className="absolute top-1.5 right-1.5 z-20 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-xs border border-slate-200">
-                  <img src={cableLogo} alt="Polycab" className="h-3.5 max-w-[50px] object-contain" />
+                <div className="absolute top-1 right-1 z-20 bg-white/95 backdrop-blur-sm px-1.5 py-0.5 rounded shadow-xs border border-slate-200">
+                  <img src={cableLogo} alt="Polycab" className="h-3 max-w-[45px] object-contain" />
                 </div>
-                <span className="absolute bottom-1.5 left-1.5 z-20 bg-brand-950/85 backdrop-blur-sm text-white text-[7.5px] font-bold px-1.5 py-0.5 rounded">
+                <span className="absolute bottom-1 left-1 z-20 bg-brand-950/85 backdrop-blur-sm text-white text-[7px] font-bold px-1.5 py-0.5 rounded">
                   Dual SPD &bull; IP65
                 </span>
-                <span className="absolute bottom-1.5 right-1.5 z-20 bg-emerald-700 text-white text-[7px] font-black px-1.5 py-0.5 rounded shadow-xs">
+                <span className="absolute bottom-1 right-1 z-20 bg-emerald-700 text-white text-[6.5px] font-black px-1.5 py-0.5 rounded shadow-xs">
                   3 Pits IS 3043
                 </span>
               </div>
               <div>
-                <p className="text-[10.5px] font-bold text-slate-900 truncate">Polycab Cables &amp; BOS</p>
-                <p className="text-[9px] text-slate-500 font-medium">3 Chemical Pits (IS 3043) + LA</p>
-                <span className="text-[8.5px] text-emerald-700 font-extrabold block mt-0.5">CEIG &amp; DISCOM Compliant</span>
+                <p className="text-[10px] font-bold text-slate-900 truncate">Polycab Cables &amp; BOS</p>
+                <p className="text-[8.5px] text-slate-500 font-medium">3 Chemical Pits (IS 3043) + LA</p>
+                <span className="text-[8px] text-emerald-700 font-extrabold block mt-0.5">CEIG &amp; DISCOM Compliant</span>
               </div>
             </div>
           </div>
@@ -400,7 +400,7 @@ export default function Page2SystemSpec({ quotation, settings }) {
               <span className="text-[8.5px] text-slate-500 font-medium">Telangana / AP Solar Irradiance Profile</span>
             </div>
 
-            <div className="grid grid-cols-12 gap-1 items-end h-16 pt-1 px-1">
+            <div className="grid grid-cols-12 gap-1 items-end h-13 pt-1 px-1">
               {monthlyProfile.map((m, idx) => {
                 const monthKwh = Math.round(avgMonthly * m.factor);
                 const heightPercent = Math.min(100, Math.max(30, (m.factor / 1.15) * 100));
@@ -408,7 +408,7 @@ export default function Page2SystemSpec({ quotation, settings }) {
 
                 return (
                   <div key={idx} className="flex flex-col items-center h-full justify-end group">
-                    <span className="text-[7.5px] font-mono font-medium text-slate-600 mb-0.5">
+                    <span className="text-[7px] font-mono font-medium text-slate-600 mb-0.5">
                       {monthKwh}
                     </span>
                     <div 
@@ -419,7 +419,7 @@ export default function Page2SystemSpec({ quotation, settings }) {
                       }`}
                       style={{ height: `${heightPercent}%` }}
                     />
-                    <span className="text-[7.5px] font-semibold text-slate-600 mt-1 uppercase">
+                    <span className="text-[7px] font-semibold text-slate-600 mt-0.5 uppercase">
                       {m.month}
                     </span>
                   </div>

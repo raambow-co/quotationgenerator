@@ -8,7 +8,7 @@ export default function Page5CompanyProfile({ quotation, settings }) {
   const bank = company?.bankDetails || {};
 
   return (
-    <div className="a4-preview-sheet p-8 sm:p-10 flex flex-col justify-between text-slate-800 bg-white relative overflow-hidden">
+    <div className="a4-preview-sheet p-7 sm:p-8 flex flex-col justify-between text-slate-800 bg-white relative overflow-hidden">
       {/* Top Accent Bar */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-900 via-brand-700 to-solar-orange z-10" />
 
@@ -18,9 +18,9 @@ export default function Page5CompanyProfile({ quotation, settings }) {
       <div className="relative z-10 flex flex-col justify-between h-full">
         <div>
           {/* Header */}
-          <div className="flex items-center justify-between border-b border-slate-200 pb-2.5">
+          <div className="flex items-center justify-between border-b border-slate-200 pb-2">
             <div className="flex items-center gap-3">
-              <img src="/jayarams-logo-lockup.png" alt="JAYARAMS" className="h-10 object-contain" />
+              <img src="/jayarams-logo-lockup.png" alt="JAYARAMS" className="h-9 object-contain" />
               <div className="border-l border-slate-300 pl-3">
                 <p className="text-xs font-bold text-slate-800 tracking-tight">COMPANY PROFILE, ACCREDITATIONS &amp; REMITTANCE</p>
                 <p className="text-[10px] text-slate-500">Corporate Credentials, Standard Scope Matrix &amp; Bank Coordinates</p>

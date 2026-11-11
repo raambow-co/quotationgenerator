@@ -7,7 +7,7 @@ export default function Page4Portfolio({ quotation, settings }) {
   const company = settings?.company || {};
 
   return (
-    <div className="a4-preview-sheet p-8 sm:p-10 flex flex-col justify-between text-slate-800 bg-white relative overflow-hidden">
+    <div className="a4-preview-sheet p-7 sm:p-8 flex flex-col justify-between text-slate-800 bg-white relative overflow-hidden">
       {/* Top Accent Bar */}
       <div className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-900 via-brand-700 to-solar-orange z-10" />
 
@@ -72,7 +72,7 @@ export default function Page4Portfolio({ quotation, settings }) {
               {/* Project 1: Residential Villa Rooftop (Mangalampeta) */}
               <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
                 {/* 100% FULL IMAGE DISPLAY (Uncropped with ambient blur backdrop) */}
-                <div className="h-62 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                <div className="h-44 bg-slate-950 relative overflow-hidden flex items-center justify-center">
                   <img 
                     src="/assets/portfolio/project-1.jpg" 
                     alt="" 
@@ -99,24 +99,24 @@ export default function Page4Portfolio({ quotation, settings }) {
                 </div>
 
                 {/* Card Details Below Full Photo */}
-                <div className="p-2.5 bg-white border-t border-slate-100">
+                <div className="p-2 bg-white border-t border-slate-100">
                   <div className="flex items-center justify-between">
                     <h4 className="font-extrabold text-slate-900 text-[11px] truncate">Luxury Villa Rooftop — Mangalampeta</h4>
-                    <span className="text-[8.5px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
+                    <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
                       GPS Geotagged
                     </span>
                   </div>
-                  <p className="text-[9px] text-slate-500 mt-0.5 leading-snug">
+                  <p className="text-[8.5px] text-slate-500 mt-0.5 leading-snug">
                     Elevated GI pergola structure with 8.5-ft terrace clearance and zero roof puncture.
                   </p>
 
-                  <div className="mt-1.5 grid grid-cols-2 gap-2 text-[9px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
+                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8.5px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
                     <div>
-                      <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Generation</span>
+                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Generation</span>
                       <span className="font-extrabold text-slate-800">15,800 kWh / yr</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Savings</span>
+                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Savings</span>
                       <span className="font-black text-emerald-600">₹ 1,34,300 / yr</span>
                     </div>
                   </div>
@@ -126,7 +126,7 @@ export default function Page4Portfolio({ quotation, settings }) {
               {/* Project 2: Commercial Healthcare (Polavaram) */}
               <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
                 {/* 100% FULL IMAGE DISPLAY (Uncropped with ambient blur backdrop) */}
-                <div className="h-62 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                <div className="h-44 bg-slate-950 relative overflow-hidden flex items-center justify-center">
                   <img 
                     src="/assets/portfolio/project-2.jpg" 
                     alt="" 
@@ -153,24 +153,24 @@ export default function Page4Portfolio({ quotation, settings }) {
                 </div>
 
                 {/* Card Details Below Full Photo */}
-                <div className="p-2.5 bg-white border-t border-slate-100">
+                <div className="p-2 bg-white border-t border-slate-100">
                   <div className="flex items-center justify-between">
                     <h4 className="font-extrabold text-slate-900 text-[11px] truncate">Arogya Multi-Speciality — Polavaram</h4>
-                    <span className="text-[8.5px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
+                    <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
                       GPS Geotagged
                     </span>
                   </div>
-                  <p className="text-[9px] text-slate-500 mt-0.5 leading-snug">
+                  <p className="text-[8.5px] text-slate-500 mt-0.5 leading-snug">
                     Powers intensive healthcare diagnostics, OT facilities, and central HVAC cooling.
                   </p>
 
-                  <div className="mt-1.5 grid grid-cols-2 gap-2 text-[9px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
+                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8.5px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
                     <div>
-                      <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Generation</span>
+                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Generation</span>
                       <span className="font-extrabold text-slate-800">39,500 kWh / yr</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Savings</span>
+                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Savings</span>
                       <span className="font-black text-emerald-600">₹ 3,55,500 / yr</span>
                     </div>
                   </div>
@@ -180,7 +180,7 @@ export default function Page4Portfolio({ quotation, settings }) {
               {/* Project 3: Institutional Engineering Campus (Mogarala) */}
               <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
                 {/* 100% FULL IMAGE DISPLAY (Uncropped with ambient blur backdrop) */}
-                <div className="h-62 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                <div className="h-44 bg-slate-950 relative overflow-hidden flex items-center justify-center">
                   <img 
                     src="/assets/portfolio/project-3.jpg" 
                     alt="" 
@@ -207,24 +207,24 @@ export default function Page4Portfolio({ quotation, settings }) {
                 </div>
 
                 {/* Card Details Below Full Photo */}
-                <div className="p-2.5 bg-white border-t border-slate-100">
+                <div className="p-2 bg-white border-t border-slate-100">
                   <div className="flex items-center justify-between">
                     <h4 className="font-extrabold text-slate-900 text-[11px] truncate">St. Xavier Engineering — Mogarala</h4>
-                    <span className="text-[8.5px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
+                    <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
                       GPS Geotagged
                     </span>
                   </div>
-                  <p className="text-[9px] text-slate-500 mt-0.5 leading-snug">
+                  <p className="text-[8.5px] text-slate-500 mt-0.5 leading-snug">
                     Heavy-duty elevated anchor-ballasted mounting with multi-inverter sync.
                   </p>
 
-                  <div className="mt-1.5 grid grid-cols-2 gap-2 text-[9px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
+                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8.5px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
                     <div>
-                      <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Generation</span>
+                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Generation</span>
                       <span className="font-extrabold text-slate-800">78,800 kWh / yr</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Savings</span>
+                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Savings</span>
                       <span className="font-black text-emerald-600">₹ 7,10,000 / yr</span>
                     </div>
                   </div>
@@ -234,7 +234,7 @@ export default function Page4Portfolio({ quotation, settings }) {
               {/* Project 4: Industrial Precision Facility (Thenepalle) */}
               <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
                 {/* 100% FULL IMAGE DISPLAY (Uncropped with ambient blur backdrop) */}
-                <div className="h-62 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                <div className="h-44 bg-slate-950 relative overflow-hidden flex items-center justify-center">
                   <img 
                     src="/assets/portfolio/project-4.jpg" 
                     alt="" 
@@ -261,24 +261,24 @@ export default function Page4Portfolio({ quotation, settings }) {
                 </div>
 
                 {/* Card Details Below Full Photo */}
-                <div className="p-2.5 bg-white border-t border-slate-100">
+                <div className="p-2 bg-white border-t border-slate-100">
                   <div className="flex items-center justify-between">
                     <h4 className="font-extrabold text-slate-900 text-[11px] truncate">Apex Precision Tooling — Thenepalle</h4>
-                    <span className="text-[8.5px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
+                    <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
                       GPS Geotagged
                     </span>
                   </div>
-                  <p className="text-[9px] text-slate-500 mt-0.5 leading-snug">
+                  <p className="text-[8.5px] text-slate-500 mt-0.5 leading-snug">
                     Rapid 3.1-yr payback with accelerated depreciation 40% tax benefits.
                   </p>
 
-                  <div className="mt-1.5 grid grid-cols-2 gap-2 text-[9px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
+                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8.5px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
                     <div>
-                      <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Generation</span>
+                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Generation</span>
                       <span className="font-extrabold text-slate-800">1,58,000 kWh / yr</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[7.5px] uppercase font-bold">Annual Savings</span>
+                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Savings</span>
                       <span className="font-black text-emerald-600">₹ 14,22,000 / yr</span>
                     </div>
                   </div>

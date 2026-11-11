@@ -11,8 +11,15 @@ export default function QuotationPreview({ quotation, settings, onBack, onEdit }
   const [zoomLevel, setZoomLevel] = useState(100);
 
   const handlePrint = () => {
-    // When printing, we always want all 5 pages
-    window.print();
+    // When printing, ensure all 5 pages are rendered
+    if (activePage !== 'all') {
+      setActivePage('all');
+      setTimeout(() => {
+        window.print();
+      }, 150);
+    } else {
+      window.print();
+    }
   };
 
   const handleZoom = (delta) => {
@@ -134,9 +141,9 @@ export default function QuotationPreview({ quotation, settings, onBack, onEdit }
       </div>
 
       {/* Preview Workspace Area */}
-      <div className="flex-1 overflow-auto py-8 px-4 flex justify-center">
+      <div className="flex-1 overflow-auto py-8 px-4 flex justify-center print-container">
         <div 
-          className="transition-transform duration-150 origin-top flex flex-col items-center gap-8"
+          className="transition-transform duration-150 origin-top flex flex-col items-center gap-8 print-wrapper"
           style={{ transform: `scale(${zoomLevel / 100})` }}
         >
           {/* Page 1: Fixed Cover */}
