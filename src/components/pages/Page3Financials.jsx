@@ -426,7 +426,7 @@ export default function Page3Financials({ quotation, settings }) {
         {/* Page 3 Footer */}
         <div className="pt-2 border-t border-slate-200 flex items-center justify-between text-[10px] text-slate-500">
           <div>
-            <span className="font-semibold text-slate-700">{company.legalName || 'Jayarams Solar Solutions Pvt. Ltd.'}</span> &bull; Bank: {company?.bankDetails?.bankName} (A/C: {company?.bankDetails?.accountNumber})
+            <span className="font-semibold text-slate-700">{company.legalName || 'Jayarams Solar Solutions Pvt. Ltd.'}</span> &bull; {company?.tagline || 'Sovereign Clean Energy Solutions'}
           </div>
           <div className="flex items-center gap-4">
             <span>Prices inclusive of standard delivery, testing &amp; DISCOM liaison</span>

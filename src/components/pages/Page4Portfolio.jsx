@@ -72,7 +72,7 @@ export default function Page4Portfolio({ quotation, settings }) {
               {/* Project 1: Residential Villa Rooftop (Mangalampeta) */}
               <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
                 {/* 100% FULL IMAGE DISPLAY (Uncropped with ambient blur backdrop) */}
-                <div className="h-44 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                <div className="h-28 sm:h-30 bg-slate-950 relative overflow-hidden flex items-center justify-center">
                   <img 
                     src="/assets/portfolio/project-1.jpg" 
                     alt="" 
@@ -85,38 +85,38 @@ export default function Page4Portfolio({ quotation, settings }) {
                   />
                   
                   {/* Floating Top Category Pill */}
-                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8.5px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
-                    <Home className="w-3 h-3 text-solar-warm" />
+                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+                    <Home className="w-2.5 h-2.5 text-solar-warm" />
                     <span>Residential &bull; 10.0 kWp</span>
                   </div>
 
                   {/* Floating Top Brand Logos */}
                   <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-1.5 py-0.5 rounded shadow-sm border border-slate-200">
-                    <img src="/assets/brands/waaree.png" alt="Waaree" className="h-3 object-contain" />
+                    <img src="/assets/brands/waaree.png" alt="Waaree" className="h-2.5 object-contain" />
                     <span className="text-slate-300 text-[8px]">&bull;</span>
-                    <img src="/assets/brands/sungrow.png" alt="Sungrow" className="h-3 object-contain" />
+                    <img src="/assets/brands/sungrow.png" alt="Sungrow" className="h-2.5 object-contain" />
                   </div>
                 </div>
 
                 {/* Card Details Below Full Photo */}
                 <div className="p-2 bg-white border-t border-slate-100">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-extrabold text-slate-900 text-[11px] truncate">Luxury Villa Rooftop — Mangalampeta</h4>
-                    <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
+                    <h4 className="font-extrabold text-slate-900 text-[10.5px] truncate">Luxury Villa Rooftop — Mangalampeta</h4>
+                    <span className="text-[7.5px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
                       GPS Geotagged
                     </span>
                   </div>
-                  <p className="text-[8.5px] text-slate-500 mt-0.5 leading-snug">
+                  <p className="text-[8px] text-slate-500 mt-0.5 leading-snug">
                     Elevated GI pergola structure with 8.5-ft terrace clearance and zero roof puncture.
                   </p>
 
-                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8.5px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
+                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8px] bg-slate-50 p-1 rounded-lg border border-slate-200/80">
                     <div>
-                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Generation</span>
+                      <span className="text-slate-400 block text-[6.5px] uppercase font-bold">Annual Generation</span>
                       <span className="font-extrabold text-slate-800">15,800 kWh / yr</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Savings</span>
+                      <span className="text-slate-400 block text-[6.5px] uppercase font-bold">Annual Savings</span>
                       <span className="font-black text-emerald-600">₹ 1,34,300 / yr</span>
                     </div>
                   </div>
@@ -126,7 +126,7 @@ export default function Page4Portfolio({ quotation, settings }) {
               {/* Project 2: Commercial Healthcare (Polavaram) */}
               <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
                 {/* 100% FULL IMAGE DISPLAY (Uncropped with ambient blur backdrop) */}
-                <div className="h-44 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                <div className="h-28 sm:h-30 bg-slate-950 relative overflow-hidden flex items-center justify-center">
                   <img 
                     src="/assets/portfolio/project-2.jpg" 
                     alt="" 
@@ -139,38 +139,38 @@ export default function Page4Portfolio({ quotation, settings }) {
                   />
                   
                   {/* Floating Top Category Pill */}
-                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8.5px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
-                    <Building2 className="w-3 h-3 text-solar-warm" />
+                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+                    <Building2 className="w-2.5 h-2.5 text-solar-warm" />
                     <span>Commercial &bull; 25.0 kWp</span>
                   </div>
 
                   {/* Floating Top Brand Logos */}
                   <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-1.5 py-0.5 rounded shadow-sm border border-slate-200">
-                    <img src="/assets/brands/tata-solar.png" alt="Tata Solar" className="h-3 object-contain" />
+                    <img src="/assets/brands/tata-solar.png" alt="Tata Solar" className="h-2.5 object-contain" />
                     <span className="text-slate-300 text-[8px]">&bull;</span>
-                    <img src="/assets/brands/growatt.png" alt="Growatt" className="h-3 object-contain" />
+                    <img src="/assets/brands/growatt.png" alt="Growatt" className="h-2.5 object-contain" />
                   </div>
                 </div>
 
                 {/* Card Details Below Full Photo */}
                 <div className="p-2 bg-white border-t border-slate-100">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-extrabold text-slate-900 text-[11px] truncate">Arogya Multi-Speciality — Polavaram</h4>
-                    <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
+                    <h4 className="font-extrabold text-slate-900 text-[10.5px] truncate">Arogya Multi-Speciality — Polavaram</h4>
+                    <span className="text-[7.5px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
                       GPS Geotagged
                     </span>
                   </div>
-                  <p className="text-[8.5px] text-slate-500 mt-0.5 leading-snug">
+                  <p className="text-[8px] text-slate-500 mt-0.5 leading-snug">
                     Powers intensive healthcare diagnostics, OT facilities, and central HVAC cooling.
                   </p>
 
-                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8.5px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
+                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8px] bg-slate-50 p-1 rounded-lg border border-slate-200/80">
                     <div>
-                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Generation</span>
+                      <span className="text-slate-400 block text-[6.5px] uppercase font-bold">Annual Generation</span>
                       <span className="font-extrabold text-slate-800">39,500 kWh / yr</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Savings</span>
+                      <span className="text-slate-400 block text-[6.5px] uppercase font-bold">Annual Savings</span>
                       <span className="font-black text-emerald-600">₹ 3,55,500 / yr</span>
                     </div>
                   </div>
@@ -180,7 +180,7 @@ export default function Page4Portfolio({ quotation, settings }) {
               {/* Project 3: Institutional Engineering Campus (Mogarala) */}
               <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
                 {/* 100% FULL IMAGE DISPLAY (Uncropped with ambient blur backdrop) */}
-                <div className="h-44 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                <div className="h-28 sm:h-30 bg-slate-950 relative overflow-hidden flex items-center justify-center">
                   <img 
                     src="/assets/portfolio/project-3.jpg" 
                     alt="" 
@@ -193,38 +193,38 @@ export default function Page4Portfolio({ quotation, settings }) {
                   />
                   
                   {/* Floating Top Category Pill */}
-                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8.5px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
-                    <GraduationCap className="w-3 h-3 text-solar-warm" />
+                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+                    <GraduationCap className="w-2.5 h-2.5 text-solar-warm" />
                     <span>Institutional &bull; 50.0 kWp</span>
                   </div>
 
                   {/* Floating Top Brand Logos */}
                   <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-1.5 py-0.5 rounded shadow-sm border border-slate-200">
-                    <img src="/assets/brands/adani.png" alt="Adani" className="h-3 object-contain" />
+                    <img src="/assets/brands/adani.png" alt="Adani" className="h-2.5 object-contain" />
                     <span className="text-slate-300 text-[8px]">&bull;</span>
-                    <img src="/assets/brands/solis.png" alt="Solis" className="h-3 object-contain" />
+                    <img src="/assets/brands/solis.png" alt="Solis" className="h-2.5 object-contain" />
                   </div>
                 </div>
 
                 {/* Card Details Below Full Photo */}
                 <div className="p-2 bg-white border-t border-slate-100">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-extrabold text-slate-900 text-[11px] truncate">St. Xavier Engineering — Mogarala</h4>
-                    <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
+                    <h4 className="font-extrabold text-slate-900 text-[10.5px] truncate">St. Xavier Engineering — Mogarala</h4>
+                    <span className="text-[7.5px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
                       GPS Geotagged
                     </span>
                   </div>
-                  <p className="text-[8.5px] text-slate-500 mt-0.5 leading-snug">
+                  <p className="text-[8px] text-slate-500 mt-0.5 leading-snug">
                     Heavy-duty elevated anchor-ballasted mounting with multi-inverter sync.
                   </p>
 
-                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8.5px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
+                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8px] bg-slate-50 p-1 rounded-lg border border-slate-200/80">
                     <div>
-                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Generation</span>
+                      <span className="text-slate-400 block text-[6.5px] uppercase font-bold">Annual Generation</span>
                       <span className="font-extrabold text-slate-800">78,800 kWh / yr</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Savings</span>
+                      <span className="text-slate-400 block text-[6.5px] uppercase font-bold">Annual Savings</span>
                       <span className="font-black text-emerald-600">₹ 7,10,000 / yr</span>
                     </div>
                   </div>
@@ -234,7 +234,7 @@ export default function Page4Portfolio({ quotation, settings }) {
               {/* Project 4: Industrial Precision Facility (Thenepalle) */}
               <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
                 {/* 100% FULL IMAGE DISPLAY (Uncropped with ambient blur backdrop) */}
-                <div className="h-44 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                <div className="h-28 sm:h-30 bg-slate-950 relative overflow-hidden flex items-center justify-center">
                   <img 
                     src="/assets/portfolio/project-4.jpg" 
                     alt="" 
@@ -247,38 +247,38 @@ export default function Page4Portfolio({ quotation, settings }) {
                   />
                   
                   {/* Floating Top Category Pill */}
-                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8.5px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
-                    <Factory className="w-3 h-3 text-solar-warm" />
+                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+                    <Factory className="w-2.5 h-2.5 text-solar-warm" />
                     <span>Industrial &bull; 100.0 kWp</span>
                   </div>
 
                   {/* Floating Top Brand Logos */}
                   <div className="absolute top-2 right-2 z-20 flex items-center gap-1.5 bg-white/95 backdrop-blur-md px-1.5 py-0.5 rounded shadow-sm border border-slate-200">
-                    <img src="/assets/brands/waaree.png" alt="Waaree" className="h-3 object-contain" />
+                    <img src="/assets/brands/waaree.png" alt="Waaree" className="h-2.5 object-contain" />
                     <span className="text-slate-300 text-[8px]">&bull;</span>
-                    <img src="/assets/brands/sungrow.png" alt="Sungrow" className="h-3 object-contain" />
+                    <img src="/assets/brands/sungrow.png" alt="Sungrow" className="h-2.5 object-contain" />
                   </div>
                 </div>
 
                 {/* Card Details Below Full Photo */}
                 <div className="p-2 bg-white border-t border-slate-100">
                   <div className="flex items-center justify-between">
-                    <h4 className="font-extrabold text-slate-900 text-[11px] truncate">Apex Precision Tooling — Thenepalle</h4>
-                    <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
+                    <h4 className="font-extrabold text-slate-900 text-[10.5px] truncate">Apex Precision Tooling — Thenepalle</h4>
+                    <span className="text-[7.5px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200 shrink-0">
                       GPS Geotagged
                     </span>
                   </div>
-                  <p className="text-[8.5px] text-slate-500 mt-0.5 leading-snug">
+                  <p className="text-[8px] text-slate-500 mt-0.5 leading-snug">
                     Rapid 3.1-yr payback with accelerated depreciation 40% tax benefits.
                   </p>
 
-                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8.5px] bg-slate-50 p-1.5 rounded-lg border border-slate-200/80">
+                  <div className="mt-1 grid grid-cols-2 gap-2 text-[8px] bg-slate-50 p-1 rounded-lg border border-slate-200/80">
                     <div>
-                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Generation</span>
+                      <span className="text-slate-400 block text-[6.5px] uppercase font-bold">Annual Generation</span>
                       <span className="font-extrabold text-slate-800">1,58,000 kWh / yr</span>
                     </div>
                     <div>
-                      <span className="text-slate-400 block text-[7px] uppercase font-bold">Annual Savings</span>
+                      <span className="text-slate-400 block text-[6.5px] uppercase font-bold">Annual Savings</span>
                       <span className="font-black text-emerald-600">₹ 14,22,000 / yr</span>
                     </div>
                   </div>
@@ -287,40 +287,92 @@ export default function Page4Portfolio({ quotation, settings }) {
             </div>
           </div>
 
-          {/* Client Testimonial & Rapid Response Service SLA */}
-          <div className="mt-2.5 grid grid-cols-12 gap-2.5">
-            {/* Left: Client Testimonial (7 cols) */}
-            <div className="col-span-7 p-2.5 bg-gradient-to-r from-slate-100 via-brand-50/50 to-slate-100 rounded-lg border border-slate-200 flex items-start gap-2.5 shadow-xs">
-              <div className="p-1.5 rounded-full bg-white shadow-xs shrink-0 border border-slate-200 mt-0.5">
-                <Star className="w-4 h-4 text-solar-warm fill-solar-warm" />
-              </div>
-              <div>
-                <p className="text-[9.5px] italic text-slate-700 leading-snug">
-                  &ldquo;Jayarams delivered our turnkey solar rooftop seamlessly in 5 days with flawless zero-puncture roof engineering. The online telemetry app gives real-time yield and our bills dropped by 88%.&rdquo;
-                </p>
-                <div className="flex items-center justify-between mt-1 pt-1 border-t border-slate-200/70">
-                  <span className="text-[8.5px] font-bold text-slate-800">&mdash; Dr. K. S. Rao, Jubilee Hills</span>
-                  <span className="text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold text-[7.5px] border border-emerald-200">
-                    &#10003; DISCOM Verified Client
+          {/* Additional Field Installation Showcase — 2 Extra Geotagged Rooftop Arrays */}
+          <div className="mt-2.5">
+            <div className="flex items-center justify-between mb-1.5">
+              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                <Camera className="w-3.5 h-3.5 text-solar-orange" />
+                <span>Field Commissioning Showcase &amp; GPS Geotagged Installations</span>
+              </h3>
+              <span className="text-[8.5px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded font-bold border border-emerald-200">
+                &#10003; 100% Active On-Grid Operation
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3">
+              {/* Extra Showcase Photo 1 */}
+              <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
+                <div className="h-32 sm:h-34 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                  <img 
+                    src="/assets/showcase/project-extra-1.jpeg" 
+                    alt="" 
+                    className="absolute inset-0 w-full h-full object-cover blur-md opacity-30 scale-110 pointer-events-none select-none" 
+                  />
+                  <img 
+                    src="/assets/showcase/project-extra-1.jpeg" 
+                    alt="High-Clearance Rooftop PV Array & Lightning Protection" 
+                    className="relative z-10 max-h-full max-w-full object-contain drop-shadow-md"
+                  />
+                  
+                  {/* Floating Top Category Pill */}
+                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+                    <Zap className="w-2.5 h-2.5 text-solar-warm" />
+                    <span>Elevated Rooftop Array &bull; Heavy-Duty GI MMS</span>
+                  </div>
+
+                  {/* Floating Verified Badge */}
+                  <div className="absolute top-2 right-2 z-20 bg-emerald-950/90 backdrop-blur-md text-emerald-300 text-[7.5px] font-bold px-1.5 py-0.5 rounded shadow-sm border border-emerald-500/30 flex items-center gap-1">
+                    <CheckCircle2 className="w-2.5 h-2.5" />
+                    <span>150 km/h Wind Rated</span>
+                  </div>
+                </div>
+
+                <div className="p-2 bg-white border-t border-slate-100 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-extrabold text-slate-900 text-[10.5px]">Multi-String Elevated Rooftop Array</h4>
+                    <p className="text-[8px] text-slate-500 mt-0.5 leading-snug">Dual-row elevated GI structure with integrated lightning protection &amp; conduit routing</p>
+                  </div>
+                  <span className="text-[7.5px] text-brand-900 bg-brand-50 px-1.5 py-0.5 rounded font-bold border border-brand-200 shrink-0">
+                    Chittoor, AP
                   </span>
                 </div>
               </div>
-            </div>
 
-            {/* Right: Jayarams Rapid Service SLA (5 cols) */}
-            <div className="col-span-5 p-2 bg-white rounded-lg border border-slate-200 shadow-xs flex flex-col justify-between">
-              <span className="text-[9px] font-bold text-brand-900 uppercase tracking-wide flex items-center gap-1">
-                <ShieldCheck className="w-3 h-3 text-emerald-600" />
-                Jayarams 48-Hour Rapid Service SLA
-              </span>
-              <div className="grid grid-cols-2 gap-1 text-[7.5px] text-slate-600 mt-1">
-                <div className="bg-slate-50 p-1 rounded border border-slate-200/70">
-                  <span className="font-bold text-slate-900 block">&bull; 48-Hr On-Site Response</span>
-                  <span>Direct technician dispatch</span>
+              {/* Extra Showcase Photo 2 (GPS Field Verified) */}
+              <div className="bg-white rounded-xl border border-slate-200 overflow-hidden shadow-card flex flex-col justify-between hover:shadow-float transition-all">
+                <div className="h-32 sm:h-34 bg-slate-950 relative overflow-hidden flex items-center justify-center">
+                  <img 
+                    src="/assets/showcase/project-extra-2.jpeg" 
+                    alt="" 
+                    className="absolute inset-0 w-full h-full object-cover blur-md opacity-30 scale-110 pointer-events-none select-none" 
+                  />
+                  <img 
+                    src="/assets/showcase/project-extra-2.jpeg" 
+                    alt="GPS Camera Field Verified Installation — Thenepalle, AP" 
+                    className="relative z-10 max-h-full max-w-full object-contain drop-shadow-md"
+                  />
+                  
+                  {/* Floating Top Category Pill */}
+                  <div className="absolute top-2 left-2 z-20 bg-brand-950/90 backdrop-blur-md text-white text-[8px] font-bold px-2 py-0.5 rounded shadow-sm flex items-center gap-1">
+                    <MapPin className="w-2.5 h-2.5 text-solar-warm" />
+                    <span>GPS Geotagged Rooftop Plant</span>
+                  </div>
+
+                  {/* Floating Verified Badge */}
+                  <div className="absolute top-2 right-2 z-20 bg-emerald-950/90 backdrop-blur-md text-emerald-300 text-[7.5px] font-bold px-1.5 py-0.5 rounded shadow-sm border border-emerald-500/30 flex items-center gap-1">
+                    <CheckCircle2 className="w-2.5 h-2.5" />
+                    <span>Field Verified</span>
+                  </div>
                 </div>
-                <div className="bg-slate-50 p-1 rounded border border-slate-200/70">
-                  <span className="font-bold text-slate-900 block">&bull; 99.2% Plant Uptime</span>
-                  <span>Guaranteed generation SLA</span>
+
+                <div className="p-2 bg-white border-t border-slate-100 flex items-center justify-between">
+                  <div>
+                    <h4 className="font-extrabold text-slate-900 text-[10.5px]">GPS Field-Verified Turnkey Installation</h4>
+                    <p className="text-[8px] text-slate-500 mt-0.5 leading-snug">Thenepalle, Andhra Pradesh &bull; Net-meter synchronized with copper chemical earthing</p>
+                  </div>
+                  <span className="text-[7.5px] text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded font-bold border border-emerald-200 shrink-0">
+                    Thenepalle, AP
+                  </span>
                 </div>
               </div>
             </div>

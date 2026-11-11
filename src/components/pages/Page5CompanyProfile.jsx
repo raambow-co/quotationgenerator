@@ -1,11 +1,10 @@
 import React from 'react';
-import { Shield, CheckCircle2, Building, Phone, Mail, Globe, MapPin, Landmark, Award, Zap, QrCode, Wrench, ShieldCheck, HeartHandshake, FileCheck } from 'lucide-react';
+import { Shield, CheckCircle2, Building, Phone, Mail, Globe, MapPin, Award, Zap, QrCode, Wrench, ShieldCheck, HeartHandshake, FileCheck, ExternalLink, Navigation } from 'lucide-react';
 import Watermark from '../common/Watermark';
 import { EMBLEMS } from '../../utils/brandLogos';
 
 export default function Page5CompanyProfile({ quotation, settings }) {
   const company = settings?.company || {};
-  const bank = company?.bankDetails || {};
 
   return (
     <div className="a4-preview-sheet p-7 sm:p-8 flex flex-col justify-between text-slate-800 bg-white relative overflow-hidden">
@@ -22,8 +21,8 @@ export default function Page5CompanyProfile({ quotation, settings }) {
             <div className="flex items-center gap-3">
               <img src="/jayarams-logo-lockup.png" alt="JAYARAMS" className="h-9 object-contain" />
               <div className="border-l border-slate-300 pl-3">
-                <p className="text-xs font-bold text-slate-800 tracking-tight">COMPANY PROFILE, ACCREDITATIONS &amp; REMITTANCE</p>
-                <p className="text-[10px] text-slate-500">Corporate Credentials, Standard Scope Matrix &amp; Bank Coordinates</p>
+                <p className="text-xs font-bold text-slate-800 tracking-tight">COMPANY PROFILE, ACCREDITATIONS &amp; DIGITAL CONNECTIVITY</p>
+                <p className="text-[10px] text-slate-500">Corporate Credentials, Standard Scope Matrix &amp; Official Digital Portals</p>
               </div>
             </div>
             <div className="text-right text-[10px] text-slate-500">
@@ -242,68 +241,140 @@ export default function Page5CompanyProfile({ quotation, settings }) {
             </div>
           </div>
 
-          {/* Banking Details, Instant UPI QR Code & Corporate Coordinates */}
-          <div className="mt-2.5 grid grid-cols-12 gap-3 text-xs">
-            {/* Bank Coordinates & UPI QR Code (7 cols) */}
-            <div className="col-span-7 p-3 bg-slate-50/95 rounded-lg border border-slate-200 flex items-center justify-between gap-3 shadow-xs">
-              <div className="space-y-1 text-[9.5px] flex-1">
-                <div className="flex items-center gap-1.5 mb-1 font-bold text-slate-800 text-[10.5px]">
-                  <Landmark className="w-3.5 h-3.5 text-brand-700" />
-                  <span>Official Bank Coordinates for Remittances</span>
-                </div>
-                <p><span className="text-slate-500">A/C Name:</span> <strong className="text-slate-800">{bank?.accountName || 'Jayarams Solar Solutions Pvt. Ltd.'}</strong></p>
-                <p><span className="text-slate-500">Bank:</span> <strong className="text-slate-800">{bank?.bankName || 'HDFC Bank Ltd.'}</strong></p>
-                <p><span className="text-slate-500">A/C No:</span> <strong className="text-brand-900 font-mono text-xs">{bank?.accountNumber || '50200084729103'}</strong></p>
-                <p><span className="text-slate-500">IFSC Code:</span> <strong className="text-brand-900 font-mono text-xs">{bank?.ifscCode || 'HDFC0001628'}</strong></p>
-                <p><span className="text-slate-500">Branch:</span> <span className="text-slate-700">{bank?.branch || 'Jubilee Hills Main Branch, Hyderabad'}</span></p>
+          {/* Corporate Headquarters & Regional Contact Strip */}
+          <div className="mt-2.5 p-2.5 bg-slate-50/95 rounded-lg border border-slate-200 shadow-xs flex items-center justify-between gap-4 text-xs">
+            <div className="flex items-start gap-2 flex-1">
+              <div className="p-1.5 rounded-md bg-brand-900 text-white shrink-0 mt-0.5">
+                <Building className="w-3.5 h-3.5" />
               </div>
-
-              {/* Instant Scan & Pay UPI QR Code Graphic */}
-              <div className="w-24 shrink-0 bg-white p-1.5 rounded-lg border border-slate-300 text-center shadow-xs">
-                <div className="w-20 h-20 mx-auto bg-slate-100 rounded flex items-center justify-center border border-slate-200 relative overflow-hidden">
-                  {/* Decorative stylized QR graphic */}
-                  <svg className="w-16 h-16 text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <rect x="3" y="3" width="7" height="7" rx="1" fill="currentColor" fillOpacity="0.15" />
-                    <rect x="14" y="3" width="7" height="7" rx="1" fill="currentColor" fillOpacity="0.15" />
-                    <rect x="3" y="14" width="7" height="7" rx="1" fill="currentColor" fillOpacity="0.15" />
-                    <rect x="5" y="5" width="3" height="3" fill="currentColor" />
-                    <rect x="16" y="5" width="3" height="3" fill="currentColor" />
-                    <rect x="5" y="16" width="3" height="3" fill="currentColor" />
-                    <path d="M14 14h3v3h-3zM18 18h3v3h-3zM14 18v3M18 14v3" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
-                </div>
-                <span className="text-[7.5px] font-black uppercase text-brand-900 block mt-1 tracking-wider">
-                  Scan to Pay
-                </span>
-                <span className="text-[6.5px] text-slate-400 block">UPI / GPay / PhonePe</span>
+              <div>
+                <span className="font-bold text-slate-900 text-[10px] block">Corporate Headquarters</span>
+                <span className="text-[9px] text-slate-600 leading-snug block">{company?.address || 'Plot #48, Road No. 36, Jubilee Hills, Hyderabad - 500033'}</span>
               </div>
             </div>
 
-            {/* Corporate Offices & Contact (5 cols) */}
-            <div className="col-span-5 p-3 bg-slate-50/95 rounded-lg border border-slate-200 shadow-xs flex flex-col justify-between">
-              <div>
-                <div className="flex items-center gap-1.5 mb-1.5 font-bold text-slate-800 text-[10.5px]">
-                  <Building className="w-3.5 h-3.5 text-brand-700" />
-                  <span>Headquarters &amp; Branches</span>
+            <div className="h-8 w-px bg-slate-200 shrink-0" />
+
+            <div className="flex items-center gap-4 text-[9px] text-slate-600">
+              <div className="flex items-center gap-1.5">
+                <Phone className="w-3 h-3 text-brand-700 shrink-0" />
+                <span className="font-medium text-slate-800">{company?.phone || '+91 98480 12345 / +91 89127 65432'}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Mail className="w-3 h-3 text-brand-700 shrink-0" />
+                <span className="font-medium text-slate-800">{company?.email || 'solar@jayaramsenergy.com'}</span>
+              </div>
+              <div className="flex items-center gap-1.5">
+                <Globe className="w-3 h-3 text-brand-700 shrink-0" />
+                <span className="font-medium text-slate-800">{company?.website || 'www.jayaramsenergy.com'}</span>
+              </div>
+            </div>
+
+            <div className="h-8 w-px bg-slate-200 shrink-0" />
+
+            <div className="text-[8.5px] text-slate-600 shrink-0">
+              <span className="text-slate-400 block text-[7px] uppercase font-bold">Regional Network Hubs</span>
+              <span className="font-bold text-brand-900">{company?.branches || 'Hyd • Vzg • Vja • Blr'}</span>
+            </div>
+          </div>
+
+          {/* 4 Official Digital & Location QR Portals Side-by-Side */}
+          <div className="mt-2.5">
+            <div className="flex items-center justify-between mb-1.5">
+              <h3 className="text-xs font-bold text-slate-800 uppercase tracking-wider flex items-center gap-1.5">
+                <QrCode className="w-3.5 h-3.5 text-solar-orange" />
+                <span>Official Digital Connect &amp; Location Portals</span>
+              </h3>
+              <span className="text-[8.5px] text-slate-500 font-medium">Scan with camera to connect instantly</span>
+            </div>
+
+            <div className="grid grid-cols-4 gap-2.5 text-center">
+              {/* 1. Facebook */}
+              <div className="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs flex flex-col items-center justify-between hover:border-blue-400 transition-colors">
+                <div className="flex items-center justify-between w-full mb-1">
+                  <span className="text-[10px] font-bold text-blue-600 flex items-center gap-1">
+                    <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    Facebook
+                  </span>
+                  <span className="text-[7.5px] font-semibold text-blue-700 bg-blue-50 px-1.5 py-0.2 rounded border border-blue-200">Social</span>
                 </div>
-                <div className="space-y-1 text-[9.5px] text-slate-600">
-                  <p className="flex items-start gap-1.5">
-                    <MapPin className="w-3 h-3 text-slate-400 mt-0.5 shrink-0" />
-                    <span className="leading-snug">{company?.address || 'Plot #48, Road No. 36, Jubilee Hills, Hyderabad - 500033'}</span>
-                  </p>
-                  <p className="flex items-center gap-1.5">
-                    <Phone className="w-3 h-3 text-slate-400 shrink-0" />
-                    <span>{company?.phone || '+91 98480 12345 / +91 89127 65432'}</span>
-                  </p>
-                  <p className="flex items-center gap-1.5">
-                    <Mail className="w-3 h-3 text-slate-400 shrink-0" />
-                    <span>{company?.email || 'solar@jayaramsenergy.com'}</span>
-                  </p>
+                <div className="p-1 bg-white rounded-lg border border-slate-200 shadow-2xs w-full flex items-center justify-center">
+                  <img 
+                    src="/assets/qr/fb-qr.jpeg" 
+                    alt="Facebook QR Code" 
+                    className="w-20 h-20 object-contain rounded"
+                  />
+                </div>
+                <div className="mt-1.5 w-full">
+                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">@jayaramssolar</span>
+                  <span className="text-[7px] text-blue-600 font-semibold block mt-0.5">Scan to Follow</span>
                 </div>
               </div>
 
-              <div className="pt-1.5 border-t border-slate-200 text-[8.5px] text-brand-900 font-bold">
-                Branches: {company?.branches || 'Hyderabad | Visakhapatnam | Bangalore | Vijayawada'}
+              {/* 2. Instagram */}
+              <div className="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs flex flex-col items-center justify-between hover:border-pink-400 transition-colors">
+                <div className="flex items-center justify-between w-full mb-1">
+                  <span className="text-[10px] font-bold text-pink-600 flex items-center gap-1">
+                    <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    Instagram
+                  </span>
+                  <span className="text-[7.5px] font-semibold text-pink-700 bg-pink-50 px-1.5 py-0.2 rounded border border-pink-200">Reels</span>
+                </div>
+                <div className="p-1 bg-white rounded-lg border border-slate-200 shadow-2xs w-full flex items-center justify-center">
+                  <img 
+                    src="/assets/qr/insta-qr.jpeg" 
+                    alt="Instagram QR Code" 
+                    className="w-20 h-20 object-contain rounded"
+                  />
+                </div>
+                <div className="mt-1.5 w-full">
+                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">@jayaramssolar</span>
+                  <span className="text-[7px] text-pink-600 font-semibold block mt-0.5">Scan to View</span>
+                </div>
+              </div>
+
+              {/* 3. Official Website */}
+              <div className="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs flex flex-col items-center justify-between hover:border-brand-500 transition-colors">
+                <div className="flex items-center justify-between w-full mb-1">
+                  <span className="text-[10px] font-bold text-brand-900 flex items-center gap-1">
+                    <Globe className="w-3.5 h-3.5 text-solar-orange" />
+                    Website
+                  </span>
+                  <span className="text-[7.5px] font-semibold text-brand-900 bg-brand-50 px-1.5 py-0.2 rounded border border-brand-200">Portal</span>
+                </div>
+                <div className="p-1 bg-white rounded-lg border border-slate-200 shadow-2xs w-full flex items-center justify-center">
+                  <img 
+                    src="/assets/qr/web-qr.jpeg" 
+                    alt="Official Website QR Code" 
+                    className="w-20 h-20 object-contain rounded"
+                  />
+                </div>
+                <div className="mt-1.5 w-full">
+                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">jayaramsenergy.com</span>
+                  <span className="text-[7px] text-brand-700 font-semibold block mt-0.5">Scan to Visit</span>
+                </div>
+              </div>
+
+              {/* 4. Google Maps Location */}
+              <div className="bg-white p-2.5 rounded-lg border border-slate-200 shadow-xs flex flex-col items-center justify-between hover:border-emerald-500 transition-colors">
+                <div className="flex items-center justify-between w-full mb-1">
+                  <span className="text-[10px] font-bold text-emerald-700 flex items-center gap-1">
+                    <MapPin className="w-3.5 h-3.5 text-emerald-600" />
+                    Google Maps
+                  </span>
+                  <span className="text-[7.5px] font-semibold text-emerald-800 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">Location</span>
+                </div>
+                <div className="p-1 bg-white rounded-lg border border-slate-200 shadow-2xs w-full flex items-center justify-center">
+                  <img 
+                    src="/assets/qr/loc-qr.jpeg" 
+                    alt="Google Maps Location QR Code" 
+                    className="w-20 h-20 object-contain rounded"
+                  />
+                </div>
+                <div className="mt-1.5 w-full">
+                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">Jubilee Hills HQ</span>
+                  <span className="text-[7px] text-emerald-600 font-semibold block mt-0.5">Scan for Route</span>
+                </div>
               </div>
             </div>
           </div>
