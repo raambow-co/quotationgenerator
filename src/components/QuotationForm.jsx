@@ -15,8 +15,7 @@ import {
   FileCheck, 
   ShieldCheck, 
   RotateCcw,
-  CheckCircle2,
-  Edit3
+  CheckCircle2
 } from 'lucide-react';
 
 export default function QuotationForm({ initialData, settings, onSave, onCancel, onPreview }) {
@@ -482,17 +481,9 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                   </div>
 
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-xs font-semibold text-slate-700">
-                        Grid Connection Phase
-                      </label>
-                      {customFields.gridPhase && (
-                        <span className="text-[10px] font-bold text-amber-700 flex items-center gap-1 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
-                          <Edit3 className="w-2.5 h-2.5" />
-                          Custom
-                        </span>
-                      )}
-                    </div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Grid Connection Phase
+                    </label>
                     <select
                       value={customFields.gridPhase ? '__custom__' : (formData.customer.gridPhase || '3-Phase (415V LT)')}
                       onChange={(e) => {
@@ -502,7 +493,7 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                           if (std.includes(formData.customer.gridPhase)) {
                             setFormData(prev => ({
                               ...prev,
-                              customer: { ...prev.customer, gridPhase: '3-Phase 415V Dedicated Feeder' }
+                              customer: { ...prev.customer, gridPhase: '' }
                             }));
                           }
                         } else {
@@ -518,36 +509,27 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                       <option value="Single Phase (1-Phase 230V)">Single Phase (1-Phase 230V)</option>
                       <option value="3-Phase (415V LT)">3-Phase (415V LT)</option>
                       <option value="3-Phase (11kV HT)">3-Phase (11kV HT)</option>
-                      <option value="__custom__">Other / Custom Grid Voltage...</option>
+                      <option value="__custom__">Other</option>
                     </select>
                     {customFields.gridPhase && (
-                      <div className="mt-1.5 animate-in fade-in duration-200">
-                        <input
-                          type="text"
-                          value={formData.customer.gridPhase || ''}
-                          onChange={(e) => setFormData(prev => ({
-                            ...prev,
-                            customer: { ...prev.customer, gridPhase: e.target.value }
-                          }))}
-                          placeholder="Type custom grid voltage / phase..."
-                          className="w-full px-2.5 py-1.5 text-xs rounded-lg border border-amber-300 bg-amber-50/50 focus:outline-none focus:ring-2 focus:ring-amber-500/20 font-medium"
-                        />
-                      </div>
+                      <input
+                        type="text"
+                        autoFocus
+                        value={formData.customer.gridPhase || ''}
+                        onChange={(e) => setFormData(prev => ({
+                          ...prev,
+                          customer: { ...prev.customer, gridPhase: e.target.value }
+                        }))}
+                        placeholder="Type grid connection phase..."
+                        className="w-full mt-1.5 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                      />
                     )}
                   </div>
 
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-xs font-semibold text-slate-700">
-                        Terrace / Rooftop Type
-                      </label>
-                      {customFields.roofType && (
-                        <span className="text-[10px] font-bold text-amber-700 flex items-center gap-1 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
-                          <Edit3 className="w-2.5 h-2.5" />
-                          Custom
-                        </span>
-                      )}
-                    </div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Terrace / Rooftop Type
+                    </label>
                     <select
                       value={customFields.roofType ? '__custom__' : (formData.customer.roofType || 'RCC Flat Concrete Terrace')}
                       onChange={(e) => {
@@ -562,7 +544,7 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                           if (std.includes(formData.customer.roofType)) {
                             setFormData(prev => ({
                               ...prev,
-                              customer: { ...prev.customer, roofType: 'Custom Rooftop Profile' }
+                              customer: { ...prev.customer, roofType: '' }
                             }));
                           }
                         } else {
@@ -579,21 +561,20 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                       <option value="Industrial Trapezoidal Metal Sheet">Industrial Trapezoidal Metal Sheet</option>
                       <option value="Slanted Clay / Mangalore Tiled Roof">Slanted Clay / Mangalore Tiled Roof</option>
                       <option value="Elevated Gazebo / Pergola Rooftop">Elevated Gazebo / Pergola Rooftop</option>
-                      <option value="__custom__">Other / Custom Terrace Type...</option>
+                      <option value="__custom__">Other</option>
                     </select>
                     {customFields.roofType && (
-                      <div className="mt-1.5 animate-in fade-in duration-200">
-                        <input
-                          type="text"
-                          value={formData.customer.roofType || ''}
-                          onChange={(e) => setFormData(prev => ({
-                            ...prev,
-                            customer: { ...prev.customer, roofType: e.target.value }
-                          }))}
-                          placeholder="Type custom terrace profile (e.g. Standing Seam Metal, Curved Arch)..."
-                          className="w-full px-2.5 py-1.5 text-xs rounded-lg border border-amber-300 bg-amber-50/50 focus:outline-none focus:ring-2 focus:ring-amber-500/20 font-medium"
-                        />
-                      </div>
+                      <input
+                        type="text"
+                        autoFocus
+                        value={formData.customer.roofType || ''}
+                        onChange={(e) => setFormData(prev => ({
+                          ...prev,
+                          customer: { ...prev.customer, roofType: e.target.value }
+                        }))}
+                        placeholder="Type terrace / rooftop type..."
+                        className="w-full mt-1.5 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                      />
                     )}
                   </div>
                 </div>
@@ -669,17 +650,9 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                   </div>
 
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-xs font-semibold text-slate-700">
-                        Module Rating (Wp)
-                      </label>
-                      {customFields.panelWattage && (
-                        <span className="text-[10px] font-bold text-amber-700 flex items-center gap-1 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
-                          <Edit3 className="w-2.5 h-2.5" />
-                          Custom
-                        </span>
-                      )}
-                    </div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Module Rating (Wp)
+                    </label>
                     <select
                       value={customFields.panelWattage ? '__custom__' : (formData.technical.panelWattage || 550)}
                       onChange={(e) => {
@@ -697,25 +670,23 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                       <option value={545}>545 Wp (Adani Mono PERC)</option>
                       <option value={500}>500 Wp (Tata Solar Mono)</option>
                       <option value={580}>580 Wp (Ultra High Yield)</option>
-                      <option value="__custom__">Other / Custom Wattage (Wp)...</option>
+                      <option value="__custom__">Other</option>
                     </select>
                     {customFields.panelWattage && (
-                      <div className="mt-1.5 animate-in fade-in duration-200 flex items-center gap-2">
-                        <input
-                          type="number"
-                          step="5"
-                          min="100"
-                          max="1000"
-                          value={formData.technical.panelWattage || 550}
-                          onChange={(e) => {
-                            const w = parseInt(e.target.value, 10) || 550;
-                            handleCapacityChange(formData.technical.systemCapacityKw, w);
-                          }}
-                          placeholder="Type custom wattage..."
-                          className="w-full px-2.5 py-1.5 text-xs rounded-lg border border-amber-300 bg-amber-50/50 focus:outline-none focus:ring-2 focus:ring-amber-500/20 font-bold"
-                        />
-                        <span className="text-xs font-bold text-slate-600 shrink-0">Wp</span>
-                      </div>
+                      <input
+                        type="number"
+                        autoFocus
+                        step="5"
+                        min="100"
+                        max="1000"
+                        value={formData.technical.panelWattage || ''}
+                        onChange={(e) => {
+                          const w = parseInt(e.target.value, 10) || 0;
+                          handleCapacityChange(formData.technical.systemCapacityKw, w);
+                        }}
+                        placeholder="Type wattage in Wp..."
+                        className="w-full mt-1.5 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20 font-bold"
+                      />
                     )}
                   </div>
 
@@ -732,31 +703,19 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                 {/* Brands Selection */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-xs font-semibold text-slate-700">
-                        Solar PV Module Brand
-                      </label>
-                      {customFields.panelBrand && (
-                        <span className="text-[10px] font-bold text-amber-700 flex items-center gap-1 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
-                          <Edit3 className="w-2.5 h-2.5" />
-                          Custom
-                        </span>
-                      )}
-                    </div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Solar PV Module Brand
+                    </label>
                     <select
                       value={customFields.panelBrand ? '__custom__' : (formData.technical.panelBrand || '')}
                       onChange={(e) => {
                         if (e.target.value === '__custom__') {
                           setCustomFields(prev => ({ ...prev, panelBrand: true }));
                           const brandList = settings?.equipmentCatalog?.panelBrands || [];
-                          if (brandList.some(b => b.name === formData.technical.panelBrand) || !formData.technical.panelBrand) {
+                          if (brandList.some(b => b.name === formData.technical.panelBrand)) {
                             setFormData(prev => ({
                               ...prev,
-                              technical: {
-                                ...prev.technical,
-                                panelBrand: 'Custom Solar Brand',
-                                panelModel: '550Wp Bi-facial Dual Glass 16BB TOPCon'
-                              }
+                              technical: { ...prev.technical, panelBrand: '', panelModel: '' }
                             }));
                           }
                         } else {
@@ -777,67 +736,37 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                       {settings?.equipmentCatalog?.panelBrands?.map(b => (
                         <option key={b.id} value={b.name}>{b.name} &bull; {b.model}</option>
                       ))}
-                      <option value="__custom__">Other / Custom Brand...</option>
+                      <option value="__custom__">Other</option>
                     </select>
-
                     {customFields.panelBrand && (
-                      <div className="mt-2 p-2.5 bg-amber-50/80 border border-amber-200 rounded-lg space-y-2 animate-in fade-in duration-200">
-                        <div>
-                          <label className="block text-[10px] font-bold text-amber-900 mb-0.5">Type Custom Module Brand</label>
-                          <input
-                            type="text"
-                            value={formData.technical.panelBrand || ''}
-                            onChange={(e) => setFormData(prev => ({
-                              ...prev,
-                              technical: { ...prev.technical, panelBrand: e.target.value }
-                            }))}
-                            placeholder="e.g. Canadian Solar / Vikram Solar / LONGi"
-                            className="w-full px-2.5 py-1.5 text-xs bg-white border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 font-semibold"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[10px] font-bold text-amber-900 mb-0.5">Type Custom Model &amp; Cell Specs</label>
-                          <input
-                            type="text"
-                            value={formData.technical.panelModel || ''}
-                            onChange={(e) => setFormData(prev => ({
-                              ...prev,
-                              technical: { ...prev.technical, panelModel: e.target.value }
-                            }))}
-                            placeholder="e.g. 550Wp Bi-facial Dual Glass 16BB TOPCon (IS/IEC 61215)"
-                            className="w-full px-2.5 py-1.5 text-xs bg-white border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-                          />
-                        </div>
-                      </div>
+                      <input
+                        type="text"
+                        autoFocus
+                        value={formData.technical.panelBrand || ''}
+                        onChange={(e) => setFormData(prev => ({
+                          ...prev,
+                          technical: { ...prev.technical, panelBrand: e.target.value, panelModel: e.target.value }
+                        }))}
+                        placeholder="Type module brand & model..."
+                        className="w-full mt-1.5 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                      />
                     )}
                   </div>
 
                   <div>
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-xs font-semibold text-slate-700">
-                        Solar Inverter Brand &amp; Tech
-                      </label>
-                      {customFields.inverterBrand && (
-                        <span className="text-[10px] font-bold text-amber-700 flex items-center gap-1 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
-                          <Edit3 className="w-2.5 h-2.5" />
-                          Custom
-                        </span>
-                      )}
-                    </div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Solar Inverter Brand &amp; Tech
+                    </label>
                     <select
                       value={customFields.inverterBrand ? '__custom__' : (formData.technical.inverterBrand || '')}
                       onChange={(e) => {
                         if (e.target.value === '__custom__') {
                           setCustomFields(prev => ({ ...prev, inverterBrand: true }));
                           const invList = settings?.equipmentCatalog?.inverterBrands || [];
-                          if (invList.some(inv => inv.name === formData.technical.inverterBrand) || !formData.technical.inverterBrand) {
+                          if (invList.some(inv => inv.name === formData.technical.inverterBrand)) {
                             setFormData(prev => ({
                               ...prev,
-                              technical: {
-                                ...prev.technical,
-                                inverterBrand: 'Custom Inverter Brand',
-                                inverterModel: 'Smart On-Grid Dual MPPT Inverter with IoT Wi-Fi'
-                              }
+                              technical: { ...prev.technical, inverterBrand: '', inverterModel: '' }
                             }));
                           }
                         } else {
@@ -858,66 +787,37 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                       {settings?.equipmentCatalog?.inverterBrands?.map(inv => (
                         <option key={inv.id} value={inv.name}>{inv.name} &bull; {inv.model}</option>
                       ))}
-                      <option value="__custom__">Other / Custom Inverter...</option>
+                      <option value="__custom__">Other</option>
                     </select>
-
                     {customFields.inverterBrand && (
-                      <div className="mt-2 p-2.5 bg-amber-50/80 border border-amber-200 rounded-lg space-y-2 animate-in fade-in duration-200">
-                        <div>
-                          <label className="block text-[10px] font-bold text-amber-900 mb-0.5">Type Custom Inverter Brand</label>
-                          <input
-                            type="text"
-                            value={formData.technical.inverterBrand || ''}
-                            onChange={(e) => setFormData(prev => ({
-                              ...prev,
-                              technical: { ...prev.technical, inverterBrand: e.target.value }
-                            }))}
-                            placeholder="e.g. Deye / Fronius / GoodWe / Enphase"
-                            className="w-full px-2.5 py-1.5 text-xs bg-white border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 font-semibold"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[10px] font-bold text-amber-900 mb-0.5">Type Custom Inverter Model &amp; Topology</label>
-                          <input
-                            type="text"
-                            value={formData.technical.inverterModel || ''}
-                            onChange={(e) => setFormData(prev => ({
-                              ...prev,
-                              technical: { ...prev.technical, inverterModel: e.target.value }
-                            }))}
-                            placeholder="e.g. Smart Multi-MPPT 98.6% Efficiency On-Grid Inverter"
-                            className="w-full px-2.5 py-1.5 text-xs bg-white border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500"
-                          />
-                        </div>
-                      </div>
+                      <input
+                        type="text"
+                        autoFocus
+                        value={formData.technical.inverterBrand || ''}
+                        onChange={(e) => setFormData(prev => ({
+                          ...prev,
+                          technical: { ...prev.technical, inverterBrand: e.target.value, inverterModel: e.target.value }
+                        }))}
+                        placeholder="Type solar inverter brand & model..."
+                        className="w-full mt-1.5 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                      />
                     )}
                   </div>
 
                   <div className="sm:col-span-2">
-                    <div className="flex items-center justify-between mb-1">
-                      <label className="block text-xs font-semibold text-slate-700">
-                        Mounting Structure (MMS)
-                      </label>
-                      {customFields.structureType && (
-                        <span className="text-[10px] font-bold text-amber-700 flex items-center gap-1 bg-amber-50 px-1.5 py-0.5 rounded border border-amber-200">
-                          <Edit3 className="w-2.5 h-2.5" />
-                          Custom
-                        </span>
-                      )}
-                    </div>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1">
+                      Mounting Structure (MMS)
+                    </label>
                     <select
                       value={customFields.structureType ? '__custom__' : (formData.technical.structureType || '')}
                       onChange={(e) => {
                         if (e.target.value === '__custom__') {
                           setCustomFields(prev => ({ ...prev, structureType: true }));
                           const structList = settings?.equipmentCatalog?.structureTypes || [];
-                          if (structList.some(st => (typeof st === 'string' ? st : st.name) === formData.technical.structureType) || !formData.technical.structureType) {
+                          if (structList.some(st => (typeof st === 'string' ? st : st.name) === formData.technical.structureType)) {
                             setFormData(prev => ({
                               ...prev,
-                              technical: {
-                                ...prev.technical,
-                                structureType: 'Custom Hot-Dip GI Elevated Mounting Structure'
-                              }
+                              technical: { ...prev.technical, structureType: '' }
                             }));
                           }
                         } else {
@@ -943,23 +843,20 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                         const id = typeof st === 'string' ? st : (st.id || name);
                         return <option key={id} value={name}>{name}</option>;
                       })}
-                      <option value="__custom__">Other / Custom Structure System...</option>
+                      <option value="__custom__">Other</option>
                     </select>
-
                     {customFields.structureType && (
-                      <div className="mt-2 p-2.5 bg-amber-50/80 border border-amber-200 rounded-lg animate-in fade-in duration-200">
-                        <label className="block text-[10px] font-bold text-amber-900 mb-0.5">Type Custom Structure Specification</label>
-                        <input
-                          type="text"
-                          value={formData.technical.structureType || ''}
-                          onChange={(e) => setFormData(prev => ({
-                            ...prev,
-                            technical: { ...prev.technical, structureType: e.target.value }
-                          }))}
-                          placeholder="e.g. Hot-Dip Galvanized Iron (80µm) — Custom Elevated 10 ft with Gazebo Walkway"
-                          className="w-full px-2.5 py-1.5 text-xs bg-white border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 font-medium"
-                        />
-                      </div>
+                      <input
+                        type="text"
+                        autoFocus
+                        value={formData.technical.structureType || ''}
+                        onChange={(e) => setFormData(prev => ({
+                          ...prev,
+                          technical: { ...prev.technical, structureType: e.target.value }
+                        }))}
+                        placeholder="Type mounting structure type..."
+                        className="w-full mt-1.5 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                      />
                     )}
                   </div>
                 </div>
@@ -1125,17 +1022,9 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <label className="block text-xs font-medium text-amber-900">
-                          Subsidy Category
-                        </label>
-                        {customFields.subsidyScheme && (
-                          <span className="text-[10px] font-bold text-amber-800 flex items-center gap-1 bg-amber-100/70 px-1.5 py-0.5 rounded border border-amber-300">
-                            <Edit3 className="w-2.5 h-2.5" />
-                            Custom
-                          </span>
-                        )}
-                      </div>
+                      <label className="block text-xs font-medium text-amber-900 mb-1">
+                        Subsidy Category
+                      </label>
                       <select
                         value={customFields.subsidyScheme ? '__custom__' : (formData.commercials.subsidyScheme || 'PM Surya Ghar: Muft Bijli Yojana')}
                         onChange={(e) => {
@@ -1145,7 +1034,7 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                               ...prev,
                               commercials: {
                                 ...prev.commercials,
-                                subsidyScheme: 'Custom Government / State Renewable Subsidy Scheme'
+                                subsidyScheme: ''
                               }
                             }));
                           } else {
@@ -1168,22 +1057,20 @@ export default function QuotationForm({ initialData, settings, onSave, onCancel,
                         <option value="PM Surya Ghar: Muft Bijli Yojana">PM Surya Ghar: Muft Bijli Yojana (Central DBT)</option>
                         <option value="Commercial - Accelerated Depreciation (Tax Benefit 40%)">Commercial / Industrial (Tax Benefit)</option>
                         <option value="none">No Subsidy Applicable</option>
-                        <option value="__custom__">Other / Custom Subsidy Scheme...</option>
+                        <option value="__custom__">Other</option>
                       </select>
-
                       {customFields.subsidyScheme && (
-                        <div className="mt-1.5 animate-in fade-in duration-200">
-                          <input
-                            type="text"
-                            value={formData.commercials.subsidyScheme || ''}
-                            onChange={(e) => setFormData(prev => ({
-                              ...prev,
-                              commercials: { ...prev.commercials, subsidyScheme: e.target.value }
-                            }))}
-                            placeholder="Type custom subsidy scheme name..."
-                            className="w-full px-2.5 py-1.5 text-xs bg-white border border-amber-300 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-500 font-medium"
-                          />
-                        </div>
+                        <input
+                          type="text"
+                          autoFocus
+                          value={formData.commercials.subsidyScheme || ''}
+                          onChange={(e) => setFormData(prev => ({
+                            ...prev,
+                            commercials: { ...prev.commercials, subsidyScheme: e.target.value }
+                          }))}
+                          placeholder="Type subsidy scheme name..."
+                          className="w-full mt-1.5 px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white focus:outline-none focus:ring-2 focus:ring-brand-500/20"
+                        />
                       )}
                     </div>
 
