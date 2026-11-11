@@ -72,11 +72,36 @@ export default function App() {
     return sampleQuotations;
   });
 
-  // Load Settings from LocalStorage or Fallback to Defaults
+  // Load Settings from LocalStorage or Fallback to Defaults (with Deep Merge)
   const [settings, setSettings] = useState(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY_SETTINGS);
-      if (saved) return JSON.parse(saved);
+      if (saved) {
+        const parsed = JSON.parse(saved);
+        // Deep merge with defaultSettings to ensure all newly configurable keys are available
+        return {
+          ...defaultSettings,
+          ...parsed,
+          company: { ...defaultSettings.company, ...(parsed.company || {}) },
+          qrPortals: { ...defaultSettings.qrPortals, ...(parsed.qrPortals || {}) },
+          coverPage: { ...defaultSettings.coverPage, ...(parsed.coverPage || {}) },
+          pricing: { ...defaultSettings.pricing, ...(parsed.pricing || {}) },
+          equipmentCatalog: {
+            ...defaultSettings.equipmentCatalog,
+            ...(parsed.equipmentCatalog || {}),
+            structureSpecs: { ...defaultSettings.equipmentCatalog.structureSpecs, ...(parsed.equipmentCatalog?.structureSpecs || {}) },
+            electricalSpecs: { ...defaultSettings.equipmentCatalog.electricalSpecs, ...(parsed.equipmentCatalog?.electricalSpecs || {}) }
+          },
+          warranties: { ...defaultSettings.warranties, ...(parsed.warranties || {}) },
+          authorization: { ...defaultSettings.authorization, ...(parsed.authorization || {}) },
+          omAssurance: { ...defaultSettings.omAssurance, ...(parsed.omAssurance || {}) },
+          portfolioWorks: {
+            ...defaultSettings.portfolioWorks,
+            ...(parsed.portfolioWorks || {}),
+            metrics: { ...defaultSettings.portfolioWorks.metrics, ...(parsed.portfolioWorks?.metrics || {}) }
+          }
+        };
+      }
     } catch (e) {
       console.error('Error loading settings from storage:', e);
     }

@@ -6,10 +6,11 @@ import { EMBLEMS } from '../../utils/brandLogos';
 
 export default function Page3Financials({ quotation, settings }) {
   const company = settings?.company || {};
+  const auth = settings?.authorization || {};
   const commercials = quotation?.commercials || {};
   const technical = quotation?.technical || {};
   const customer = quotation?.customer || {};
-  const paymentMilestones = quotation?.paymentMilestones || settings?.defaultPaymentTerms || [];
+  const paymentMilestones = quotation?.paymentMilestones || settings?.paymentMilestones || settings?.defaultPaymentTerms || [];
 
   const dcKw = technical?.actualDcCapacityKw || technical?.systemCapacityKw || 5.5;
   const annualKwh = technical?.estimatedAnnualUnits || Math.round((technical?.estimatedDailyUnits || (dcKw * 4.25)) * 365);
@@ -390,13 +391,13 @@ export default function Page3Financials({ quotation, settings }) {
                   <div className="w-20 h-20 rounded-full border-2 border-brand-800/80 p-0.5 flex items-center justify-center transform rotate-[-8deg]">
                     <div className="w-full h-full rounded-full border border-dashed border-brand-800/80 flex flex-col items-center justify-center p-1 text-center bg-brand-50/40">
                       <span className="text-[5px] font-black uppercase text-brand-900 tracking-wider">
-                        ★ JAYARAMS SOLAR SOLUTIONS ★
+                        {auth.stampTop || '★ JAYARAMS SOLAR SOLUTIONS ★'}
                       </span>
                       <span className="text-[7px] font-extrabold text-brand-800 my-0.2">
-                        AUTHORIZED
+                        {auth.stampCenter || 'AUTHORIZED'}
                       </span>
                       <span className="text-[5px] font-bold uppercase text-slate-600 tracking-wider">
-                        TECHNICAL EPC DIVISION
+                        {auth.stampBottom || 'TECHNICAL EPC DIVISION'}
                       </span>
                     </div>
                   </div>
@@ -404,18 +405,18 @@ export default function Page3Financials({ quotation, settings }) {
 
                 <div>
                   <div className="flex items-center justify-between mb-0.5">
-                    <p className="font-bold text-slate-800 text-[10.5px]">For JAYARAMS SOLAR SOLUTIONS PVT. LTD.</p>
+                    <p className="font-bold text-slate-800 text-[10.5px]">For {company.legalName || 'JAYARAMS SOLAR SOLUTIONS PVT. LTD.'}</p>
                     <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1 py-0.2 rounded font-bold border border-emerald-200">
-                      &#10003; Approved &amp; Signed
+                      &#10003; {auth.approvedBadge || 'Approved & Signed'}
                     </span>
                   </div>
                   <p className="text-[8px] text-slate-500 leading-relaxed mb-4">
-                    Technical EPC Engineering &amp; Commercial Sales Division. Registered DISCOM Partner.
+                    {auth.division || 'Technical EPC Engineering & Commercial Sales Division'}. Registered DISCOM Partner.
                   </p>
                 </div>
 
                 <div className="border-t border-dashed border-slate-300 pt-1.5 flex justify-between text-[8.5px] text-slate-600">
-                  <span className="font-semibold text-brand-900">Authorized Signatory &amp; Seal</span>
+                  <span className="font-semibold text-brand-900">{auth.signatoryName || 'Authorized Signatory'} ({auth.signatoryTitle || 'Director'})</span>
                   <span>Date: {formatDate(quotation?.date || new Date())}</span>
                 </div>
               </div>

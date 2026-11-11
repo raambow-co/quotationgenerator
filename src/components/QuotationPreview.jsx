@@ -27,11 +27,11 @@ export default function QuotationPreview({ quotation, settings, onBack, onEdit }
   };
 
   const pages = [
-    { id: '1', title: 'Page 1: Cover & Intro', fixed: true },
+    { id: '1', title: 'Page 1: Cover & Intro', fixed: false },
     { id: '2', title: 'Page 2: System Spec & BOM', fixed: false },
     { id: '3', title: 'Page 3: Commercials & Terms', fixed: false },
-    { id: '4', title: 'Page 4: Previous Works', fixed: true },
-    { id: '5', title: 'Page 5: Company & Bank', fixed: true },
+    { id: '4', title: 'Page 4: Portfolio & Showcase', fixed: false },
+    { id: '5', title: 'Page 5: Company & Connect', fixed: false },
   ];
 
   return (
@@ -82,12 +82,7 @@ export default function QuotationPreview({ quotation, settings, onBack, onEdit }
               }`}
               title={p.title}
             >
-              <span>P{p.id}</span>
-              {p.fixed ? (
-                <span className="text-[9px] text-slate-400 font-normal">(Fix)</span>
-              ) : (
-                <span className="text-[9px] text-solar-orange font-bold">(Edit)</span>
-              )}
+              <span>Page {p.id}</span>
             </button>
           ))}
         </div>
@@ -179,23 +174,23 @@ export default function QuotationPreview({ quotation, settings, onBack, onEdit }
             </div>
           )}
 
-          {/* Page 4: Fixed Portfolio */}
+          {/* Page 4: Dynamic Portfolio & Showcase */}
           {(activePage === 'all' || activePage === '4') && (
             <div className="flex flex-col items-center">
               <div className="no-print mb-2 text-[11px] font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-2">
-                <span>Page 4 of 5 &bull; Completed Projects & Track Record</span>
-                <span className="px-1.5 py-0.5 rounded bg-slate-200 text-slate-600 text-[9px] font-mono">Template Fixed</span>
+                <span>Page 4 of 5 &bull; Completed Projects &amp; Field Showcase</span>
+                <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[9px] font-mono">Dynamic / Admin Configurable</span>
               </div>
               <Page4Portfolio quotation={quotation} settings={settings} />
             </div>
           )}
 
-          {/* Page 5: Fixed Company Profile & Accreditations */}
+          {/* Page 5: Dynamic Company Profile, Scope Matrix & Connect */}
           {(activePage === 'all' || activePage === '5') && (
             <div className="flex flex-col items-center">
               <div className="no-print mb-2 text-[11px] font-semibold text-slate-500 uppercase tracking-wider flex items-center gap-2">
-                <span>Page 5 of 5 &bull; Company Profile, Accreditations & Remittance</span>
-                <span className="px-1.5 py-0.5 rounded bg-slate-200 text-slate-600 text-[9px] font-mono">Template Fixed</span>
+                <span>Page 5 of 5 &bull; Company Profile, Accreditations &amp; Digital Connect</span>
+                <span className="px-1.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 text-[9px] font-mono">Dynamic / Admin Configurable</span>
               </div>
               <Page5CompanyProfile quotation={quotation} settings={settings} />
             </div>

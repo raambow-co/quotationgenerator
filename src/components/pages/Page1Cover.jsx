@@ -16,10 +16,13 @@ export default function Page1Cover({ quotation, settings }) {
   const annualKwh = technical?.estimatedAnnualUnits || Math.round((technical?.estimatedDailyUnits || (dcKw * 4.25)) * 365);
   const dailyKwh = technical?.estimatedDailyUnits || Number((annualKwh / 365).toFixed(1));
 
+  const co2Factor = settings?.pricing?.co2FactorPerKwh || 0.82;
+  const treeFactor = settings?.pricing?.treeFactorPerTonne || 16.5;
+
   // Lifetime environmental metrics
   const lifetimeKwh = Math.round(annualKwh * 25);
-  const co2OffsetTonnes = Math.round((lifetimeKwh * 0.82) / 1000); // 0.82 kg CO2 per kWh grid factor
-  const treesEquivalent = Math.round(co2OffsetTonnes * 16.5); // ~16.5 trees per tonne of CO2
+  const co2OffsetTonnes = Math.round((lifetimeKwh * co2Factor) / 1000);
+  const treesEquivalent = Math.round(co2OffsetTonnes * treeFactor);
 
   return (
     <div className="a4-preview-sheet p-7 sm:p-8 flex flex-col justify-between text-slate-800 bg-white relative">
@@ -81,19 +84,19 @@ export default function Page1Cover({ quotation, settings }) {
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-white/15 text-white text-[10px] font-semibold tracking-wider uppercase backdrop-blur-md border border-white/20">
                   <Sun className="w-3 h-3 text-solar-warm" />
-                  Grid-Interactive Solar PV System
+                  {settings?.coverPage?.badge1 || 'Grid-Interactive Solar PV System'}
                 </span>
                 <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[9.5px] font-bold border border-emerald-400/30">
                   <CheckCircle className="w-3 h-3" />
-                  DISCOM Empanelled EPC
+                  {settings?.coverPage?.badge2 || 'DISCOM Empanelled EPC'}
                 </span>
               </div>
 
               <h1 className="text-xl sm:text-2xl font-extrabold tracking-tight text-white leading-tight font-display">
-                Techno-Commercial Solar Proposal
+                {settings?.coverPage?.heroTitle || 'Techno-Commercial Solar Proposal'}
               </h1>
               <p className="text-xs text-slate-200 mt-1 leading-relaxed">
-                Tailored high-efficiency solar photovoltaic power generation system engineered for maximum energy yield, structural durability, and substantial utility bill savings.
+                {settings?.coverPage?.heroSubtitle || 'Tailored high-efficiency solar photovoltaic power generation system engineered for maximum energy yield, structural durability, and substantial utility bill savings.'}
               </p>
 
               <div className="mt-2.5 pt-2.5 border-t border-white/15 grid grid-cols-3 gap-3">

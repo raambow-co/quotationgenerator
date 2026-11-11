@@ -5,6 +5,30 @@ import { EMBLEMS } from '../../utils/brandLogos';
 
 export default function Page5CompanyProfile({ quotation, settings }) {
   const company = settings?.company || {};
+  const qr = settings?.qrPortals || {};
+  const roadmap = settings?.executionRoadmap || [
+    { step: 1, title: "3D CAD Survey", description: "Shadow trajectory & roof load analysis." },
+    { step: 2, title: "Engineering", description: "SLD design & structural calculations." },
+    { step: 3, title: "DISCOM Approvals", description: "Net-metering feasibility liaison." },
+    { step: 4, title: "Installation", description: "Elevated GI MMS & TOPCon rigging." },
+    { step: 5, title: "Commissioning", description: "3-pit earthing test & grid sync." },
+    { step: 6, title: "Telemetry & AMC", description: "24/7 Cloud app monitoring." }
+  ];
+  const scopeMatrix = settings?.scopeOfWorkMatrix || [
+    { item: "Supply of Tier-1 Bifacial Solar PV Modules & Smart Grid Inverter", epc: true, client: false },
+    { item: "Custom Hot-Dip GI Structure (80µ Zinc), Civil Pedestals & Rigging", epc: true, client: false },
+    { item: "ACDB, DCDB, 3 Chemical Earthing Pits (IS 3043) & Lightning Arrester", epc: true, client: false },
+    { item: "State DISCOM Bi-Directional Net-Metering Documentation & Approvals", epc: true, client: false },
+    { item: "5-Year Comprehensive Workmanship, Structural & Yield AMC Guarantee", epc: true, client: false },
+    { item: "Shadow-Free Terrace Space & Water Point with Hose for Panel Cleaning", epc: false, client: true }
+  ];
+  const om = settings?.omAssurance || {};
+  const omFeatures = om?.features || [
+    { title: "Biannual Health Check", description: "I-V curve tracer tests & thermography" },
+    { title: "24/7 Telemetry Desk", description: "Automated inverter fault alert system" },
+    { title: "Torque Audit", description: "Annual SS-304 fastener torque checks" },
+    { title: "Regional Hubs", description: "Hyd • Vzg • Vja • Blr • Chn" }
+  ];
 
   return (
     <div className="a4-preview-sheet p-7 sm:p-8 flex flex-col justify-between text-slate-800 bg-white relative overflow-hidden">
@@ -35,12 +59,12 @@ export default function Page5CompanyProfile({ quotation, settings }) {
             <div className="flex items-center justify-between mb-1">
               <h3 className="text-xs font-bold text-brand-900 uppercase tracking-wider flex items-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 text-solar-orange" />
-                About JAYARAMS SOLAR SOLUTIONS PVT. LTD.
+                About {company.legalName || 'JAYARAMS SOLAR SOLUTIONS PVT. LTD.'}
               </h3>
-              <span className="text-[10px] text-slate-500 italic font-medium">&ldquo;Built on Trust. Driven by Excellence.&rdquo;</span>
+              <span className="text-[10px] text-slate-500 italic font-medium">&ldquo;{company.tagline || 'Built on Trust. Driven by Excellence.'}&rdquo;</span>
             </div>
             <p className="text-[10px] text-slate-600 leading-relaxed">
-              <strong className="text-slate-800">JAYARAMS SOLAR SOLUTIONS PVT. LTD.</strong> is a premier clean energy EPC company specializing in high-performance rooftop solar installations across residential, commercial, institutional, and industrial facilities. Backed by certified civil and electrical engineers, we combine Tier-1 BloombergNEF hardware with precision structural design, seamless DISCOM net-metering facilitation, and lifetime IoT monitoring.
+              {company.about || `${company.legalName || 'JAYARAMS SOLAR SOLUTIONS PVT. LTD.'} is a premier clean energy EPC company specializing in high-performance rooftop solar installations across residential, commercial, institutional, and industrial facilities.`}
             </p>
           </div>
 
@@ -109,53 +133,15 @@ export default function Page5CompanyProfile({ quotation, settings }) {
               Our 6-Step Precision Execution Roadmap
             </h3>
             <div className="grid grid-cols-6 gap-2 text-[9.5px]">
-              <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
-                <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
-                  1
-                </span>
-                <p className="font-bold text-slate-800 text-[9.5px]">3D CAD Survey</p>
-                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">Shadow trajectory &amp; roof load analysis.</p>
-              </div>
-
-              <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
-                <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
-                  2
-                </span>
-                <p className="font-bold text-slate-800 text-[9.5px]">Engineering</p>
-                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">SLD design &amp; structural calculations.</p>
-              </div>
-
-              <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
-                <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
-                  3
-                </span>
-                <p className="font-bold text-slate-800 text-[9.5px]">DISCOM Approvals</p>
-                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">Net-metering feasibility liaison.</p>
-              </div>
-
-              <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
-                <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
-                  4
-                </span>
-                <p className="font-bold text-slate-800 text-[9.5px]">Installation</p>
-                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">Elevated GI MMS &amp; TOPCon rigging.</p>
-              </div>
-
-              <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
-                <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
-                  5
-                </span>
-                <p className="font-bold text-slate-800 text-[9.5px]">Commissioning</p>
-                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">3-pit earthing test &amp; grid sync.</p>
-              </div>
-
-              <div className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
-                <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
-                  6
-                </span>
-                <p className="font-bold text-slate-800 text-[9.5px]">Telemetry &amp; AMC</p>
-                <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">24/7 Cloud app monitoring.</p>
-              </div>
+              {roadmap.map((step, idx) => (
+                <div key={idx} className="p-2 bg-white/95 rounded-lg border border-slate-200 shadow-xs">
+                  <span className="w-4 h-4 rounded-full bg-brand-900 text-white font-black text-[9px] inline-flex items-center justify-center mb-1">
+                    {step.step || (idx + 1)}
+                  </span>
+                  <p className="font-bold text-slate-800 text-[9.5px] truncate">{step.title}</p>
+                  <p className="text-slate-500 text-[8px] mt-0.5 leading-tight">{step.description}</p>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -170,41 +156,30 @@ export default function Page5CompanyProfile({ quotation, settings }) {
                 <thead>
                   <tr className="bg-slate-100 text-slate-700 font-semibold border-b border-slate-200 text-[8.5px] uppercase tracking-wide">
                     <th className="py-1.5 px-3 w-1/2">Deliverable / Responsibility Scope</th>
-                    <th className="py-1.5 px-3 w-1/4 text-center">Jayarams Scope</th>
+                    <th className="py-1.5 px-3 w-1/4 text-center">{company?.shortName || 'Jayarams'} Scope</th>
                     <th className="py-1.5 px-3 w-1/4 text-center">Client Scope</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100 text-slate-600">
-                  <tr>
-                    <td className="py-1.5 px-3 font-medium text-slate-800">Supply of Tier-1 Bifacial Solar PV Modules &amp; Smart Grid Inverter</td>
-                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
-                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
-                  </tr>
-                  <tr className="bg-slate-50/50">
-                    <td className="py-1.5 px-3 font-medium text-slate-800">Custom Hot-Dip GI Structure (80µ Zinc), Civil Pedestals &amp; Rigging</td>
-                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
-                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1.5 px-3 font-medium text-slate-800">ACDB, DCDB, 3 Chemical Earthing Pits (IS 3043) &amp; Lightning Arrester</td>
-                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
-                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
-                  </tr>
-                  <tr className="bg-slate-50/50">
-                    <td className="py-1.5 px-3 font-medium text-slate-800">State DISCOM Bi-Directional Net-Metering Documentation &amp; Approvals</td>
-                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
-                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
-                  </tr>
-                  <tr>
-                    <td className="py-1.5 px-3 font-medium text-slate-800">5-Year Comprehensive Workmanship, Structural &amp; Yield AMC Guarantee</td>
-                    <td className="py-1.5 px-3 text-center text-emerald-700 font-bold">&#10003; Full Scope</td>
-                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
-                  </tr>
-                  <tr className="bg-slate-50/50">
-                    <td className="py-1.5 px-3 font-medium text-slate-800">Shadow-Free Terrace Space &amp; Water Point with Hose for Panel Cleaning</td>
-                    <td className="py-1.5 px-3 text-center text-slate-400">&mdash;</td>
-                    <td className="py-1.5 px-3 text-center text-brand-900 font-bold">&#10003; Client Scope</td>
-                  </tr>
+                  {scopeMatrix.map((row, idx) => (
+                    <tr key={idx} className={idx % 2 === 1 ? "bg-slate-50/50" : ""}>
+                      <td className="py-1.5 px-3 font-medium text-slate-800">{row.item}</td>
+                      <td className="py-1.5 px-3 text-center">
+                        {row.epc ? (
+                          <span className="text-emerald-700 font-bold">&#10003; Full Scope</span>
+                        ) : (
+                          <span className="text-slate-400">&mdash;</span>
+                        )}
+                      </td>
+                      <td className="py-1.5 px-3 text-center">
+                        {row.client ? (
+                          <span className="text-brand-900 font-bold">&#10003; Client Scope</span>
+                        ) : (
+                          <span className="text-slate-400">&mdash;</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -218,26 +193,16 @@ export default function Page5CompanyProfile({ quotation, settings }) {
                 5-Year Comprehensive Operation &amp; Maintenance (O&amp;M) Assurance
               </span>
               <span className="text-[8px] text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded font-bold border border-emerald-200">
-                Pan-South India Service Network
+                {om?.tagline || 'Pan-South India Service Network'}
               </span>
             </div>
             <div className="grid grid-cols-4 gap-2 text-center text-[8.5px]">
-              <div className="bg-white p-1.5 rounded border border-slate-200 shadow-2xs">
-                <span className="font-bold text-slate-900 block text-[9px]">Biannual Health Check</span>
-                <span className="text-slate-500 text-[7.5px] block mt-0.5">I-V curve tracer tests &amp; thermography</span>
-              </div>
-              <div className="bg-white p-1.5 rounded border border-slate-200 shadow-2xs">
-                <span className="font-bold text-slate-900 block text-[9px]">24/7 Telemetry Desk</span>
-                <span className="text-slate-500 text-[7.5px] block mt-0.5">Automated inverter fault alert system</span>
-              </div>
-              <div className="bg-white p-1.5 rounded border border-slate-200 shadow-2xs">
-                <span className="font-bold text-slate-900 block text-[9px]">Torque Audit</span>
-                <span className="text-slate-500 text-[7.5px] block mt-0.5">Annual SS-304 fastener torque checks</span>
-              </div>
-              <div className="bg-white p-1.5 rounded border border-slate-200 shadow-2xs">
-                <span className="font-bold text-slate-900 block text-[9px]">Regional Hubs</span>
-                <span className="text-slate-500 text-[7.5px] block mt-0.5">Hyd &bull; Vzg &bull; Vja &bull; Blr &bull; Chn</span>
-              </div>
+              {omFeatures.map((feat, idx) => (
+                <div key={idx} className="bg-white p-1.5 rounded border border-slate-200 shadow-2xs">
+                  <span className="font-bold text-slate-900 block text-[9px] truncate">{feat.title}</span>
+                  <span className="text-slate-500 text-[7.5px] block mt-0.5">{feat.description}</span>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -294,20 +259,20 @@ export default function Page5CompanyProfile({ quotation, settings }) {
                 <div className="flex items-center justify-between w-full mb-1">
                   <span className="text-[10px] font-bold text-blue-600 flex items-center gap-1">
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-                    Facebook
+                    {qr?.facebook?.title || 'Facebook'}
                   </span>
-                  <span className="text-[7.5px] font-semibold text-blue-700 bg-blue-50 px-1.5 py-0.2 rounded border border-blue-200">Social</span>
+                  <span className="text-[7.5px] font-semibold text-blue-700 bg-blue-50 px-1.5 py-0.2 rounded border border-blue-200">{qr?.facebook?.badge || 'Social'}</span>
                 </div>
                 <div className="p-1 bg-white rounded-lg border border-slate-200 shadow-2xs w-full flex items-center justify-center">
                   <img 
-                    src="/assets/qr/fb-qr.jpeg" 
+                    src={qr?.facebook?.image || "/assets/qr/fb-qr.jpeg"} 
                     alt="Facebook QR Code" 
                     className="w-20 h-20 object-contain rounded"
                   />
                 </div>
                 <div className="mt-1.5 w-full">
-                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">@jayaramssolar</span>
-                  <span className="text-[7px] text-blue-600 font-semibold block mt-0.5">Scan to Follow</span>
+                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">{qr?.facebook?.handle || '@jayaramssolar'}</span>
+                  <span className="text-[7px] text-blue-600 font-semibold block mt-0.5">{qr?.facebook?.actionText || 'Scan to Follow'}</span>
                 </div>
               </div>
 
@@ -316,20 +281,20 @@ export default function Page5CompanyProfile({ quotation, settings }) {
                 <div className="flex items-center justify-between w-full mb-1">
                   <span className="text-[10px] font-bold text-pink-600 flex items-center gap-1">
                     <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    Instagram
+                    {qr?.instagram?.title || 'Instagram'}
                   </span>
-                  <span className="text-[7.5px] font-semibold text-pink-700 bg-pink-50 px-1.5 py-0.2 rounded border border-pink-200">Reels</span>
+                  <span className="text-[7.5px] font-semibold text-pink-700 bg-pink-50 px-1.5 py-0.2 rounded border border-pink-200">{qr?.instagram?.badge || 'Reels'}</span>
                 </div>
                 <div className="p-1 bg-white rounded-lg border border-slate-200 shadow-2xs w-full flex items-center justify-center">
                   <img 
-                    src="/assets/qr/insta-qr.jpeg" 
+                    src={qr?.instagram?.image || "/assets/qr/insta-qr.jpeg"} 
                     alt="Instagram QR Code" 
                     className="w-20 h-20 object-contain rounded"
                   />
                 </div>
                 <div className="mt-1.5 w-full">
-                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">@jayaramssolar</span>
-                  <span className="text-[7px] text-pink-600 font-semibold block mt-0.5">Scan to View</span>
+                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">{qr?.instagram?.handle || '@jayaramssolar'}</span>
+                  <span className="text-[7px] text-pink-600 font-semibold block mt-0.5">{qr?.instagram?.actionText || 'Scan to View'}</span>
                 </div>
               </div>
 
@@ -338,20 +303,20 @@ export default function Page5CompanyProfile({ quotation, settings }) {
                 <div className="flex items-center justify-between w-full mb-1">
                   <span className="text-[10px] font-bold text-brand-900 flex items-center gap-1">
                     <Globe className="w-3.5 h-3.5 text-solar-orange" />
-                    Website
+                    {qr?.website?.title || 'Website'}
                   </span>
-                  <span className="text-[7.5px] font-semibold text-brand-900 bg-brand-50 px-1.5 py-0.2 rounded border border-brand-200">Portal</span>
+                  <span className="text-[7.5px] font-semibold text-brand-900 bg-brand-50 px-1.5 py-0.2 rounded border border-brand-200">{qr?.website?.badge || 'Portal'}</span>
                 </div>
                 <div className="p-1 bg-white rounded-lg border border-slate-200 shadow-2xs w-full flex items-center justify-center">
                   <img 
-                    src="/assets/qr/web-qr.jpeg" 
+                    src={qr?.website?.image || "/assets/qr/web-qr.jpeg"} 
                     alt="Official Website QR Code" 
                     className="w-20 h-20 object-contain rounded"
                   />
                 </div>
                 <div className="mt-1.5 w-full">
-                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">jayaramsenergy.com</span>
-                  <span className="text-[7px] text-brand-700 font-semibold block mt-0.5">Scan to Visit</span>
+                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">{qr?.website?.handle || 'jayaramsenergy.com'}</span>
+                  <span className="text-[7px] text-brand-700 font-semibold block mt-0.5">{qr?.website?.actionText || 'Scan to Visit'}</span>
                 </div>
               </div>
 
@@ -360,20 +325,20 @@ export default function Page5CompanyProfile({ quotation, settings }) {
                 <div className="flex items-center justify-between w-full mb-1">
                   <span className="text-[10px] font-bold text-emerald-700 flex items-center gap-1">
                     <MapPin className="w-3.5 h-3.5 text-emerald-600" />
-                    Google Maps
+                    {qr?.googleMaps?.title || 'Google Maps'}
                   </span>
-                  <span className="text-[7.5px] font-semibold text-emerald-800 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">Location</span>
+                  <span className="text-[7.5px] font-semibold text-emerald-800 bg-emerald-50 px-1.5 py-0.2 rounded border border-emerald-200">{qr?.googleMaps?.badge || 'Location'}</span>
                 </div>
                 <div className="p-1 bg-white rounded-lg border border-slate-200 shadow-2xs w-full flex items-center justify-center">
                   <img 
-                    src="/assets/qr/loc-qr.jpeg" 
+                    src={qr?.googleMaps?.image || "/assets/qr/loc-qr.jpeg"} 
                     alt="Google Maps Location QR Code" 
                     className="w-20 h-20 object-contain rounded"
                   />
                 </div>
                 <div className="mt-1.5 w-full">
-                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">Jubilee Hills HQ</span>
-                  <span className="text-[7px] text-emerald-600 font-semibold block mt-0.5">Scan for Route</span>
+                  <span className="text-[8.5px] font-bold text-slate-800 block truncate">{qr?.googleMaps?.handle || 'Jubilee Hills HQ'}</span>
+                  <span className="text-[7px] text-emerald-600 font-semibold block mt-0.5">{qr?.googleMaps?.actionText || 'Scan for Route'}</span>
                 </div>
               </div>
             </div>
@@ -382,13 +347,13 @@ export default function Page5CompanyProfile({ quotation, settings }) {
 
         {/* Corporate Statutory Registrations Banner */}
         <div className="py-1 px-3 bg-slate-100 rounded border border-slate-200 flex items-center justify-between text-[8px] text-slate-600 font-mono mt-2">
-          <span>CIN: U40106TG2020PTC144589</span>
+          <span>CIN: {company?.cin || 'U40106TG2020PTC144589'}</span>
           <span>&bull;</span>
           <span>GSTIN: {company?.gstin || '36AABCJ9821K1ZX'}</span>
           <span>&bull;</span>
-          <span>MNRE Empanelment: TS-DISCOM-8492</span>
+          <span>MNRE Empanelment: {company?.mnreEmpanelment || 'TS-DISCOM-8492'}</span>
           <span>&bull;</span>
-          <span>MSME: UDYAM-TS-02-0048192</span>
+          <span>MSME: {company?.msme || 'UDYAM-TS-02-0048192'}</span>
         </div>
 
         {/* Page 5 Footer */}
